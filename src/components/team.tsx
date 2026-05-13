@@ -35,6 +35,15 @@ interface TeamMember {
 
 const members: TeamMember[] = [
   {
+    name: "Helene Weinberg",
+    role: "Biomedical Engineer, Clinical Translation",
+    description:
+      "Ensures our metrics are clinically meaningful. Translates rehabilitation science into measurable digital biomarkers and validates accuracy against clinical standards.",
+    imageUrl: "/team/helene.jpg",
+    initials: "H",
+    linkedinUrl: "https://www.linkedin.com/in/helene-weinberg/",
+  },
+  {
     name: "Mateo Pérez",
     role: "Lead Fullstack Engineer",
     description:
@@ -59,7 +68,7 @@ const members: TeamMember[] = [
     role: "Product Strategy & UX",
     description:
       "Bridges the gap between what clinicians need and what we build. Defines product direction, runs user research, and shapes the experience patients interact with.",
-    imageUrl: null,
+    imageUrl: "/team/luis.jpg",
     initials: "L",
     linkedinUrl: "https://www.linkedin.com/in/luis-molina-salvador/",
     githubUrl: "https://github.com/34lumo",
@@ -73,15 +82,6 @@ const members: TeamMember[] = [
     initials: "MC",
     linkedinUrl: "https://www.linkedin.com/in/marco-garcia-lopez-4b0037308/",
     githubUrl: "https://github.com/marcusen78-sketch",
-  },
-  {
-    name: "Helene Weinberg",
-    role: "Biomedical Engineer, Clinical Translation",
-    description:
-      "Ensures our metrics are clinically meaningful. Translates rehabilitation science into measurable digital biomarkers and validates accuracy against clinical standards.",
-    imageUrl: null,
-    initials: "H",
-    linkedinUrl: "https://www.linkedin.com/in/helene-weinberg/",
   },
   {
     name: "José Antonio López",
