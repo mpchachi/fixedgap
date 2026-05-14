@@ -2,7 +2,7 @@ import { Demo } from "@/components/demo";
 import { Faq } from "@/components/faq";
 
 export const metadata = {
-  title: "Demo — BetweenVisits",
+  title: "Demo — FixedGap",
 };
 
 export default function DemoPage() {

@@ -10,7 +10,7 @@ export function Value() {
             Value for every stakeholder
           </h2>
           <p className="text-slate-500 leading-relaxed max-w-[60ch]">
-            SteadyArc creates measurable value across the entire care chain.
+            FixedGap creates measurable value across the entire care chain.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export function Value() {
           ].map((group, i) => (
             <div
               key={group.label}
-              className={`animate-on-scroll delay-${i + 1} border border-slate-200 rounded-2xl p-7 bg-white/60 hover:shadow-md transition-shadow`}
+              className={`animate-on-scroll delay-${i + 1} border border-slate-200 rounded-2xl p-7 bg-white/60 hover:shadow-md transition-colors`}
             >
               <h3 className="text-lg font-semibold text-slate-900 mb-4">
                 {group.label}

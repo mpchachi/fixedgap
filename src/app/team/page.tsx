@@ -2,7 +2,7 @@ import { Team } from "@/components/team";
 import { Partners } from "@/components/partners";
 
 export const metadata = {
-  title: "Team — BetweenVisits",
+  title: "Team — FixedGap",
 };
 
 export default function TeamPage() {

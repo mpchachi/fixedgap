@@ -1,7 +1,7 @@
 import { Contact } from "@/components/contact";
 
 export const metadata = {
-  title: "Contact — BetweenVisits",
+  title: "Contact — FixedGap",
 };
 
 export default function ContactPage() {

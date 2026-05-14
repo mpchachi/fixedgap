@@ -5,7 +5,10 @@
       "Bash(npm install *)",
       "Bash(npx shadcn@latest add @aceternity/3d-globe)",
       "Bash(npx shadcn@latest init -d)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(npx shadcn@latest add https://21st.dev/r/dhileepkumargm/anomalous-matter-hero)"
     ]
   }
 }

@@ -21,7 +21,7 @@ export function Solution() {
         "Tremor",
       ],
       imageSrc: "/journey/hand-tracking.jpg",
-      imageAlt: "SteadyArc hand tracking with computer vision",
+      imageAlt: "FixedGap hand tracking with computer vision",
     },
     {
       value: "eyes",
@@ -110,7 +110,7 @@ export function Solution() {
                         key={m}
                         className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-900 flex-shrink-0" />
                         <span className="text-xs text-slate-600">{m}</span>
                       </div>
                     ))}

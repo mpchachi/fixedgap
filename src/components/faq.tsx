@@ -2,7 +2,7 @@ const faqs = [
   {
     question: "Do I need to buy any hardware or sensors?",
     answer:
-      "No. SteadyArc uses only the camera already on your computer, tablet, or smartphone. No wearables, no VR headset, no specialized equipment.",
+      "No. FixedGap uses only the camera already on your computer, tablet, or smartphone. No wearables, no VR headset, no specialized equipment.",
   },
   {
     question: "What clinical metrics does it capture?",
@@ -15,7 +15,7 @@ const faqs = [
       "Both. Patients play a short game at home while clinicians monitor recovery trends from their dashboard. It extends care beyond the clinic without adding workload.",
   },
   {
-    question: "Who pays for SteadyArc?",
+    question: "Who pays for FixedGap?",
     answer:
       "Hospitals, rehabilitation centers, and clinics subscribe. Patients are users, not payers. Future phases may include value-based contracts with insurers.",
   },
@@ -43,7 +43,7 @@ export function Faq() {
         </div>
         <div className="mx-auto max-w-screen-sm">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-8 flex gap-4">
+            <div key={index} className="mb-8 last:mb-0 flex gap-4">
               <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-slate-100 font-mono text-xs text-slate-500">
                 {index + 1}
               </span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Counter } from "@/components/counter";
 
 export function Problem() {
@@ -31,6 +32,15 @@ export function Problem() {
                 <p className="text-sm text-slate-400">
                   — Neurologist, Hospital Ruber Internacional, Madrid
                 </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 animate-on-scroll delay-2">
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-slate-200">
+                <Image src="/paciente2.jpg" alt="Patient using remote monitoring" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-slate-200">
+                <Image src="/paciente1.jpg" alt="Patient during rehabilitation session" fill className="object-cover" />
               </div>
             </div>
 

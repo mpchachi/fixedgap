@@ -17,11 +17,11 @@ export function Competition() {
             Competitive landscape
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-            Why SteadyArc is different
+            Why FixedGap is different
           </h2>
           <p className="text-white/50 leading-relaxed max-w-[60ch]">
             Most solutions rely on hardware, sensors, or VR — adding cost and
-            friction. SteadyArc is 100% software, focused on clinician
+            friction. FixedGap is 100% software, focused on clinician
             monitoring.
           </p>
         </div>
@@ -56,7 +56,7 @@ export function Competition() {
           ))}
           <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-5 items-center bg-white/[0.07] border-t-2 border-white/20">
             <span className="text-sm font-bold text-white">
-              SteadyArc
+              FixedGap
             </span>
             <span className="text-xs font-medium text-white/70 text-center w-32">
               Software-only (motor + visual)

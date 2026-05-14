@@ -15,6 +15,7 @@ export interface GlobeMarker {
   src: string;
   label?: string;
   size?: number;
+  info?: string;
 }
 
 export interface Globe3DConfig {
@@ -211,10 +212,8 @@ function Marker({
       {/* Circular image at the top */}
       <group ref={imageGroupRef} position={topPosition}>
         <Html
-          transform
           center
           sprite
-          distanceFactor={10}
           style={{
             pointerEvents: isVisible ? "auto" : "none",
             opacity: isVisible ? 1 : 0,
@@ -222,24 +221,48 @@ function Marker({
           }}
         >
           <div
-            className={cn(
-              "cursor-pointer overflow-hidden rounded-full bg-neutral-900 shadow-lg transition-transform duration-200",
-              hovered && "scale-125 shadow-xl ring-1 ring-white/50",
-            )}
-            style={{
-              width: "8px",
-              height: "8px",
-            }}
+            className="relative flex flex-col items-center"
             onMouseEnter={handlePointerEnter}
             onMouseLeave={handlePointerLeave}
             onClick={handleClick}
           >
-            <img
-              src={marker.src}
-              alt={marker.label || "Marker"}
-              className="h-full w-full object-cover"
-              draggable={false}
-            />
+            {hovered && marker.info && (
+              <div className="absolute bottom-full mb-1 whitespace-nowrap rounded bg-slate-900/95 px-2 py-1 shadow-lg pointer-events-none">
+                <p className="text-[10px] font-semibold text-white leading-tight">
+                  {marker.label}
+                </p>
+                <p className="text-[9px] text-slate-300 leading-tight mt-0.5">
+                  {marker.info}
+                </p>
+              </div>
+            )}
+            <div className="relative">
+              {!hovered && (
+                <span
+                  className="absolute inset-0 rounded-full bg-slate-400/20"
+                  style={{
+                    animation: "pulse-ring 2.5s ease-out infinite",
+                  }}
+                />
+              )}
+              <div
+                className={cn(
+                  "relative cursor-pointer overflow-hidden rounded-full bg-neutral-900 shadow-md transition-transform duration-150",
+                  hovered && "scale-110 ring-2 ring-white/60",
+                )}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                }}
+              >
+                <img
+                  src={marker.src}
+                  alt={marker.label || "Marker"}
+                  className="h-full w-full object-cover"
+                  draggable={false}
+                />
+              </div>
+            </div>
           </div>
         </Html>
       </group>
@@ -517,6 +540,13 @@ export function Globe3D({
 
   return (
     <div className={cn("relative h-[500px] w-full", className)}>
+      <style>{`
+        @keyframes pulse-ring {
+          0% { transform: scale(1); opacity: 0.5; }
+          70% { transform: scale(2.2); opacity: 0; }
+          100% { transform: scale(2.2); opacity: 0; }
+        }
+      `}</style>
       <Canvas
         gl={{
           antialias: true,

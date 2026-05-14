@@ -1,7 +1,7 @@
 import { Problem } from "@/components/problem";
 
 export const metadata = {
-  title: "The Problem — BetweenVisits",
+  title: "The Problem — FixedGap",
 };
 
 export default function ProblemPage() {

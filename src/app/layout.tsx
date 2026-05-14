@@ -19,9 +19,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BetweenVisits — Recovery happens every day. Clinical insight should too.",
+  title: "FixedGap — Recovery happens every day. Clinical insight should too.",
   description:
-    "SteadyArc captures hand kinematics, facial symmetry, and gaze patterns through any camera — turning a simple game into continuous, objective stroke recovery data for clinicians. No hardware needed.",
+    "FixedGap captures hand kinematics, facial symmetry, and gaze patterns through any camera — turning a simple game into continuous, objective stroke recovery data for clinicians. No hardware needed.",
 };
 
 export default function RootLayout({

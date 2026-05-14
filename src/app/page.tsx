@@ -7,7 +7,6 @@ export default function Home() {
     <>
       <Hero />
       <section className="py-20 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.4) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="max-w-[1200px] mx-auto px-6 relative">
           <div className="md:grid md:grid-cols-[1.5fr_1fr] md:gap-12 md:items-center">
             <div>

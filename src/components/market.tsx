@@ -4,7 +4,7 @@ import { Counter } from "@/components/counter";
 
 export function Market() {
   return (
-    <section id="market" className="pt-32 pb-24 md:pt-40 md:pb-32">
+    <section id="market" className="pt-16 md:pt-24 pb-24 md:pb-32 border-t border-slate-200/70">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="mb-16 animate-on-scroll">
           <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-3">
@@ -96,7 +96,7 @@ export function Market() {
                   <p className="text-xs text-slate-500 mt-1">per patient / month</p>
                 </div>
               </div>
-              <div className="border-t border-slate-100 pt-4">
+              <div className="border-t border-slate-200 pt-4">
                 <p className="text-sm text-slate-500 leading-relaxed">
                   <span className="font-medium text-slate-700">B2B SaaS.</span>{" "}
                   Hospitals and rehab clinics subscribe. Patients are users, not

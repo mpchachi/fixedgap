@@ -48,8 +48,8 @@ export function Partners() {
       </div>
 
       <div className="relative group">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#f8faff] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f8faff] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="marquee-track group-hover:[animation-play-state:paused] flex items-center gap-20 md:gap-32 w-max">
           {[...Array(3)].map((_, setIndex) => (
