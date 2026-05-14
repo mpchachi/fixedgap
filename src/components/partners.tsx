@@ -14,9 +14,13 @@ function AwsLogo() {
 
 function SaturnoLabsLogo() {
   return (
-    <span className="text-xl font-bold tracking-tight text-slate-300 hover:text-slate-700 transition-colors duration-300" aria-label="SaturnoLabs">
-      Saturno<span className="font-normal opacity-60">Labs</span>
-    </span>
+    <Image
+      src="/sponsors/saturno.png"
+      alt="SaturnoLabs"
+      width={100}
+      height={48}
+      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
   );
 }
 
@@ -30,13 +34,41 @@ function SanitasLogo() {
 
 function OakleyCapitalLogo() {
   return (
-    <span className="text-xl font-bold tracking-tight text-slate-300 hover:text-slate-700 transition-colors duration-300" aria-label="Oakley Capital">
-      Oakley <span className="font-normal opacity-60">Capital</span>
-    </span>
+    <Image
+      src="/sponsors/oakley.png"
+      alt="Oakley Capital"
+      width={100}
+      height={48}
+      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
   );
 }
 
-const logos = [AwsLogo, SaturnoLabsLogo, SanitasLogo, OakleyCapitalLogo];
+function RccLogo() {
+  return (
+    <Image
+      src="/sponsors/rcc.png"
+      alt="RCC at Harvard University"
+      width={100}
+      height={48}
+      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
+  );
+}
+
+function BupaLogo() {
+  return (
+    <Image
+      src="/sponsors/Bupa.jpeg"
+      alt="Bupa"
+      width={80}
+      height={48}
+      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
+  );
+}
+
+const logos = [AwsLogo, SaturnoLabsLogo, SanitasLogo, OakleyCapitalLogo, RccLogo, BupaLogo];
 
 export function Partners() {
   return (
