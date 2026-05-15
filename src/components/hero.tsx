@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { Tooltip } from "@/components/ui/tooltip-card";
 
 export function Hero() {
   return (
@@ -24,10 +25,58 @@ export function Hero() {
               <span className="block text-slate-400 mt-1">You find out weeks later.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-500 leading-[1.7] max-w-[48ch] mb-8">
+            <p className="text-lg md:text-xl text-slate-500 leading-[1.7] max-w-[48ch] mb-6">
               FixedGap turns any camera into a continuous window on stroke recovery.
               Hand kinematics, facial symmetry, gaze — captured through a game,
               delivered as clinical data. No wearables. No visits.
+            </p>
+
+            <p className="text-2xl md:text-3xl italic font-medium text-slate-800 text-center mb-16 md:mb-20 tracking-tight">
+              There was a{" "}
+              <Tooltip
+                content={
+                  <div className="space-y-2.5">
+                    <div>
+                      <span className="font-bold text-slate-900 text-sm">fixed</span>
+                      <span className="text-slate-500 text-xs ml-2">/fɪkst/</span>
+                      <span className="text-slate-500 text-xs ml-2 italic">adjective</span>
+                    </div>
+                    <div className="leading-relaxed">
+                      <div className="text-slate-900 font-medium text-base">
+                        Not changing; constant and invariable.
+                      </div>
+                      <div className="text-slate-500 italic mt-1.5 text-xs">
+                        "a fixed gap between appointments — 6 weeks, every time."
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <span className="cursor-help underline decoration-dotted decoration-slate-400 underline-offset-4">fixed</span>
+              </Tooltip>{" "}
+              gap. We{" "}
+              <Tooltip
+                content={
+                  <div className="space-y-2.5">
+                    <div>
+                      <span className="font-bold text-slate-900 text-sm">fixed</span>
+                      <span className="text-slate-500 text-xs ml-2">/fɪkst/</span>
+                      <span className="text-slate-500 text-xs ml-2 italic">verb (past tense)</span>
+                    </div>
+                    <div className="leading-relaxed">
+                      <div className="text-slate-900 font-medium text-base">
+                        Corrected and no longer broken; having had a problem resolved.
+                      </div>
+                      <div className="text-slate-500 italic mt-1.5 text-xs">
+                        "the monitoring gap between visits — fixed."
+                      </div>
+                    </div>
+                  </div>
+                }
+              >
+                <span className="cursor-help underline decoration-dotted decoration-slate-400 underline-offset-4">fixed</span>
+              </Tooltip>{" "}
+              it.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
