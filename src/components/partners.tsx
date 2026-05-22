@@ -7,7 +7,7 @@ function AwsLogo() {
       alt="AWS"
       width={80}
       height={48}
-      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     />
   );
 }
@@ -19,18 +19,12 @@ function SaturnoLabsLogo() {
       alt="SaturnoLabs"
       width={100}
       height={48}
-      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     />
   );
 }
 
-function SanitasLogo() {
-  return (
-    <span className="text-xl font-bold tracking-tight text-slate-300 hover:text-slate-700 transition-colors duration-300" aria-label="Sanitas">
-      Sanitas
-    </span>
-  );
-}
+
 
 function OakleyCapitalLogo() {
   return (
@@ -39,19 +33,19 @@ function OakleyCapitalLogo() {
       alt="Oakley Capital"
       width={100}
       height={48}
-      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     />
   );
 }
 
-function RccLogo() {
+function RealColegioComplutenseLogo() {
   return (
     <Image
-      src="/sponsors/rcc.png"
-      alt="RCC at Harvard University"
+      src="/sponsors/Real_Colegio_Complutense.png"
+      alt="Real Colegio Complutense at Harvard University"
       width={100}
       height={48}
-      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     />
   );
 }
@@ -63,12 +57,48 @@ function BupaLogo() {
       alt="Bupa"
       width={80}
       height={48}
-      className="h-9 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     />
   );
 }
 
-const logos = [AwsLogo, SaturnoLabsLogo, SanitasLogo, OakleyCapitalLogo, RccLogo, BupaLogo];
+function UniversidadComplutenseLogo() {
+  return (
+    <Image
+      src="/sponsors/Universidad_Complutense.png"
+      alt="Universidad Complutense de Madrid"
+      width={100}
+      height={48}
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
+  );
+}
+
+function ComunidadMadridLogo() {
+  return (
+    <Image
+      src="/sponsors/ComunidadMadrid.png"
+      alt="Comunidad de Madrid"
+      width={100}
+      height={48}
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
+  );
+}
+
+function BoschLogo() {
+  return (
+    <Image
+      src="/sponsors/BoschDefinitivo.png"
+      alt="Bosch"
+      width={100}
+      height={48}
+      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    />
+  );
+}
+
+const logos = [AwsLogo, SaturnoLabsLogo, OakleyCapitalLogo, RealColegioComplutenseLogo, BupaLogo, UniversidadComplutenseLogo, ComunidadMadridLogo, BoschLogo];
 
 export function Partners() {
   return (

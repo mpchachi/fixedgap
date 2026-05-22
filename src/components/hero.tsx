@@ -31,25 +31,25 @@ export function Hero() {
               delivered as clinical data. No wearables. No visits.
             </p>
 
-            <p className="text-2xl md:text-3xl italic font-medium text-slate-800 text-center mb-16 md:mb-20 tracking-tight">
+            <span className="block text-2xl md:text-3xl italic font-medium text-slate-800 text-center mb-16 md:mb-20 tracking-tight">
               There was a{" "}
               <Tooltip
                 content={
-                  <div className="space-y-2.5">
-                    <div>
+                  <span className="block space-y-2.5">
+                    <span className="block">
                       <span className="font-bold text-slate-900 text-sm">fixed</span>
                       <span className="text-slate-500 text-xs ml-2">/fɪkst/</span>
                       <span className="text-slate-500 text-xs ml-2 italic">adjective</span>
-                    </div>
-                    <div className="leading-relaxed">
-                      <div className="text-slate-900 font-medium text-base">
+                    </span>
+                    <span className="block leading-relaxed">
+                      <span className="block text-slate-900 font-medium text-base">
                         Not changing; constant and invariable.
-                      </div>
-                      <div className="text-slate-500 italic mt-1.5 text-xs">
-                        "a fixed gap between appointments — 6 weeks, every time."
-                      </div>
-                    </div>
-                  </div>
+                      </span>
+                      <span className="block text-slate-500 italic mt-1.5 text-xs">
+                        &quot;a fixed gap between appointments — 6 weeks, every time.&quot;
+                      </span>
+                    </span>
+                  </span>
                 }
               >
                 <span className="cursor-help underline decoration-dotted decoration-slate-400 underline-offset-4">fixed</span>
@@ -57,27 +57,27 @@ export function Hero() {
               gap. We{" "}
               <Tooltip
                 content={
-                  <div className="space-y-2.5">
-                    <div>
+                  <span className="block space-y-2.5">
+                    <span className="block">
                       <span className="font-bold text-slate-900 text-sm">fixed</span>
                       <span className="text-slate-500 text-xs ml-2">/fɪkst/</span>
                       <span className="text-slate-500 text-xs ml-2 italic">verb (past tense)</span>
-                    </div>
-                    <div className="leading-relaxed">
-                      <div className="text-slate-900 font-medium text-base">
+                    </span>
+                    <span className="block leading-relaxed">
+                      <span className="block text-slate-900 font-medium text-base">
                         Corrected and no longer broken; having had a problem resolved.
-                      </div>
-                      <div className="text-slate-500 italic mt-1.5 text-xs">
-                        "the monitoring gap between visits — fixed."
-                      </div>
-                    </div>
-                  </div>
+                      </span>
+                      <span className="block text-slate-500 italic mt-1.5 text-xs">
+                        &quot;the monitoring gap between visits — fixed.&quot;
+                      </span>
+                    </span>
+                  </span>
                 }
               >
                 <span className="cursor-help underline decoration-dotted decoration-slate-400 underline-offset-4">fixed</span>
               </Tooltip>{" "}
               it.
-            </p>
+            </span>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

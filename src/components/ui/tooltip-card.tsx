@@ -19,8 +19,8 @@ export const Tooltip = ({
     x: 0,
     y: 0,
   });
-  const contentRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (isVisible && contentRef.current) {
@@ -78,7 +78,7 @@ export const Tooltip = ({
     setPosition(newPosition);
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLSpanElement>) => {
     setIsVisible(true);
     const rect = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -92,7 +92,7 @@ export const Tooltip = ({
     setIsVisible(false);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (!isVisible) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -100,7 +100,7 @@ export const Tooltip = ({
     updateMousePosition(mouseX, mouseY);
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLSpanElement>) => {
     const touch = e.touches[0];
     const rect = e.currentTarget.getBoundingClientRect();
     const mouseX = touch.clientX - rect.left;
@@ -118,7 +118,7 @@ export const Tooltip = ({
     }, 2000);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     // Toggle visibility on click for mobile devices
     if (window.matchMedia("(hover: none)").matches) {
       e.preventDefault();
@@ -145,7 +145,7 @@ export const Tooltip = ({
   }, [isVisible, height, mouse.x, mouse.y]);
 
   return (
-    <div
+    <span
       ref={containerRef}
       className={cn("relative inline-block", containerClassName)}
       onMouseEnter={handleMouseEnter}
@@ -158,7 +158,7 @@ export const Tooltip = ({
       {children}
       <AnimatePresence>
         {isVisible && (
-          <motion.div
+          <motion.span
             key={String(isVisible)}
             initial={{ height: 0, opacity: 1 }}
             animate={{ height, opacity: 1 }}
@@ -168,21 +168,22 @@ export const Tooltip = ({
               stiffness: 200,
               damping: 20,
             }}
-            className="pointer-events-none absolute z-50 min-w-[15rem] overflow-hidden rounded-md border border-transparent bg-white shadow-sm ring-1 shadow-black/5 ring-black/5 dark:bg-neutral-900 dark:shadow-white/10 dark:ring-white/5"
+            className="pointer-events-none absolute z-50 block min-w-[15rem] overflow-hidden rounded-md border border-transparent bg-white shadow-sm ring-1 shadow-black/5 ring-black/5 dark:bg-neutral-900 dark:shadow-white/10 dark:ring-white/5"
             style={{
               top: position.y,
               left: position.x,
             }}
           >
-            <div
+            <span
               ref={contentRef}
-              className="p-2 text-sm text-neutral-600 md:p-4 dark:text-neutral-400"
+              className="block p-2 text-sm text-neutral-600 md:p-4 dark:text-neutral-400"
             >
               {content}
-            </div>
-          </motion.div>
+            </span>
+          </motion.span>
         )}
       </AnimatePresence>
-    </div>
+    </span>
   );
 };
+
