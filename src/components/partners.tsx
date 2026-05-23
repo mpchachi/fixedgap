@@ -7,7 +7,7 @@ function AwsLogo() {
       alt="AWS"
       width={80}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -19,7 +19,7 @@ function SaturnoLabsLogo() {
       alt="SaturnoLabs"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -33,7 +33,7 @@ function AyuntamientoMadridLogo() {
       alt="Ayuntamiento de Madrid"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -45,7 +45,7 @@ function RealColegioComplutenseLogo() {
       alt="Real Colegio Complutense at Harvard University"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -57,7 +57,7 @@ function BupaLogo() {
       alt="Bupa"
       width={80}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -69,7 +69,7 @@ function UniversidadComplutenseLogo() {
       alt="Universidad Complutense de Madrid"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -81,7 +81,7 @@ function ComunidadMadridLogo() {
       alt="Comunidad de Madrid"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
@@ -93,7 +93,7 @@ function BoschLogo() {
       alt="Bosch"
       width={100}
       height={48}
-      className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
     />
   );
 }
