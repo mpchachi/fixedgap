@@ -26,11 +26,11 @@ function SaturnoLabsLogo() {
 
 
 
-function OakleyCapitalLogo() {
+function AyuntamientoMadridLogo() {
   return (
     <Image
-      src="/sponsors/oakley.png"
-      alt="Oakley Capital"
+      src="/sponsors/Ayuntamiento_Madrid.jpg"
+      alt="Ayuntamiento de Madrid"
       width={100}
       height={48}
       className="h-11 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
@@ -98,7 +98,7 @@ function BoschLogo() {
   );
 }
 
-const logos = [AwsLogo, SaturnoLabsLogo, OakleyCapitalLogo, RealColegioComplutenseLogo, BupaLogo, UniversidadComplutenseLogo, ComunidadMadridLogo, BoschLogo];
+const logos = [AwsLogo, SaturnoLabsLogo, AyuntamientoMadridLogo, RealColegioComplutenseLogo, BupaLogo, UniversidadComplutenseLogo, ComunidadMadridLogo, BoschLogo];
 
 export function Partners() {
   return (
