@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function InvestorsPage() {
   return (
-    <div className={plusJakarta.className} style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
+    <div className={plusJakarta.className} style={{ width: '100vw', height: '100vh', margin: 0, padding: 0, background: '#000' }}>
       <ScrollCanvas />
     </div>
   );
