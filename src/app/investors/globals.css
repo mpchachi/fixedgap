@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #000;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Diegetic CV Animations */
+@keyframes breathe {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.02) translateY(-2px); }
+}
+
+@keyframes breathe-delayed {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.015) translateY(-1px); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(3px) translateY(-2px); }
+  50% { transform: translateX(-2px) translateY(2px); }
+  75% { transform: translateX(2px) translateY(1px); }
+}
+
+@keyframes counter-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(34,211,238,0.3)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(34,211,238,0.6)); }
+}
+
+@keyframes keypoint-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mesh-float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-10px) translateX(5px); opacity: 0.5; }
+}
+
+@keyframes phase-pulse {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(251,191,36,0.4)); }
+  50% { filter: drop-shadow(0 0 20px rgba(251,191,36,0.7)); }
+}
+
+.breathe-slow {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.breathe-delayed {
+  animation: breathe-delayed 7s ease-in-out infinite;
+}
+
+.drift-subtle {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.counter-animate {
+  animation: counter-pulse 2s ease-in-out infinite;
+}
+
+.keypoint-spin {
+  animation: keypoint-rotate 20s linear infinite;
+}
+
+.mesh-float {
+  animation: mesh-float 10s ease-in-out infinite;
+}
+
+.phase-pulse {
+  animation: phase-pulse 3s ease-in-out infinite;
+}
