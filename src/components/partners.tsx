@@ -98,7 +98,19 @@ function BoschLogo() {
   );
 }
 
-const logos = [AwsLogo, SaturnoLabsLogo, AyuntamientoMadridLogo, RealColegioComplutenseLogo, BupaLogo, UniversidadComplutenseLogo, ComunidadMadridLogo, BoschLogo];
+function BoschUCMLogo() {
+  return (
+    <Image
+      src="/sponsors/Bosch_UCM.jpeg"
+      alt="Bosch UCM"
+      width={100}
+      height={48}
+      className="h-11 w-auto object-contain transition-all duration-300 hover:scale-105"
+    />
+  );
+}
+
+const logos = [AwsLogo, SaturnoLabsLogo, AyuntamientoMadridLogo, RealColegioComplutenseLogo, BupaLogo, UniversidadComplutenseLogo, ComunidadMadridLogo, BoschLogo, BoschUCMLogo];
 
 export function Partners() {
   return (
