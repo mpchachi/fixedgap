@@ -63,7 +63,7 @@ export default function CountdownPage() {
           <div className="relative w-28 h-28 md:w-40 md:h-40 opacity-95 hover:opacity-100 transition-all duration-700 hover:scale-110 group">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <Image
-              src="/logogradient.png"
+              src="/logofinal.png"
               alt="FixedGap Logo"
               fill
               className="object-contain drop-shadow-[0_0_40px_rgba(6,182,212,0.3)]"
