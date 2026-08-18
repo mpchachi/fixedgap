@@ -14,7 +14,7 @@ const srOnly: React.CSSProperties = {
   clip: 'rect(0,0,0,0)',
   whiteSpace: 'nowrap',
   border: 0,
-}
+};
 
 function useCountUp(target: number, duration: number = 2000, active: boolean) {
   const [count, setCount] = useState(0);
@@ -55,62 +55,59 @@ export default function Problem() {
   ];
 
   return (
-    <section id="problem" className="bg-white py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* SEO Headings - invisible */}
+    <section id="problem" className="section-y bg-white">
+      <div className="container-fg">
+        {/* SEO headings - invisible */}
         <h2 style={srOnly}>Stroke Rehabilitation Is Failing Patients At Home</h2>
         <h3 style={srOnly}>13 million strokes every year worldwide</h3>
         <h3 style={srOnly}>Zero daily monitoring tools available at home</h3>
 
-        {/* Label */}
-        <span className="text-sm font-semibold tracking-widest text-brand-blue uppercase">
-          The Problem
-        </span>
+        <div className="max-w-5xl">
+          <span className="eyebrow">The Problem</span>
 
-        {/* Headline */}
-        <h2 className="text-5xl md:text-6xl font-bold text-brand-navy max-w-3xl leading-tight mt-4">
-          Every day, stroke patients recover without anyone watching.
-        </h2>
+          <h2 className="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] text-brand-navy md:text-5xl lg:text-6xl">
+            Every day, stroke patients recover without anyone watching.
+          </h2>
 
-        {/* Subtext */}
-        <p className="text-brand-muted text-lg max-w-2xl leading-relaxed mt-6">
-          Neurologists see their patients once a month. Physiotherapists twice a
-          week. The rest of the time, patients are alone — with no data, no
-          feedback, and no way to detect when recovery stalls. The gap between
-          clinical visits is where recovery is won or lost.
-        </p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
+            Neurologists see their patients once a month. Physiotherapists twice a
+            week. The rest of the time, patients are alone — with no data, no
+            feedback, and no way to detect when recovery stalls. The gap between
+            clinical visits is where recovery is won or lost.
+          </p>
 
-        {/* Statistics */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-3xl">
-          {stats.map((stat, index) => (
-            <div key={stat.label} className="border-l-2 border-brand-blue pl-6">
-              {stat.isZero ? (
-                <motion.p
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={inView ? { scale: 1, opacity: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 1.5, type: 'spring' }}
-                  className="text-5xl font-bold text-brand-navy"
-                >
-                  {stat.number}
-                </motion.p>
-              ) : (
-                <p className="text-5xl font-bold text-brand-navy">
-                  {stat.number}{stat.suffix}
-                </p>
-              )}
-              <p className="text-sm text-brand-muted mt-2">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+          {/* Statistics */}
+          <div ref={ref} className="mt-16 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label} className="border-l-2 border-brand-blue pl-6">
+                {stat.isZero ? (
+                  <motion.p
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={inView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.5, delay: 1.5, type: 'spring' }}
+                    className="text-5xl font-bold tabular-nums text-brand-navy"
+                  >
+                    {stat.number}
+                  </motion.p>
+                ) : (
+                  <p className="text-5xl font-bold tabular-nums text-brand-navy">
+                    {stat.number}
+                    {stat.suffix}
+                  </p>
+                )}
+                <p className="mt-2 text-sm leading-snug text-brand-muted">{stat.label}</p>
+              </div>
+            ))}
+          </div>
 
-        {/* Visual Element */}
-        <div className="mt-20 w-full max-w-4xl mx-auto">
-          <img
-            src="/problem/recovery-gap.png"
-            alt="Stroke rehabilitation monitoring gap"
-            className="w-full h-auto"
-            style={{ display: 'block' }}
-          />
+          {/* Visual */}
+          <div className="mx-auto mt-20 w-full max-w-4xl">
+            <img
+              src="/problem/recovery-gap.png"
+              alt="Stroke rehabilitation monitoring gap"
+              className="block h-auto w-full"
+            />
+          </div>
         </div>
       </div>
     </section>

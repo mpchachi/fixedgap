@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { MoveRight } from 'lucide-react'
+import { useState } from 'react';
+import { MoveRight } from 'lucide-react';
 
 const srOnly: React.CSSProperties = {
   position: 'absolute',
@@ -13,22 +13,12 @@ const srOnly: React.CSSProperties = {
   clip: 'rect(0,0,0,0)',
   whiteSpace: 'nowrap',
   border: 0,
-}
+};
 
-const COLORS = {
-  bg: '#0A0F1E',
-  headline: '#FFFFFF',
-  body: '#98A2B3',
-  formBg: '#141B2D',
-  formBorder: '#1E2A40',
-  formBorderFocus: '#1F4C9C',
-  labelColor: '#98A2B3',
-  inputText: '#FFFFFF',
-  inputPlaceholder: '#6B7689',
-  btnBg: '#1F4C9C',
-  btnText: '#FFFFFF',
-  divider: '#1E2A40',
-}
+const inputClass =
+  'w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-[#4A7BDB] focus:bg-white/[0.07]';
+
+const labelClass = 'text-[13px] font-semibold text-white/60';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,181 +26,112 @@ export default function Contact() {
     email: '',
     phone: '',
     message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Por ahora solo muestra confirmación
-    setSubmitted(true)
-  }
+    setSubmitted(true);
+  };
 
   return (
-    <section style={{ backgroundColor: COLORS.bg }} className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="section-y border-t border-white/[0.06] bg-brand-navy">
+      <div className="container-fg">
+        <div className="mx-auto max-w-5xl">
+          {/* SEO heading - invisible */}
+          <h2 style={srOnly}>Contact FixedGap — Post-Stroke Rehabilitation Monitoring Platform</h2>
 
-        {/* SEO Heading - invisible */}
-        <h2 style={srOnly}>Contact FixedGap — Post-Stroke Rehabilitation Monitoring Platform</h2>
+          <span className="eyebrow !text-[#7EA6F4]">Contact</span>
 
-        {/* Headline */}
-        <h2 style={{
-          color: COLORS.headline,
-          fontSize: 'clamp(3rem, 7vw, 6rem)',
-          fontWeight: 800,
-          lineHeight: 1,
-          letterSpacing: '-0.03em',
-        }}>
-          Let's talk.
-        </h2>
+          <h2 className="mt-4 text-5xl font-extrabold leading-none tracking-tight text-white md:text-7xl">
+            Let&apos;s talk.
+          </h2>
 
-        {/* Divider */}
-        <div style={{
-          height: '1px',
-          backgroundColor: COLORS.divider,
-          marginTop: '40px',
-          marginBottom: '40px',
-        }} />
+          <div className="my-10 h-px bg-white/10" />
 
-        {!submitted ? (
-          <form onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+          {!submitted ? (
+            <form
+              onSubmit={handleSubmit}
+              className="grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2"
+            >
+              <div className="flex flex-col gap-2">
+                <label className={labelClass} htmlFor="contact-name">
+                  Name *
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
 
-            {/* Nombre */}
-            <div className="flex flex-col gap-2">
-              <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                Name *
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="Your name"
-                value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
-                style={{
-                  backgroundColor: COLORS.formBg,
-                  border: `1px solid ${COLORS.formBorder}`,
-                  borderRadius: '10px',
-                  padding: '12px 16px',
-                  color: COLORS.inputText,
-                  fontSize: '14px',
-                  outline: 'none',
-                }}
-                onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-              />
+              <div className="flex flex-col gap-2">
+                <label className={labelClass} htmlFor="contact-email">
+                  Email *
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className={labelClass} htmlFor="contact-phone">
+                  Phone
+                </label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  placeholder="+34 600 000 000"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
+
+              <div className="flex flex-col gap-2 md:col-span-2">
+                <label className={labelClass} htmlFor="contact-message">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  rows={4}
+                  placeholder="Tell us who you are and what you are looking for..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className={`${inputClass} resize-y`}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-8 py-3.5 text-[15px] font-semibold text-white shadow-[0_4px_16px_rgba(31,76,156,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-blue-strong active:scale-[0.98]"
+                >
+                  Send message <MoveRight size={16} />
+                </button>
+              </div>
+            </form>
+          ) : (
+            <div className="max-w-md">
+              <p className="mb-2 text-base font-bold text-emerald-400">✓ Message sent</p>
+              <p className="text-sm leading-relaxed text-white/60">
+                Thanks for reaching out. We will get back to you as soon as possible.
+              </p>
             </div>
-
-            {/* Email */}
-            <div className="flex flex-col gap-2">
-              <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                Email *
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="your@email.com"
-                value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
-                style={{
-                  backgroundColor: COLORS.formBg,
-                  border: `1px solid ${COLORS.formBorder}`,
-                  borderRadius: '10px',
-                  padding: '12px 16px',
-                  color: COLORS.inputText,
-                  fontSize: '14px',
-                  outline: 'none',
-                }}
-                onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-              />
-            </div>
-
-            {/* Teléfono */}
-            <div className="flex flex-col gap-2">
-              <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                Phone
-              </label>
-              <input
-                type="tel"
-                placeholder="+34 600 000 000"
-                value={formData.phone}
-                onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                style={{
-                  backgroundColor: COLORS.formBg,
-                  border: `1px solid ${COLORS.formBorder}`,
-                  borderRadius: '10px',
-                  padding: '12px 16px',
-                  color: COLORS.inputText,
-                  fontSize: '14px',
-                  outline: 'none',
-                }}
-                onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-              />
-            </div>
-
-            {/* Mensaje */}
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                Message
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Tell us who you are and what you are looking for..."
-                value={formData.message}
-                onChange={e => setFormData({ ...formData, message: e.target.value })}
-                style={{
-                  backgroundColor: COLORS.formBg,
-                  border: `1px solid ${COLORS.formBorder}`,
-                  borderRadius: '10px',
-                  padding: '12px 16px',
-                  color: COLORS.inputText,
-                  fontSize: '14px',
-                  outline: 'none',
-                  resize: 'vertical',
-                }}
-                onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-              />
-            </div>
-
-            {/* Submit */}
-            <div className="md:col-span-2">
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: COLORS.btnBg,
-                  color: COLORS.btnText,
-                  padding: '14px 32px',
-                  borderRadius: '10px',
-                  fontSize: '15px',
-                  fontWeight: 600,
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                }}
-                className="hover:opacity-90 transition-opacity"
-              >
-                Send message <MoveRight size={16} />
-              </button>
-            </div>
-
-          </form>
-        ) : (
-          /* Confirmación */
-          <div style={{ maxWidth: '480px' }}>
-            <p style={{ color: '#1F7A4D', fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
-              ✓ Message sent
-            </p>
-            <p style={{ color: COLORS.body, fontSize: '14px', lineHeight: 1.7 }}>
-              Thanks for reaching out. We will get back to you as soon as possible.
-            </p>
-          </div>
-        )}
-
+          )}
+        </div>
       </div>
     </section>
-  )
+  );
 }

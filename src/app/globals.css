@@ -8,32 +8,86 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+
+  /* Brand typeface — wired to the font actually loaded in layout.tsx */
+  --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
 
   /* FixedGap Brand Colors */
   --color-brand-navy: #1A1F3C;
+  --color-brand-ink: #12162B;      /* darker navy for large headings */
   --color-brand-blue: #1F4C9C;
+  --color-brand-blue-strong: #163C7D; /* hover / pressed */
   --color-brand-beige: #F5F0E8;
   --color-brand-cream: #F7F9FC;
-  --color-brand-border: #E8E0D0;
-  --color-brand-muted: #6B7689;
+  --color-brand-border: #E8E0D0;   /* warm border (legacy sections) */
+  --color-brand-line: #E6EAF1;     /* cool hairline (redesigned surfaces) */
+  --color-brand-muted: #5C647A;    /* body-secondary, AA on white */
+
+  /* Elevation — one coherent shadow scale */
+  --shadow-soft: 0 1px 2px rgba(18, 22, 43, 0.04), 0 8px 24px rgba(18, 22, 43, 0.06);
+  --shadow-card: 0 1px 3px rgba(18, 22, 43, 0.06), 0 12px 32px rgba(18, 22, 43, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings read tighter and more deliberate — the single biggest "premium" lever */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brand-blue) 18%, transparent);
+  color: var(--color-brand-ink);
+}
+
+/* Consistent focus ring for keyboard users */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---- Reusable layout primitives (use these when redesigning sections) ---- */
+
+/* Page gutter + max width, matches the navbar container (max-w-7xl px-6) */
+.container-fg {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Vertical rhythm for full-width sections */
+.section-y {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+/* Small uppercase label above a headline */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-blue);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeIn {
@@ -41,14 +95,25 @@ body {
 }
 
 @keyframes aurora {
-  from {
-    background-position: 50% 50%, 50% 50%;
-  }
-  to {
-    background-position: 350% 50%, 350% 50%;
-  }
+  from { background-position: 50% 50%, 50% 50%; }
+  to { background-position: 350% 50%, 350% 50%; }
 }
 
 .animate-aurora {
   animation: aurora 60s linear infinite;
+}
+
+/* Subtle floating cue for the hero scroll indicator */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(6px); opacity: 0.35; }
+}
+
+.animate-floatY {
+  animation: floatY 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-aurora, .animate-floatY, .animate-fadeIn { animation: none; }
 }
