@@ -4,7 +4,7 @@ const columns = [
   {
     title: 'Product',
     links: [
-      { label: 'How it works', href: '/product/how-it-works' },
+      { label: 'Patient Experience', href: '/product/experience' },
       { label: 'Biomarkers', href: '/product/biomarkers' },
       { label: 'Dashboard', href: '/product/dashboard' },
     ],
@@ -20,9 +20,8 @@ const columns = [
   {
     title: 'More',
     links: [
-      { label: 'Market', href: '/market' },
-      { label: 'Science', href: '/science' },
-      { label: 'Pricing', href: '/pricing' },
+      { label: 'Clinical Validation', href: '/science/validation' },
+      { label: 'Research References', href: '/science/references' },
       { label: 'Contact', href: '/contact' },
       { label: 'Book a Demo', href: 'https://cal.com/fixedgap' },
     ],

@@ -171,10 +171,7 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const directItems: DirectItem[] = [
-  { label: 'Market', href: '/market' },
-  { label: 'Pricing', href: '/pricing' },
-];
+const directItems: DirectItem[] = [];
 
 /* Videos shown in the Demo panel and modals */
 type VideoKey = 'story' | 'walkthrough' | 'maria';
