@@ -1,5 +1,3 @@
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const MANIFESTO_COLORS = {
   bg: '#FFFFFF',
@@ -15,7 +13,6 @@ const MANIFESTO_COLORS = {
 export default function BehindFixedGapPage() {
   return (
     <main>
-      <Navbar />
 
       {/* Hero de la página */}
       <section style={{ backgroundColor: MANIFESTO_COLORS.heroBg }}
@@ -180,7 +177,6 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

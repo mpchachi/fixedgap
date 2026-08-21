@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { MoveRight, Activity, Brain, Calendar, BarChart3 } from "lucide-react"
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 // COLORES — cambiar aquí para modificar toda la página
 const COLORS = {
@@ -75,7 +73,6 @@ export default function DashboardPage() {
 
   return (
     <main>
-      <Navbar />
 
       {/* HERO — texto rotando */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -255,7 +252,6 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

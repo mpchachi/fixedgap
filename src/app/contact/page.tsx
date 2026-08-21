@@ -1,246 +1,202 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { MoveRight } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus, Minus, Stethoscope, TrendingUp, FlaskConical } from 'lucide-react';
+import Contact from '@/components/sections/Contact';
 
-const COLORS = {
-  heroBg: '#0A0F1E',
-  heroText: '#FFFFFF',
-  heroMuted: '#98A2B3',
-  label: '#1F4C9C',
-  formBg: '#141B2D',
-  formBorder: '#1E2A40',
-  formBorderFocus: '#1F4C9C',
-  labelColor: '#98A2B3',
-  inputText: '#FFFFFF',
-  inputPlaceholder: '#6B7689',
-  btnBg: '#1F4C9C',
-  btnText: '#FFFFFF',
-  locationBg: '#0A0F1E',
-  locationText: '#FFFFFF',
-  locationMuted: '#98A2B3',
+/* ------------------------------------------------------------------ */
+/* Who should reach out                                                */
+/* ------------------------------------------------------------------ */
+
+const profiles = [
+  {
+    icon: Stethoscope,
+    title: 'Neurologists & Clinicians',
+    body: 'Interested in monitoring your patients between visits with objective daily data.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Investors',
+    body: 'Looking to back the future of neurological rehabilitation technology.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Partners & Researchers',
+    body: 'Want to collaborate, run a clinical pilot, or explore research opportunities.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* FAQ                                                                 */
+/* ------------------------------------------------------------------ */
+
+const faqs = [
+  {
+    question: 'Is FixedGap available now?',
+    answer:
+      'We are currently in the pilot phase, working with selected neurologists and rehabilitation clinics. Contact us to join the waitlist.',
+  },
+  {
+    question: 'How long does a demo take?',
+    answer:
+      'A typical demo is 30 minutes — we walk you through the patient experience and the clinical dashboard, and answer any questions.',
+  },
+  {
+    question: 'Do I need any hardware to try it?',
+    answer:
+      'No. FixedGap uses only the camera already on your computer, tablet, or smartphone. No wearables, no VR headset, no specialized equipment.',
+  },
+  {
+    question: 'What clinical metrics does it capture?',
+    answer:
+      'Pinch precision, hand opening speed, finger individuation, range of motion, movement smoothness, reaction time, and inter-repetition variability. Enough for clinicians to assess whether a patient is improving, stable, or deteriorating.',
+  },
+  {
+    question: 'Is it for clinics or for home use?',
+    answer:
+      'Both. Patients play a short game at home while clinicians monitor recovery trends from their dashboard. It extends care beyond the clinic without adding workload.',
+  },
+  {
+    question: 'Who pays for FixedGap?',
+    answer:
+      'Hospitals, rehabilitation centers, and clinics subscribe. Patients are users, not payers. Future phases may include value-based contracts with insurers.',
+  },
+  {
+    question: 'What conditions does it support?',
+    answer:
+      "Initially, post-stroke motor rehabilitation. The same model can extend to Parkinson's disease, multiple sclerosis, and other conditions with neurological motor deficits.",
+  },
+  {
+    question: 'Is patient data private?',
+    answer:
+      'Yes. All processing happens locally in the patient\u2019s browser. No audio, no video, no biometric raw data ever leaves the device. Only the computed clinical metrics are stored. We are GDPR compliant by design.',
+  },
+];
+
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onClick,
+}: {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      className={`cursor-pointer overflow-hidden rounded-xl border bg-white transition-colors duration-200 ${
+        isOpen ? 'border-brand-blue/50 shadow-sm' : 'border-brand-border hover:border-brand-blue/30'
+      }`}
+      onClick={onClick}
+    >
+      <div className="flex items-center justify-between gap-4 px-6 py-5">
+        <p className="text-base font-semibold leading-snug text-brand-navy">{question}</p>
+        <span className="shrink-0 text-brand-blue">
+          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        </span>
+      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="border-t border-brand-border px-6 pb-5 pt-4">
+              <p className="text-sm leading-relaxed text-brand-muted">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
+/* ------------------------------------------------------------------ */
+/* Page                                                                */
+/* ------------------------------------------------------------------ */
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Por ahora solo muestra confirmación
-    setSubmitted(true)
-  }
+export default function ContactPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <main>
-      <Navbar />
+      {/* Let's talk + form (shared section) */}
+      <Contact />
 
-      {/* HERO */}
-      <section style={{ backgroundColor: COLORS.heroBg }}
-        className="pt-40 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h1 style={{
-            color: COLORS.heroText,
-            fontSize: 'clamp(3rem, 7vw, 6rem)',
-            fontWeight: 800,
-            lineHeight: 1,
-            letterSpacing: '-0.03em',
-          }}>
-            Let's talk.
-          </h1>
-        </div>
-      </section>
+      {/* Who should reach out */}
+      <section id="who-we-work-with" className="section-y bg-white">
+        <div className="container-fg">
+          <div className="mx-auto max-w-5xl">
+            <span className="eyebrow">Who should reach out</span>
+            <h2 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-brand-navy md:text-4xl">
+              Our network and our people.
+            </h2>
 
-      {/* FORMULARIO */}
-      <section style={{ backgroundColor: COLORS.heroBg }}
-        className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-
-          {!submitted ? (
-            <form onSubmit={handleSubmit}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              {/* Nombre */}
-              <div className="flex flex-col gap-2">
-                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={e => setFormData({ ...formData, name: e.target.value })}
-                  style={{
-                    backgroundColor: COLORS.formBg,
-                    border: `1px solid ${COLORS.formBorder}`,
-                    borderRadius: '10px',
-                    padding: '12px 16px',
-                    color: COLORS.inputText,
-                    fontSize: '14px',
-                    outline: 'none',
-                  }}
-                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-                />
-              </div>
-
-              {/* Email */}
-              <div className="flex flex-col gap-2">
-                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  style={{
-                    backgroundColor: COLORS.formBg,
-                    border: `1px solid ${COLORS.formBorder}`,
-                    borderRadius: '10px',
-                    padding: '12px 16px',
-                    color: COLORS.inputText,
-                    fontSize: '14px',
-                    outline: 'none',
-                  }}
-                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-                />
-              </div>
-
-              {/* Teléfono */}
-              <div className="flex flex-col gap-2">
-                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  placeholder="+34 600 000 000"
-                  value={formData.phone}
-                  onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                  style={{
-                    backgroundColor: COLORS.formBg,
-                    border: `1px solid ${COLORS.formBorder}`,
-                    borderRadius: '10px',
-                    padding: '12px 16px',
-                    color: COLORS.inputText,
-                    fontSize: '14px',
-                    outline: 'none',
-                  }}
-                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-                />
-              </div>
-
-              {/* Mensaje */}
-              <div className="flex flex-col gap-2 md:col-span-2">
-                <label style={{ color: COLORS.labelColor, fontSize: '13px', fontWeight: 600 }}>
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  placeholder="Tell us who you are and what you are looking for..."
-                  value={formData.message}
-                  onChange={e => setFormData({ ...formData, message: e.target.value })}
-                  style={{
-                    backgroundColor: COLORS.formBg,
-                    border: `1px solid ${COLORS.formBorder}`,
-                    borderRadius: '10px',
-                    padding: '12px 16px',
-                    color: COLORS.inputText,
-                    fontSize: '14px',
-                    outline: 'none',
-                    resize: 'vertical',
-                  }}
-                  onFocus={e => e.currentTarget.style.borderColor = COLORS.formBorderFocus}
-                  onBlur={e => e.currentTarget.style.borderColor = COLORS.formBorder}
-                />
-              </div>
-
-              {/* Submit */}
-              <div className="md:col-span-2">
-                <button
-                  type="submit"
-                  style={{
-                    backgroundColor: COLORS.btnBg,
-                    color: COLORS.btnText,
-                    padding: '14px 32px',
-                    borderRadius: '10px',
-                    fontSize: '15px',
-                    fontWeight: 600,
-                    border: 'none',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                  className="hover:opacity-90 transition-opacity"
+            <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+              {profiles.map((profile) => (
+                <div
+                  key={profile.title}
+                  className="rounded-2xl border border-brand-border bg-brand-cream/50 p-6 transition-shadow duration-200 hover:shadow-md"
                 >
-                  Send message <MoveRight size={16} />
-                </button>
-              </div>
-
-            </form>
-          ) : (
-            /* Confirmación */
-            <div style={{ maxWidth: '480px' }}>
-              <p style={{ color: '#1F7A4D', fontSize: '16px', fontWeight: 700, marginBottom: '8px' }}>
-                ✓ Message sent
-              </p>
-              <p style={{ color: COLORS.heroMuted, fontSize: '14px', lineHeight: 1.7 }}>
-                Thanks for reaching out. We will get back to you as soon as possible.
-              </p>
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-brand-border bg-white text-brand-blue">
+                    <profile.icon size={20} />
+                  </div>
+                  <h3 className="mb-2 text-[15px] font-bold text-brand-navy">
+                    {profile.title}
+                  </h3>
+                  <p className="text-[13px] leading-relaxed text-brand-muted">
+                    {profile.body}
+                  </p>
+                </div>
+              ))}
             </div>
-          )}
 
-        </div>
-      </section>
-
-      {/* WHERE WE ARE */}
-      <section style={{ backgroundColor: '#FFFFFF' }} className="py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-
-          <p style={{ color: '#1F4C9C', fontSize: '12px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>
-            Where we are
-          </p>
-
-          <h3 style={{ color: '#1A1F3C', fontSize: '28px', fontWeight: 700, marginBottom: '8px' }}>
-            Based in Madrid.<br />Building globally.
-          </h3>
-
-          <p style={{ color: '#6B7689', fontSize: '14px', marginTop: '12px', lineHeight: 1.6 }}>
-            Born at the Harvard HSIL Hackathon 2026.<br />
-            2nd place globally.
-          </p>
-
-          <div style={{
-            marginTop: '24px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            border: '1px solid #E8E0D0',
-            borderRadius: '999px',
-            padding: '6px 16px',
-            backgroundColor: '#EAF0FA',
-          }}>
-            <span style={{ color: '#1A1F3C', fontSize: '13px', fontWeight: 600 }}>
-              🏆 2nd place — Harvard HSIL Hackathon 2026
-            </span>
+            {/* Based in Madrid */}
+            <div className="mt-14 border-t border-brand-border pt-10">
+              <h3 className="text-2xl font-bold text-brand-navy">
+                Based in Madrid. Building globally.
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-muted">
+                Born at the Harvard HSIL Hackathon 2026.
+              </p>
+              <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-brand-border bg-[#EAF0FA] px-4 py-1.5">
+                <span className="text-[13px] font-semibold text-brand-navy">
+                  🏆 2nd place — Harvard HSIL Hackathon 2026
+                </span>
+              </div>
+            </div>
           </div>
-
         </div>
       </section>
 
-      <Footer />
+      {/* FAQ */}
+      <section id="faq" className="section-y border-t border-brand-border/60 bg-brand-cream/40">
+        <div className="container-fg">
+          <div className="mx-auto max-w-3xl">
+            <span className="eyebrow">FAQ</span>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-brand-navy md:text-4xl">
+              Quick answers to common questions.
+            </h2>
+
+            <div className="mt-10 flex flex-col gap-3">
+              {faqs.map((faq, i) => (
+                <FAQItem
+                  key={faq.question}
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={openFaq === i}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-  )
+  );
 }

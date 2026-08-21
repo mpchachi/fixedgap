@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import { ExternalLink, Search } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import {
   Table, TableHeader, TableBody,
   TableRow, TableHead, TableCell
@@ -334,7 +332,6 @@ export default function ReferencesPage() {
 
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -431,7 +428,6 @@ export default function ReferencesPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

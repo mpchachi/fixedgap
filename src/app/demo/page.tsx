@@ -1,10 +1,7 @@
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 
 export default function DemoPage() {
   return (
     <main>
-      <Navbar />
 
       {/* Hero */}
       <section
@@ -231,7 +228,6 @@ export default function DemoPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

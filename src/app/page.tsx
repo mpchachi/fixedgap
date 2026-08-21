@@ -9,7 +9,6 @@ import TeamPreview from '@/components/sections/TeamPreview';
 import BehindFixedGap from '@/components/sections/BehindFixedGap';
 import Team from '@/components/sections/Team';
 import Contact from '@/components/sections/Contact';
-import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
       <Contact />
       {/* <BehindFixedGap /> */}  {/* pendiente — se construye después */}
       {/* <Team /> */}  {/* pendiente — se construye después */}
-      <Footer />
     </main>
   );
 }

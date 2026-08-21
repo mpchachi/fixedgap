@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { Globe3D, GlobeMarker } from '@/components/ui/3d-globe'
 import { MoveRight } from 'lucide-react'
 
@@ -149,7 +147,6 @@ export default function MarketPage() {
 
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -520,7 +517,6 @@ export default function MarketPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

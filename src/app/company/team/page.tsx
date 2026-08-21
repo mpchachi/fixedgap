@@ -1,5 +1,3 @@
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { TeamCarousel } from '@/components/ui/TeamCarousel'
 
 const COLORS = {
@@ -13,7 +11,6 @@ const COLORS = {
 export default function TeamPage() {
   return (
     <main>
-      <Navbar />
 
       {/* Hero de la página */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -84,7 +81,6 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

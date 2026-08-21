@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -72,6 +73,7 @@ export default function RootLayout({
         <LoadingScreen />
         <Navbar />
         <div className="pt-20">{children}</div>
+        <Footer />
       </body>
     </html>
   );

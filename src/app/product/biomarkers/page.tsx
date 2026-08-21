@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const COLORS = {
   bg: '#FFFFFF',
@@ -160,7 +158,6 @@ export default function BiomarkersPage() {
 
   return (
     <main>
-      <Navbar />
 
       {/* Hero */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -307,7 +304,6 @@ export default function BiomarkersPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

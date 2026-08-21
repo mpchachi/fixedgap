@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle, Clock, MoveRight } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { RoadmapCard } from '@/components/ui/roadmap-card'
 
 const COLORS = {
@@ -124,7 +122,6 @@ const validationPlan = [
 export default function ValidationPage() {
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }} className="pt-40 pb-24 px-6">
@@ -294,7 +291,6 @@ export default function ValidationPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

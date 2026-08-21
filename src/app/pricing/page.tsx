@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Building2, HeartPulse, MoveRight } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 // COLORES
 const COLORS = {
@@ -34,7 +32,6 @@ const COLORS = {
 export default function PricingPage() {
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -222,7 +219,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

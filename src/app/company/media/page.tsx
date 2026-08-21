@@ -1,8 +1,6 @@
 'use client'
 
 import { ExternalLink } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const COLORS = {
   heroBg: '#0A0F1E',
@@ -49,7 +47,6 @@ const pressItems = [
 export default function MediaPage() {
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }} className="pt-40 pb-20 px-6">
@@ -140,7 +137,6 @@ export default function MediaPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

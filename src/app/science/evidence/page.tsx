@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { MoveRight } from 'lucide-react'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const COLORS = {
   heroBg: '#0A0F1E',
@@ -77,7 +75,6 @@ const stats = [
 export default function EvidencePage() {
   return (
     <main>
-      <Navbar />
 
       {/* HERO */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -184,7 +181,6 @@ export default function EvidencePage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }

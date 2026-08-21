@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const COLORS = {
   bg: '#FFFFFF',
@@ -20,7 +18,6 @@ const COLORS = {
 export default function AboutPage() {
   return (
     <main>
-      <Navbar />
 
       {/* Hero */}
       <section style={{ backgroundColor: COLORS.heroBg }}
@@ -449,7 +446,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 }
