@@ -286,12 +286,12 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Santa Teresa (Spanish original) */}
+      {/* Quote — Teresa of Ávila */}
       <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
         <Quote
-          text="Nada te turbe, nada te espante. Todo se pasa. La paciencia todo lo alcanza."
-          author="Santa Teresa de Ávila"
-          caption='Doctor of the Church, written in 16th-century Castile. "Let nothing disturb you. Everything passes. Patience attains all things." Five centuries later, it remains the truest description of what recovery demands.'
+          text="Let nothing disturb you. Let nothing frighten you. All things pass. Patience attains everything."
+          author="Teresa of Ávila"
+          caption="Doctor of the Church, 16th-century Castile."
         />
       </section>
 
@@ -300,13 +300,19 @@ export default function BehindFixedGapPage() {
         <div className="mx-auto max-w-3xl">
           <div className={prose}>
             <p>
-              Because stroke recovery does not happen once every few weeks
-              inside a hospital. It happens every day. At home. In repetition.
-              In frustration. In adaptation. In tiny movements almost nobody
-              notices.
+              She wrote those words five centuries ago, about the slow,
+              repetitive, unglamorous work of inner change. She could have been
+              describing rehabilitation.
+            </p>
+            <p>
+              Because stroke recovery is exactly that kind of work. It does not
+              happen once every few weeks inside a hospital. It happens every
+              day. At home. In repetition. In frustration. In adaptation. In
+              tiny movements almost nobody notices. Recovery is patience — and
+              until now, all that patience has been invisible.
             </p>
             <p className="text-[1.35rem] font-bold text-brand-navy">
-              Until now.
+              We exist to make it count.
             </p>
             <p>
               We believe the future of medicine is not episodic. It is
