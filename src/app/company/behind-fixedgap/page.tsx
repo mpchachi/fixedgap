@@ -286,9 +286,18 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
+      {/* Quote — Santa Teresa (Spanish original) */}
+      <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
+        <Quote
+          text="Nada te turbe, nada te espante. Todo se pasa. La paciencia todo lo alcanza."
+          author="Santa Teresa de Ávila"
+          caption='Doctor of the Church, written in 16th-century Castile. "Let nothing disturb you. Everything passes. Patience attains all things." Five centuries later, it remains the truest description of what recovery demands.'
+        />
+      </section>
+
       {/* 7 — Closing */}
-      <section className="section-y bg-white px-6 pt-0">
-        <div className="mx-auto max-w-3xl border-t border-brand-border/50 pt-20">
+      <section className="section-y bg-white px-6">
+        <div className="mx-auto max-w-3xl">
           <div className={prose}>
             <p>
               Because stroke recovery does not happen once every few weeks
@@ -308,6 +317,10 @@ export default function BehindFixedGapPage() {
             </p>
             <p className="text-[1.35rem] font-bold text-brand-navy">
               Recovery is the next signal. We are building its instrument.
+            </p>
+            <p>
+              And we are building it in Madrid — the city where Cajal first
+              drew, in ink, the neurons that every recovery depends on.
             </p>
             <p className="text-[1.35rem] font-bold text-brand-navy">
               That is why FixedGap exists.
