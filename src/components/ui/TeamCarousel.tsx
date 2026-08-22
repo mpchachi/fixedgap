@@ -57,8 +57,8 @@ const team: TeamMember[] = [
   },
   {
     name: "José Antonio López-Martín",
-    title: "Co-founder, Medicine & Clinical Research",
-    description: "José Antonio serves as senior clinical validator and medical research lead at Fixed Gap. He is Director of Research and Innovation at Atrys and brings deep experience in clinical research, translational medicine, precision medicine, medical oncology, clinical development, and medical innovation. Graduated with honors (Premio Extraordinario de Licenciatura, 1989) and holds a Doctor of Philosophy (PhD) in Medicine (2016). At Fixed Gap, José Antonio provides physician-level judgment and clinical credibility, helping the team challenge its medical assumptions, define a credible validation pathway, and ensure the product remains aligned with real clinical workflows and physician needs. His role is especially important as Fixed Gap moves from MVP development toward clinical validation and pilot readiness.",
+    title: "Clinical Advisor",
+    description: "José Antonio advises Fixed Gap on clinical validation and medical research. He is Director of Research and Innovation at Atrys and brings deep experience in clinical research, translational medicine, precision medicine, medical oncology, clinical development, and medical innovation. Graduated with honors (Premio Extraordinario de Licenciatura, 1989) and holds a Doctor of Philosophy (PhD) in Medicine (2016). As advisor, José Antonio provides physician-level judgment and clinical credibility: he helps the founding team challenge its medical assumptions, define a credible validation pathway, and keep the product aligned with real clinical workflows and physician needs as Fixed Gap moves from MVP development toward clinical validation and pilot readiness.",
     imageUrl: "/team/jal.jpg",
     linkedinUrl: "#",
   },
