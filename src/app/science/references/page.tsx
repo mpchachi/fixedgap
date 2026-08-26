@@ -38,7 +38,7 @@ const references = [
     journal: 'PLOS ONE',
     year: '2024',
     doi: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11502211/',
-    relevance: 'Validates the Fugl-Meyer Assessment as the gold standard for upper extremity motor recovery after stroke — the scale our biomarkers correlate against.',
+    relevance: 'Validates the Fugl-Meyer Assessment as the gold standard for upper extremity motor recovery after stroke: the scale our biomarkers correlate against.',
     tag: 'validated',
   },
   {
@@ -48,7 +48,7 @@ const references = [
     journal: 'Universidad Complutense de Madrid',
     year: '2011',
     doi: 'https://produccioncientifica.ucm.es/documentos/5d39995129995206844416ea',
-    relevance: 'Spanish validation of the Fugl-Meyer scale — directly relevant for our target market in Spain.',
+    relevance: 'Spanish validation of the Fugl-Meyer scale, directly relevant for our target market in Spain.',
     tag: 'validated',
   },
   {
@@ -58,7 +58,7 @@ const references = [
     journal: 'Stroke',
     year: '2024',
     doi: 'https://www.ahajournals.org/doi/10.1161/STROKEAHA.124.048033',
-    relevance: 'Global stroke epidemiology — 12.2M new cases per year worldwide, 7.25M deaths annually.',
+    relevance: 'Global stroke epidemiology: 12.2M new cases per year worldwide, 7.25M deaths annually.',
     tag: 'grounded',
   },
   {
@@ -73,7 +73,7 @@ const references = [
   },
   {
     id: '05',
-    title: 'Heart Disease and Stroke Statistics — 2024 Update',
+    title: 'Heart Disease and Stroke Statistics: 2024 Update',
     authors: 'Virani, S.S. et al.',
     journal: 'Circulation',
     year: '2024',
@@ -88,7 +88,7 @@ const references = [
     journal: 'JMIR Human Factors',
     year: '2025',
     doi: 'https://humanfactors.jmir.org/2025/1/e69464',
-    relevance: 'Evidence base for adherence challenges in digital health — directly relevant to FixedGap\'s gamification approach.',
+    relevance: 'Evidence base for adherence challenges in digital health, directly relevant to FixedGap\'s gamification approach.',
     tag: 'grounded',
   },
   {
@@ -98,7 +98,7 @@ const references = [
     journal: 'JMIR Rehabilitation and Assistive Technologies',
     year: '2023',
     doi: 'https://rehab.jmir.org/2023/1/e43507/',
-    relevance: 'Digital health apps improve rehabilitation adherence — supports the clinical rationale for FixedGap\'s game-based approach.',
+    relevance: 'Digital health apps improve rehabilitation adherence: supports the clinical rationale for FixedGap\'s game-based approach.',
     tag: 'grounded',
   },
   {
@@ -108,7 +108,7 @@ const references = [
     journal: 'The Lancet Neurology',
     year: '2026',
     doi: 'https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(26)00093-1/fulltext',
-    relevance: 'Most recent global stroke burden data — 12M+ new cases annually, 70% increase over three decades.',
+    relevance: 'Most recent global stroke burden data: 12M+ new cases annually, 70% increase over three decades.',
     tag: 'grounded',
   },
 ]
@@ -136,7 +136,7 @@ const groundedRefs = [
   },
   {
     id: '05',
-    title: 'Heart Disease and Stroke Statistics — 2024 Update',
+    title: 'Heart Disease and Stroke Statistics: 2024 Update',
     relevance: 'US stroke incidence',
     year: '2024',
     type: 'Epidemiology',
@@ -416,7 +416,7 @@ export default function ReferencesPage() {
             className="text-lg mt-6 leading-relaxed">
             FixedGap is currently in clinical validation phase. The references
             above represent the scientific foundation on which we built our
-            biomarker panel — not direct validation of our specific product implementation.
+            biomarker panel, not direct validation of our specific product implementation.
           </p>
           <p style={{ color: COLORS.transparencyMuted }}
             className="text-base mt-4 leading-relaxed">

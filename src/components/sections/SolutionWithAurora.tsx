@@ -86,7 +86,7 @@ export default function SolutionWithAurora() {
         {/* Tres columnas con líneas conectoras */}
         <div className="mt-16 relative">
 
-          {/* Líneas conectoras — visibles solo en desktop */}
+          {/* Líneas conectoras - visibles solo en desktop */}
           <div className="hidden lg:block absolute top-[88px] left-0 right-0 z-0">
             <svg width="100%" height="4" style={{ overflow: 'visible' }}>
               {/* Línea del 01 al 02 */}

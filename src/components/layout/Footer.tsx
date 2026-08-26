@@ -33,7 +33,7 @@ export default function Footer() {
     <footer className="border-t border-white/[0.06] bg-brand-navy py-16">
       <div className="container-fg">
         <div className="mx-auto max-w-5xl">
-          {/* Top row — logo + link columns */}
+          {/* Top row - logo + link columns */}
           <div className="grid grid-cols-2 gap-12 md:grid-cols-5">
             <div className="col-span-2">
               <div className="flex items-center gap-2.5">

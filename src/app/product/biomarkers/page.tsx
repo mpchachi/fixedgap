@@ -38,7 +38,7 @@ const categories = [
     metrics: [
       {
         name: 'Pinch Precision',
-        subtitle: 'M1 — pinch_precision',
+        subtitle: 'M1: pinch_precision',
         description: 'Normalised distance between thumb (L4) and index finger (L8) relative to palm width. Captures the accuracy and consistency of the pinch gesture.',
         insight: 'Core marker of distal hand function after stroke. Directly maps to the FMA-UE pinch item.',
         priority: 'CORE',
@@ -47,20 +47,20 @@ const categories = [
         name: 'Reach Precision',
         subtitle: 'reach_precision',
         description: 'Distance between the endpoint of the reach movement and the target, plus transit time. Measures visuomotor coordination and spatial accuracy.',
-        insight: 'Captures the integration of vision and hand movement — one of the first functions to degrade after stroke.',
+        insight: 'Captures the integration of vision and hand movement: one of the first functions to degrade after stroke.',
         priority: 'CORE',
       },
       {
         name: 'Endpoint Overshoot',
         subtitle: 'endpoint_overshoot',
-        description: 'Distance between the stopping position and the intended target. Measures dysmetria — the tendency to overshoot or undershoot a target.',
+        description: 'Distance between the stopping position and the intended target. Measures dysmetria: the tendency to overshoot or undershoot a target.',
         insight: 'Dysmetria is a hallmark of cerebellar and motor cortex damage. Tracking it session by session reveals recovery of motor planning.',
         priority: 'CORE',
       },
       {
-        name: 'Movement Smoothness — SPARC',
-        subtitle: 'M11 — Spectral Arc Length',
-        description: 'Spectral Arc Length of the velocity profile. Measures how fluid or jerky the movement is — healthy movement is smooth, neurologically impaired movement is fragmented.',
+        name: 'Movement Smoothness (SPARC)',
+        subtitle: 'M11: Spectral Arc Length',
+        description: 'Spectral Arc Length of the velocity profile. Measures how fluid or jerky the movement is: healthy movement is smooth, neurologically impaired movement is fragmented.',
         insight: 'Single most sensitive kinematic marker of neurological motor recovery. Correlates directly with FMA-UE scores.',
         priority: 'CORE',
       },
@@ -74,7 +74,7 @@ const categories = [
       {
         name: 'Index Finger Extension Accuracy',
         subtitle: 'index_extension_acc',
-        description: 'Extension of the index finger toward the target — angle at the metacarpophalangeal joint. Measures isolated finger extension, a key recovery milestone after stroke.',
+        description: 'Extension of the index finger toward the target: angle at the metacarpophalangeal joint. Measures isolated finger extension, a key recovery milestone after stroke.',
         insight: 'Loss of isolated finger extension is one of the most common and disabling consequences of stroke. Its recovery signals cortical reorganisation.',
         priority: 'CORE',
       },
@@ -82,19 +82,19 @@ const categories = [
         name: 'Hand Opening Speed',
         subtitle: 'M2',
         description: 'Speed of separation of all 5 fingers relative to the palm centroid. Measures how quickly the patient can open their hand voluntarily.',
-        insight: 'Hand opening speed drops sharply after stroke and recovers in a predictable pattern — making it a reliable longitudinal marker.',
+        insight: 'Hand opening speed drops sharply after stroke and recovers in a predictable pattern, making it a reliable longitudinal marker.',
         priority: 'CORE',
       },
       {
         name: 'Reach Precision',
         subtitle: 'reach_precision',
         description: 'Distance between endpoint and target plus transit time during the reach toward the switch.',
-        insight: 'Same metric as the pill organizer — measuring it across different tasks reveals whether the deficit is task-specific or generalised.',
+        insight: 'Same metric as the pill organizer: measuring it across different tasks reveals whether the deficit is task-specific or generalised.',
         priority: 'CORE',
       },
       {
-        name: 'Movement Smoothness — SPARC',
-        subtitle: 'M11 — Spectral Arc Length',
+        name: 'Movement Smoothness (SPARC)',
+        subtitle: 'M11: Spectral Arc Length',
         description: 'Smoothness of the reach gesture toward the light switch. Fragmented movement indicates impaired motor control.',
         insight: 'Gold standard smoothness metric. Validated in a systematic review of 32 kinematic metrics.',
         priority: 'CORE',
@@ -108,7 +108,7 @@ const categories = [
     metrics: [
       {
         name: 'Rotation Range of Motion',
-        subtitle: 'M4 — range_of_motion',
+        subtitle: 'M4: range_of_motion',
         description: 'Maximum angle of wrist rotation, normalised by the patient\'s own baseline maximum. Measures how far the patient can rotate the wrist in a pouring motion.',
         insight: 'Wrist rotation is among the first movements affected after stroke and among the last to recover. Daily tracking captures the recovery curve precisely.',
         priority: 'CORE',
@@ -117,14 +117,14 @@ const categories = [
         name: 'Pronation/Supination Speed',
         subtitle: 'pronosup_speed',
         description: 'Mean angular velocity of the repeated rotation gesture. Measures how quickly the patient can pronate and supinate the forearm.',
-        insight: 'Speed of forearm rotation is a direct proxy for motor fluency and muscle coordination — key indicators of upper limb recovery.',
+        insight: 'Speed of forearm rotation is a direct proxy for motor fluency and muscle coordination: key indicators of upper limb recovery.',
         priority: 'CORE',
       },
       {
-        name: 'Movement Smoothness — SPARC',
-        subtitle: 'M11 — Spectral Arc Length',
+        name: 'Movement Smoothness (SPARC)',
+        subtitle: 'M11: Spectral Arc Length',
         description: 'Smoothness of the rotation velocity profile during the pouring movement.',
-        insight: 'Fragmented rotation — even with adequate range — indicates persisting motor control impairment.',
+        insight: 'Fragmented rotation (even with adequate range) indicates persisting motor control impairment.',
         priority: 'CORE',
       },
     ]
@@ -137,7 +137,7 @@ const categories = [
       {
         name: 'Inter-hand Asymmetry Index',
         subtitle: 'asymmetry_index',
-        description: 'Ratio of the affected hand metric to the unaffected hand metric — for velocity, precision, and SPARC. Quantifies the performance gap between both hands.',
+        description: 'Ratio of the affected hand metric to the unaffected hand metric, for velocity, precision, and SPARC. Quantifies the performance gap between both hands.',
         insight: 'Post-stroke motor impairment is almost always asymmetric. Tracking how the gap closes over time is one of the most clinically meaningful recovery indicators.',
         priority: 'CORE',
       },
@@ -145,7 +145,7 @@ const categories = [
         name: 'Recovery Gap',
         subtitle: 'recovery_gap',
         description: 'Absolute difference between the unaffected and affected hand performance over time. Shows directly how much recovery has occurred session by session.',
-        insight: 'A single number that tells the neurologist how far the patient still has to go — and how fast they are getting there.',
+        insight: 'A single number that tells the neurologist how far the patient still has to go, and how fast they are getting there.',
         priority: 'CORE',
       },
     ]
@@ -184,7 +184,7 @@ export default function BiomarkersPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-            {/* Columna izquierda — categorías */}
+            {/* Columna izquierda - categorías */}
             <div className="flex flex-col gap-3">
               {categories.map(cat => (
                 <button
@@ -221,7 +221,7 @@ export default function BiomarkersPage() {
               ))}
             </div>
 
-            {/* Columna derecha — flashcards animadas */}
+            {/* Columna derecha - flashcards animadas */}
             <div className="lg:col-span-2 flex flex-col gap-4">
               <AnimatePresence mode="wait">
                 <motion.div

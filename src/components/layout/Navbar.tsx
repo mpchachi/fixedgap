@@ -58,7 +58,7 @@ const menuItems: MenuItem[] = [
       {
         icon: <Activity className="h-5 w-5" />,
         label: 'Biomarkers',
-        description: '13 clinical biomarkers — MVP to roadmap',
+        description: '13 clinical biomarkers: MVP to roadmap',
         href: '/product/biomarkers',
       },
       {
@@ -147,7 +147,7 @@ const menuItems: MenuItem[] = [
   {
     label: 'Contact',
     description:
-      "Whether you're a neurologist, an investor, or just curious — we'd love to hear from you.",
+      "Whether you're a neurologist, an investor, or just curious, we'd love to hear from you.",
     items: [
       {
         icon: <Mail className="h-5 w-5" />,
@@ -501,7 +501,7 @@ export default function Navbar() {
                 <iframe
                   className="block aspect-video w-full"
                   src={videos[activeVideo].youtube}
-                  title={`FixedGap — ${videos[activeVideo].title}`}
+                  title={`FixedGap: ${videos[activeVideo].title}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />

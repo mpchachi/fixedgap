@@ -1,4 +1,4 @@
-/* Behind FixedGap — manifesto */
+/* Behind FixedGap - manifesto */
 
 const prose = 'flex flex-col gap-6 text-[1.05rem] leading-[1.85] text-[#3F4A5E]';
 const lead = 'font-semibold text-[1.25rem] leading-snug text-brand-navy';
@@ -19,7 +19,7 @@ function Quote({
         &ldquo;{text}&rdquo;
       </blockquote>
       <figcaption className="mt-5 text-base not-italic text-brand-muted">
-        <span className="font-semibold text-brand-navy">&mdash; {author}</span>
+        <span className="font-semibold text-brand-navy">{author}</span>
         {caption && <span className="mt-1 block text-sm">{caption}</span>}
       </figcaption>
     </figure>
@@ -41,7 +41,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* 1 — The pattern of progress */}
+      {/* 1 - The pattern of progress */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-3xl">
           <div className={prose}>
@@ -64,7 +64,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Kelvin */}
+      {/* Quote - Kelvin */}
       <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
         <Quote
           text="When you can measure what you are speaking about, and express it in numbers, you know something about it; when you cannot measure it, your knowledge is of a meagre and unsatisfactory kind."
@@ -73,7 +73,7 @@ export default function BehindFixedGapPage() {
         />
       </section>
 
-      {/* 2 — Medicine's blind spot (image right) */}
+      {/* 2 - Medicine's blind spot (image right) */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -121,7 +121,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* 3 — Snapshots vs continuous */}
+      {/* 3 - Snapshots vs continuous */}
       <section className="section-y border-y border-brand-border/50 bg-brand-cream/40 px-6">
         <div className="mx-auto max-w-3xl">
           <div className={prose}>
@@ -147,7 +147,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Galileo (centerpiece, dark) */}
+      {/* Quote - Galileo (centerpiece, dark) */}
       <section className="bg-brand-navy px-6 py-24">
         <figure className="mx-auto max-w-3xl text-center">
           <blockquote className="text-[1.6rem] font-medium italic leading-relaxed text-white md:text-[1.9rem]">
@@ -155,12 +155,12 @@ export default function BehindFixedGapPage() {
             so.&rdquo;
           </blockquote>
           <figcaption className="mt-6 text-base text-white/60">
-            &mdash; attributed to Galileo Galilei
+            Attributed to Galileo Galilei
           </figcaption>
         </figure>
       </section>
 
-      {/* 4 — Recovery is the next signal */}
+      {/* 4 - Recovery is the next signal */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-3xl">
           <div className={prose}>
@@ -182,7 +182,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Cajal */}
+      {/* Quote - Cajal */}
       <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
         <Quote
           text="Every man can, if he so desires, become the sculptor of his own brain."
@@ -191,7 +191,7 @@ export default function BehindFixedGapPage() {
         />
       </section>
 
-      {/* 5 — Origin story (glove image) */}
+      {/* 5 - Origin story (glove image) */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -233,7 +233,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Brenner */}
+      {/* Quote - Brenner */}
       <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
         <Quote
           text="Progress in science depends on new techniques, new discoveries and new ideas, probably in that order."
@@ -242,7 +242,7 @@ export default function BehindFixedGapPage() {
         />
       </section>
 
-      {/* 6 — The rebuild (team image) */}
+      {/* 6 - The rebuild (team image) */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -286,7 +286,7 @@ export default function BehindFixedGapPage() {
         </div>
       </section>
 
-      {/* Quote — Teresa of Ávila */}
+      {/* Quote - Teresa of Ávila */}
       <section className="border-y border-brand-border/50 bg-brand-cream/40 px-6 py-20">
         <Quote
           text="Let nothing disturb you. Let nothing frighten you. All things pass. Patience attains everything."
@@ -295,7 +295,7 @@ export default function BehindFixedGapPage() {
         />
       </section>
 
-      {/* 7 — Closing */}
+      {/* 7 - Closing */}
       <section className="section-y bg-white px-6">
         <div className="mx-auto max-w-3xl">
           <div className={prose}>
@@ -308,7 +308,7 @@ export default function BehindFixedGapPage() {
               Because stroke recovery is exactly that kind of work. It does not
               happen once every few weeks inside a hospital. It happens every
               day. At home. In repetition. In frustration. In adaptation. In
-              tiny movements almost nobody notices. Recovery is patience — and
+              tiny movements almost nobody notices. Recovery is patience, and
               until now, all that patience has been invisible.
             </p>
             <p className="text-[1.35rem] font-bold text-brand-navy">
@@ -325,7 +325,7 @@ export default function BehindFixedGapPage() {
               Recovery is the next signal. We are building its instrument.
             </p>
             <p>
-              And we are building it in Madrid — the city where Cajal first
+              And we are building it in Madrid: the city where Cajal first
               drew, in ink, the neurons that every recovery depends on.
             </p>
             <p className="text-[1.35rem] font-bold text-brand-navy">

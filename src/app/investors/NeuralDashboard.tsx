@@ -531,7 +531,7 @@ function NeuralDashboard() {
           <KPI label="Pupil" value={3.4} unit="mm" />
         </div>
 
-        {/* Hand panel — canvas only */}
+        {/* Hand panel - canvas only */}
         <div className="rounded overflow-hidden" style={{
           background: "rgba(0, 0, 0, 0.15)",
           border: "1px solid rgba(34, 211, 238, 0.08)",
@@ -544,7 +544,7 @@ function NeuralDashboard() {
           <div className="flex justify-center"><HandVis w={250} h={100} /></div>
         </div>
 
-        {/* Eye panel — canvas only */}
+        {/* Eye panel - canvas only */}
         <div className="rounded overflow-hidden" style={{
           background: "rgba(0, 0, 0, 0.15)",
           border: "1px solid rgba(34, 211, 238, 0.08)",
@@ -557,7 +557,7 @@ function NeuralDashboard() {
           <div className="flex justify-center"><EyeVis w={250} h={85} /></div>
         </div>
 
-        {/* Voice panel — canvas only */}
+        {/* Voice panel - canvas only */}
         <div className="rounded overflow-hidden" style={{
           background: "rgba(0, 0, 0, 0.15)",
           border: "1px solid rgba(34, 211, 238, 0.08)",

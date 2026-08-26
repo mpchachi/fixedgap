@@ -40,7 +40,7 @@ export default function Contact() {
       <div className="container-fg">
         <div className="mx-auto max-w-5xl">
           {/* SEO heading - invisible */}
-          <h2 style={srOnly}>Contact FixedGap — Post-Stroke Rehabilitation Monitoring Platform</h2>
+          <h2 style={srOnly}>Contact FixedGap: Post-Stroke Rehabilitation Monitoring Platform</h2>
 
           <span className="eyebrow !text-[#7EA6F4]">Contact</span>
 

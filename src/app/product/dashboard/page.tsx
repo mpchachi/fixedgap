@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { MoveRight, Activity, Brain, Calendar, BarChart3 } from "lucide-react"
 
-// COLORES — cambiar aquí para modificar toda la página
+// COLORES - cambiar aquí para modificar toda la página
 const COLORS = {
   heroBg: '#0A0F1E',
   heroText: '#FFFFFF',
@@ -42,12 +42,12 @@ const reportMetrics = [
   {
     icon: Activity,
     title: 'Clinical Recovery Index',
-    description: 'Weighted composite score across the three games — pill organizer, light switch, and water jug — calibrated against the Fugl-Meyer Assessment Upper Extremity scale.'
+    description: 'Weighted composite score across the three games (pill organizer, light switch, and water jug), calibrated against the Fugl-Meyer Assessment Upper Extremity scale.'
   },
   {
     icon: Brain,
     title: 'Hand Kinematics',
-    description: 'Pinch precision, reach accuracy, endpoint overshoot, wrist rotation range, and movement smoothness (SPARC) — the core metrics from each game, tracked session by session.'
+    description: 'Pinch precision, reach accuracy, endpoint overshoot, wrist rotation range, and movement smoothness (SPARC): the core metrics from each game, tracked session by session.'
   },
   {
     icon: BarChart3,
@@ -74,7 +74,7 @@ export default function DashboardPage() {
   return (
     <main>
 
-      {/* HERO — texto rotando */}
+      {/* HERO - texto rotando */}
       <section style={{ backgroundColor: COLORS.heroBg }}
         className="pt-40 pb-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -145,13 +145,13 @@ export default function DashboardPage() {
                 After every session, FixedGap automatically generates
                 a full clinical report. No manual input. No waiting. The neurologist
                 opens their dashboard and sees exactly how the patient moved, how
-                consistently they showed up, and whether recovery is on track —
+                consistently they showed up, and whether recovery is on track,
                 before the next appointment.
               </p>
               <p style={{ color: COLORS.body }}
                 className="text-lg mt-4 leading-relaxed">
                 Every report includes hand kinematics, movement smoothness, finger
-                individuation, reaction time, and adherence data — all organized
+                individuation, reaction time, and adherence data, all organized
                 in a single view designed for clinical decision-making.
               </p>
             </div>

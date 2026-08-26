@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// BEFORE — to revert if needed:
+// BEFORE - to revert if needed:
 // import { Inter } from "next/font/google";
 // const inter = Inter({
 //   variable: "--font-inter",
@@ -28,10 +28,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "FixedGap — Post-Stroke Rehabilitation Platform",
+  title: "FixedGap: Post-Stroke Rehabilitation Platform",
   description: "AI-powered rehabilitation platform for stroke recovery. Computer vision biomechanics analysis for neurological rehabilitation.",
   openGraph: {
-    title: "FixedGap — Post-Stroke Rehabilitation Platform",
+    title: "FixedGap: Post-Stroke Rehabilitation Platform",
     description: "AI-powered rehabilitation platform for stroke recovery. Computer vision biomechanics analysis for neurological rehabilitation.",
     url: 'https://fixedgap.com', // Cambia esto por tu dominio real cuando lo tengas
     siteName: 'FixedGap',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "FixedGap — Post-Stroke Rehabilitation Platform",
+    title: "FixedGap: Post-Stroke Rehabilitation Platform",
     description: "AI-powered rehabilitation platform for stroke recovery. Computer vision biomechanics analysis for neurological rehabilitation.",
     images: ['/og-image.jpg'], // Misma imagen para Twitter
   },

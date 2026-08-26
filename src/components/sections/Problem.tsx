@@ -71,7 +71,7 @@ export default function Problem() {
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
             Neurologists see their patients once a month. Physiotherapists twice a
-            week. The rest of the time, patients are alone — with no data, no
+            week. The rest of the time, patients are alone, with no data, no
             feedback, and no way to detect when recovery stalls. The gap between
             clinical visits is where recovery is won or lost.
           </p>

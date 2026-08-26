@@ -34,7 +34,7 @@ export default function TeamPreview() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
             FixedGap was born at the Harvard HSIL Hackathon 2026. Our team
             combines computer science, biomedical engineering, business strategy,
-            and clinical medicine — united by a single goal: making post-stroke
+            and clinical medicine, united by a single goal: making post-stroke
             recovery visible from home.
           </p>
 

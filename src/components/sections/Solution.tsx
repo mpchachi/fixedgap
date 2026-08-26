@@ -19,7 +19,7 @@ const metrics = [
   'Pinch Precision (M1)',
   'Reach Precision',
   'Endpoint Overshoot',
-  'Movement Smoothness — SPARC (M11)',
+  'Movement Smoothness: SPARC (M11)',
   'Index Extension Accuracy',
   'Hand Opening Speed (M2)',
   'Rotation Range of Motion (M4)',
@@ -41,7 +41,7 @@ const stakeholders = [
   {
     title: 'For patients',
     points: [
-      'Engaging rehabilitation — not repetitive exercises',
+      'Engaging rehabilitation, not repetitive exercises',
       'Feel supported between appointments',
       'Increased motivation and adherence',
       'Awareness of their own progress',
@@ -61,12 +61,12 @@ const stakeholders = [
 export default function Solution() {
   return (
     <>
-      {/* PART 1 — One camera. Hand tracking. */}
+      {/* PART 1 - One camera. Hand tracking. */}
       <section className="section-y bg-white">
         <div className="container-fg">
           <div className="mx-auto max-w-5xl">
             {/* SEO headings - invisible */}
-            <h2 style={srOnly}>Computer Vision Rehabilitation — No Hardware Required</h2>
+            <h2 style={srOnly}>Computer Vision Rehabilitation: No Hardware Required</h2>
             <h3 style={srOnly}>Hand tracking with 21 landmarks in real time</h3>
             <h3 style={srOnly}>Clinical-grade movement analysis through any webcam</h3>
 
@@ -77,13 +77,13 @@ export default function Solution() {
               Clinical-grade hand tracking.
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-brand-muted">
-              Everything a physiotherapist checks in a 15-minute visit — captured
+              Everything a physiotherapist checks in a 15-minute visit, captured
               automatically every session.
             </p>
 
             {/* Two-column layout */}
             <div className="mt-16 grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-              {/* Left — description + metric chips */}
+              {/* Left - description + metric chips */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ export default function Solution() {
                 </h3>
                 <p className="mb-8 text-base leading-relaxed text-brand-muted">
                   MediaPipe detects every joint in real time across three clinical
-                  games — pinch, finger extension, and wrist rotation. Each movement
+                  games: pinch, finger extension, and wrist rotation. Each movement
                   maps directly to an item on the Fugl-Meyer Assessment scale,
                   captured automatically every session.
                 </p>
@@ -119,7 +119,7 @@ export default function Solution() {
                 </div>
               </motion.div>
 
-              {/* Right — image */}
+              {/* Right - image */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -140,7 +140,7 @@ export default function Solution() {
         </div>
       </section>
 
-      {/* PART 2 — Value for every stakeholder */}
+      {/* PART 2 - Value for every stakeholder */}
       <section className="section-y bg-brand-navy">
         <div className="container-fg">
           <div className="mx-auto max-w-5xl">

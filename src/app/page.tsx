@@ -24,8 +24,8 @@ export default function Home() {
       <Metrics />
       <TeamPreview />
       <Contact />
-      {/* <BehindFixedGap /> */}  {/* pendiente — se construye después */}
-      {/* <Team /> */}  {/* pendiente — se construye después */}
+      {/* <BehindFixedGap /> */}  {/* pendiente - se construye después */}
+      {/* <Team /> */}  {/* pendiente - se construye después */}
     </main>
   );
 }

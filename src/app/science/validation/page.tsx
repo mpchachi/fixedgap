@@ -32,13 +32,13 @@ const COLORS = {
 
 const scientificBasis = [
   {
-    metric: 'Movement Smoothness — SPARC (M11)',
+    metric: 'Movement Smoothness: SPARC (M11)',
     evidence: 'Identified as the gold standard smoothness metric in a systematic review of 32 kinematic metrics. SPARC directly correlates with Fugl-Meyer Assessment Upper Extremity scores and detects early deterioration before the patient notices.',
     status: 'validated',
   },
   {
-    metric: 'Range of Motion — Wrist Rotation (M4)',
-    evidence: 'FixedGap\'s hand kinematics panel — including rotation range of motion — achieves Spearman correlation ρ≈0.92 with the FMA-UE distal block. Wrist ROM is a direct FMA-UE item (flexion-extension and rotation).',
+    metric: 'Range of Motion: Wrist Rotation (M4)',
+    evidence: 'FixedGap\'s hand kinematics panel (including rotation range of motion) achieves Spearman correlation ρ≈0.92 with the FMA-UE distal block. Wrist ROM is a direct FMA-UE item (flexion-extension and rotation).',
     status: 'validated',
   },
   {
@@ -105,7 +105,7 @@ const validationPlan = [
   {
     step: '02',
     title: 'IRB approval',
-    description: 'Obtain ethics committee approval through a partner university — UCM or similar — to conduct the clinical study.',
+    description: 'Obtain ethics committee approval through a partner university (UCM or similar) to conduct the clinical study.',
   },
   {
     step: '03',
@@ -139,7 +139,7 @@ export default function ValidationPage() {
             className="text-lg mt-6 max-w-2xl leading-relaxed">
             Every biomarker FixedGap captures is grounded in peer-reviewed
             clinical literature. Direct validation of our implementation
-            with patients is our immediate next step — and we are transparent about that.
+            with patients is our immediate next step, and we are transparent about that.
           </p>
         </div>
       </section>

@@ -40,7 +40,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Phase 01 — Imagen grande + texto superpuesto */}
+      {/* Phase 01 - Imagen grande + texto superpuesto */}
       <section style={{ backgroundColor: COLORS.bg }}
         className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -112,7 +112,7 @@ export default function AboutPage() {
               <p className="mt-6"
                 style={{ color: COLORS.body, fontSize: '1.05rem', lineHeight: 1.7 }}>
                 The system worked. We captured hand tremor, range of motion, muscle
-                compensation, and gaze-hand coordination — all metrics used in clinical
+                compensation, and gaze-hand coordination, all metrics used in clinical
                 stroke assessment.
               </p>
               <p className="mt-4"
@@ -123,7 +123,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Agradecimiento Juan Antonio — Bosch */}
+          {/* Agradecimiento Juan Antonio - Bosch */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function AboutPage() {
             }}>
               <img
                 src="/sponsors/JuanAntonioBosch.jpg"
-                alt="Juan Antonio — Bosch"
+                alt="Juan Antonio (Bosch)"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 onError={e => { e.currentTarget.style.display = 'none' }}
               />
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 Special thanks
               </p>
               <p style={{ color: '#1A1F3C', fontSize: '20px', fontWeight: 700, marginBottom: '10px' }}>
-                Juan Antonio — Bosch
+                Juan Antonio (Bosch)
               </p>
               <p style={{ color: '#6B7689', fontSize: '16px', lineHeight: 1.65 }}>
                 We want to extend our deepest gratitude to <strong>Juan Antonio</strong> and <strong>Bosch</strong> for their invaluable sponsorship and unwavering support during the hackathon. Your belief in our vision helped make this journey possible.
@@ -174,7 +174,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Turning Point — Layout asimétrico */}
+      {/* The Turning Point - Layout asimétrico */}
       <section style={{ backgroundColor: '#F7F9FC' }}
         className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -199,8 +199,8 @@ export default function AboutPage() {
                   are the ones that disappear.
                 </p>
                 <p>
-                  If we could extract the same clinical data using only a camera — something
-                  already in every home — we could eliminate every barrier between patients
+                  If we could extract the same clinical data using only a camera (something
+                  already in every home), we could eliminate every barrier between patients
                   and continuous monitoring.
                 </p>
                 <p style={{ fontWeight: 600, fontSize: '1.1rem' }}>
@@ -223,7 +223,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Phase 02 — Grid 2 columnas con imagen más pequeña */}
+      {/* Phase 02 - Grid 2 columnas con imagen más pequeña */}
       <section style={{ backgroundColor: COLORS.bg }}
         className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -268,7 +268,7 @@ export default function AboutPage() {
                 a medical-grade sensor.
               </p>
               <p style={{ fontWeight: 600, color: COLORS.sectionHeadline }}>
-                FixedGap V2 captures the same 13 clinical biomarkers as the glove — but
+                FixedGap V2 captures the same 13 clinical biomarkers as the glove, but
                 with zero hardware:
               </p>
               <ul className="space-y-3 ml-6">
@@ -301,7 +301,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* From Motion to Meaning — Imagen ancha + texto centrado */}
+      {/* From Motion to Meaning - Imagen ancha + texto centrado */}
       <section style={{ backgroundColor: '#F7F9FC' }}
         className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -361,7 +361,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-            {/* Columna izquierda — texto */}
+            {/* Columna izquierda - texto */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -381,7 +381,7 @@ export default function AboutPage() {
               <p style={{ color: '#3F4A5E' }}
                 className="text-base leading-relaxed mb-4">
                 In June 2026, FixedGap reached the global final of the Harvard
-                Health Systems Innovation Lab Hackathon — held at Pillar VC&apos;s
+                Health Systems Innovation Lab Hackathon, held at Pillar VC&apos;s
                 offices in Boston. Competing against teams from 50 hubs worldwide,
                 the team secured{' '}
                 <span style={{ color: '#1A1F3C', fontWeight: 700 }}>
@@ -395,7 +395,7 @@ export default function AboutPage() {
                 className="text-base leading-relaxed">
                 Five days in Boston, supported by the Real Colegio Complutense
                 at Harvard, included visits to Harvard, MIT, and Massachusetts
-                General Hospital — shaping the next chapter: clinical validation
+                General Hospital, shaping the next chapter: clinical validation
                 and expansion beyond stroke rehabilitation.
               </p>
 
@@ -411,12 +411,12 @@ export default function AboutPage() {
                 marginTop: '28px',
               }}>
                 <span style={{ color: '#1A1F3C', fontSize: '13px', fontWeight: 600 }}>
-                  🏆 2nd place — Harvard HSIL Hackathon 2026
+                  🏆 2nd place, Harvard HSIL Hackathon 2026
                 </span>
               </div>
             </motion.div>
 
-            {/* Columna derecha — marco para foto */}
+            {/* Columna derecha - marco para foto */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}

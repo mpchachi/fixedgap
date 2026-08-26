@@ -32,9 +32,9 @@ const games = [
     number: '01',
     title: 'The Pill Organizer',
     tag: 'Pinch & Fine Motor Control',
-    description: 'The patient drags pills into a weekly organizer using a pinch gesture — thumb and index finger closing to grab and release each pill. The precision, speed and smoothness of each movement is captured frame by frame.',
+    description: 'The patient drags pills into a weekly organizer using a pinch gesture: thumb and index finger closing to grab and release each pill. The precision, speed and smoothness of each movement is captured frame by frame.',
     biomarker: 'Pinch precision (M1), reach precision, endpoint overshoot, movement smoothness SPARC (M11)',
-    why: 'Pinch grip is fundamental to daily life — buttoning, writing, picking up objects. Its degradation after stroke is immediate and its recovery is a key functional milestone tracked by the FMA-UE scale.',
+    why: 'Pinch grip is fundamental to daily life: buttoning, writing, picking up objects. Its degradation after stroke is immediate and its recovery is a key functional milestone tracked by the FMA-UE scale.',
     image: '/juegos/Pill-org.jpeg',
     align: 'left',
   },
@@ -42,9 +42,9 @@ const games = [
     number: '02',
     title: 'The Light Switch',
     tag: 'Finger Extension & Bilateral Asymmetry',
-    description: 'The patient turns light switches on and off — alternating between left and right side targets. The system captures the accuracy of index finger extension, hand opening speed, and the asymmetry between both hands.',
+    description: 'The patient turns light switches on and off, alternating between left and right side targets. The system captures the accuracy of index finger extension, hand opening speed, and the asymmetry between both hands.',
     biomarker: 'Index extension accuracy, hand opening speed (M2), reach precision, movement smoothness SPARC (M11), inter-hand asymmetry index',
-    why: 'Loss of isolated finger extension is one of the most common and disabling consequences of stroke. Bilateral alternation reveals asymmetry between the affected and unaffected hand — one of the most clinically meaningful recovery indicators.',
+    why: 'Loss of isolated finger extension is one of the most common and disabling consequences of stroke. Bilateral alternation reveals asymmetry between the affected and unaffected hand, one of the most clinically meaningful recovery indicators.',
     image: '/juegos/Light Switches.jpeg',
     align: 'right',
   },
@@ -52,7 +52,7 @@ const games = [
     number: '03',
     title: 'The Water Jug',
     tag: 'Wrist Rotation & Pronation/Supination',
-    description: 'The patient tilts a virtual water jug to pour water into a glass. The wrist rotation required captures pronation and supination range of motion — one of the most clinically relevant movements for post-stroke motor recovery.',
+    description: 'The patient tilts a virtual water jug to pour water into a glass. The wrist rotation required captures pronation and supination range of motion, one of the most clinically relevant movements for post-stroke motor recovery.',
     biomarker: 'Rotation range of motion (M4), pronation/supination speed, movement smoothness SPARC (M11)',
     why: 'Wrist rotation is among the first movements affected after stroke and among the last to recover. Measuring it daily provides a precise picture of motor trajectory that a monthly clinical visit simply cannot capture.',
     image: '/juegos/water-jug.jpeg',
@@ -195,7 +195,7 @@ export default function ExperiencePage() {
                   />
                 ) : (
                   <p style={{ color: COLORS.placeholderText, fontSize: '13px', fontWeight: 500 }}>
-                    [ {game.title} — coming soon ]
+                    [ {game.title}: coming soon ]
                   </p>
                 )}
               </motion.div>

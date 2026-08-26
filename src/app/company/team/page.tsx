@@ -46,7 +46,7 @@ export default function TeamPage() {
           }}>
             <img
               src="/about/oficina.jpeg"
-              alt="The FixedGap team — Madrid, 2026"
+              alt="The FixedGap team. Madrid, 2026"
               style={{
                 width: '100%',
                 height: '100%',
@@ -64,7 +64,7 @@ export default function TeamPage() {
             marginTop: '12px',
             fontStyle: 'italic',
           }}>
-            The FixedGap team — Madrid, 2026
+            The FixedGap team. Madrid, 2026
           </p>
 
         </div>

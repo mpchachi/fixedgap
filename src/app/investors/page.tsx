@@ -7,7 +7,7 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "FixedGap - Investors",
-  description: "Remote motor monitoring for post-stroke patients. Pre-Seed — $500,000.",
+  description: "Remote motor monitoring for post-stroke patients. Pre-Seed: $500,000.",
 };
 
 export default function InvestorsPage() {

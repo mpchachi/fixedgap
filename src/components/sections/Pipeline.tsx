@@ -82,13 +82,13 @@ const steps = [
     number: '01',
     icon: Camera,
     title: 'Camera captures your hand',
-    body: '21 hand landmarks tracked in real time at 60fps. Any standard webcam works — no special hardware required.'
+    body: '21 hand landmarks tracked in real time at 60fps. Any standard webcam works: no special hardware required.'
   },
   {
     number: '02',
     icon: Cpu,
     title: 'Computer vision processes movement',
-    body: 'MediaPipe extracts pinch precision, reach accuracy, wrist rotation range, and movement smoothness — across three clinical games designed around FMA-UE items.'
+    body: 'MediaPipe extracts pinch precision, reach accuracy, wrist rotation range, and movement smoothness, across three clinical games designed around FMA-UE items.'
   },
   {
     number: '03',
@@ -100,7 +100,7 @@ const steps = [
     number: '04',
     icon: LayoutDashboard,
     title: 'Clinical Recovery Index generated',
-    body: 'A weighted composite score summarises hand performance across all three games — calibrated against the Fugl-Meyer Assessment scale. Inter-hand asymmetry is computed automatically.'
+    body: 'A weighted composite score summarises hand performance across all three games, calibrated against the Fugl-Meyer Assessment scale. Inter-hand asymmetry is computed automatically.'
   },
   {
     number: '05',
@@ -184,7 +184,7 @@ function SessionReportCard({
         </>
       )}
 
-      {/* Card del report — vuela hacia arriba cuando reportSent === true */}
+      {/* Card del report - vuela hacia arriba cuando reportSent === true */}
       <motion.div
         animate={reportSent ? {
           y: -120,
@@ -233,7 +233,7 @@ function SessionReportCard({
         </div>
       </div>
 
-      {/* CRI Ring — aparece en step 3 */}
+      {/* CRI Ring - aparece en step 3 */}
       <AnimatePresence>
         {activeStep >= 3 && (
           <motion.div
@@ -258,7 +258,7 @@ function SessionReportCard({
         )}
       </AnimatePresence>
 
-      {/* Métricas de mano — aparecen en step 1 */}
+      {/* Métricas de mano - aparecen en step 1 */}
       <AnimatePresence>
         {activeStep >= 1 && (
           <motion.div
@@ -272,9 +272,9 @@ function SessionReportCard({
             </p>
             <div className="flex flex-col gap-4">
               {[
-                { label: 'Pinch Precision', value: activeStep >= 2 ? '38 mm' : '—', progress: activeStep >= 2 ? 72 : 0 },
-                { label: 'Hand Opening Speed', value: activeStep >= 2 ? '76%' : '—', progress: activeStep >= 2 ? 76 : 0 },
-                { label: 'Finger Individuation', value: activeStep >= 2 ? '4 / 5' : '—', progress: activeStep >= 2 ? 80 : 0 },
+                { label: 'Pinch Precision', value: activeStep >= 2 ? '38 mm' : '-', progress: activeStep >= 2 ? 72 : 0 },
+                { label: 'Hand Opening Speed', value: activeStep >= 2 ? '76%' : '-', progress: activeStep >= 2 ? 76 : 0 },
+                { label: 'Finger Individuation', value: activeStep >= 2 ? '4 / 5' : '-', progress: activeStep >= 2 ? 80 : 0 },
               ].map(metric => (
                 <div key={metric.label}>
                   <div className="flex justify-between mb-1">
@@ -310,7 +310,7 @@ function SessionReportCard({
         )}
       </AnimatePresence>
 
-      {/* Step 0 — keypoints animados */}
+      {/* Step 0 - keypoints animados */}
       {activeStep === 0 && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -323,7 +323,7 @@ function SessionReportCard({
 
       </motion.div>
 
-      {/* Móvil con notificación — aparece cuando showNotification === true */}
+      {/* Móvil con notificación - aparece cuando showNotification === true */}
       <AnimatePresence>
         {showNotification && (
           <motion.div
@@ -491,17 +491,17 @@ export default function Pipeline() {
 
       if (!inView) return
 
-      // Si estamos en el último paso y scrolleamos hacia abajo — liberar
+      // Si estamos en el último paso y scrolleamos hacia abajo - liberar
       if (activeStep === TOTAL_STEPS - 1 && e.deltaY > 0) {
-        return  // NO hacer preventDefault — dejar que el scroll normal continúe
+        return  // NO hacer preventDefault: dejar que el scroll normal continúe
       }
 
-      // Si estamos en el primer paso y scrolleamos hacia arriba — liberar
+      // Si estamos en el primer paso y scrolleamos hacia arriba - liberar
       if (activeStep === 0 && e.deltaY < 0) {
-        return  // NO hacer preventDefault — dejar que el scroll normal continúe
+        return  // NO hacer preventDefault: dejar que el scroll normal continúe
       }
 
-      // En cualquier otro caso — interceptar el scroll
+      // En cualquier otro caso - interceptar el scroll
       e.preventDefault()
 
       if (isScrollingRef.current) return
@@ -539,7 +539,7 @@ export default function Pipeline() {
         <h3 style={srOnly}>ML models compute clinical biomarkers</h3>
         <h3 style={srOnly}>Neurologist receives the session report automatically</h3>
 
-        {/* Header — siempre visible */}
+        {/* Header - siempre visible */}
         <div className="mb-3 pt-16">
           <span style={{ color: COLORS.label }}
             className="text-sm font-semibold tracking-widest uppercase">
@@ -551,10 +551,10 @@ export default function Pipeline() {
           </h2>
         </div>
 
-        {/* Layout dos columnas — ocupa el resto de la altura */}
+        {/* Layout dos columnas - ocupa el resto de la altura */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start flex-1 lg:[grid-template-columns:1.4fr_1fr]">
 
-          {/* Columna izquierda — pasos */}
+          {/* Columna izquierda - pasos */}
           <div className="flex flex-col gap-8 w-full">
             {steps.map((step, index) => (
               <motion.div
@@ -632,7 +632,7 @@ export default function Pipeline() {
             ))}
           </div>
 
-          {/* Columna derecha — informe animado */}
+          {/* Columna derecha - informe animado */}
           <div className="hidden lg:block lg:sticky lg:top-24">
             <SessionReportCard
               activeStep={activeStep}

@@ -55,7 +55,7 @@ export default function DemoPage() {
               width="100%"
               height="100%"
               src="https://www.youtube.com/embed/TYvQgTtPtYA"
-              title="FixedGap — Our Story"
+              title="FixedGap: Our Story"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -167,7 +167,7 @@ export default function DemoPage() {
               width="100%"
               height="100%"
               src="https://www.youtube.com/embed/UqnF2CcWmIo"
-              title="FixedGap — Meet Maria"
+              title="FixedGap: Meet Maria"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

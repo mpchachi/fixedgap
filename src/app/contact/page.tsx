@@ -40,7 +40,7 @@ const faqs = [
   {
     question: 'How long does a demo take?',
     answer:
-      'A typical demo is 30 minutes — we walk you through the patient experience and the clinical dashboard, and answer any questions.',
+      'A typical demo is 30 minutes: we walk you through the patient experience and the clinical dashboard, and answer any questions.',
   },
   {
     question: 'Do I need any hardware to try it?',
@@ -166,7 +166,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-brand-border bg-[#EAF0FA] px-4 py-1.5">
                 <span className="text-[13px] font-semibold text-brand-navy">
-                  🏆 2nd place — Harvard HSIL Hackathon 2026
+                  🏆 2nd place, Harvard HSIL Hackathon 2026
                 </span>
               </div>
             </div>

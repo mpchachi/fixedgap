@@ -18,7 +18,7 @@ export default function Hero() {
           <source src="/videos/videoNuevo.mp4" type="video/mp4" />
         </video>
 
-        {/* Depth gradient — darker at the bottom/left where the copy sits,
+        {/* Depth gradient - darker at the bottom/left where the copy sits,
             clearer at top so the footage still reads. Replaces the flat 50% black. */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-brand-navy/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-brand-navy/25" />
@@ -27,7 +27,7 @@ export default function Hero() {
       {/* Content */}
       <div className="container-fg relative z-10">
         <div className="max-w-3xl">
-          {/* SEO H1 — visually hidden, kept for crawlers */}
+          {/* SEO H1 - visually hidden, kept for crawlers */}
           <h1 className="sr-only">
             Post-Stroke Rehabilitation Monitoring. Zero Hardware.
           </h1>
@@ -48,7 +48,7 @@ export default function Hero() {
           {/* Subline */}
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl">
             FixedGap bridges the gap between clinical visits with daily
-            post-stroke rehabilitation monitoring — using only a webcam.
+            post-stroke rehabilitation monitoring, using only a webcam.
           </p>
 
           {/* CTAs */}

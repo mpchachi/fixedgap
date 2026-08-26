@@ -30,7 +30,7 @@ export default function LoadingScreen() {
         >
           <div style={{ display: 'flex', alignItems: 'center' }}>
 
-            {/* "Fixed" — entra desde la izquierda */}
+            {/* "Fixed" - entra desde la izquierda */}
             <motion.div
               initial={{ x: -40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -80,7 +80,7 @@ export default function LoadingScreen() {
               </span>
             </motion.div>
 
-            {/* El gap — se cierra */}
+            {/* El gap - se cierra */}
             <motion.div
               initial={{ width: 'clamp(1.5rem, 5vw, 3rem)' }}
               animate={{ width: '0px' }}
@@ -88,7 +88,7 @@ export default function LoadingScreen() {
               style={{ overflow: 'hidden', flexShrink: 0 }}
             />
 
-            {/* "Gap" — entra desde la derecha */}
+            {/* "Gap" - entra desde la derecha */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}

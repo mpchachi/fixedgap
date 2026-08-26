@@ -30,43 +30,43 @@ const COLORS = {
 const stats = [
   {
     number: '69%',
-    label: 'of stroke patients are not doing the rehabilitation exercises their clinician prescribed — at home, alone, unmonitored.',
-    source: 'NCBI — Limb heaviness as a sensorimotor disorder alters rehabilitation adherence after stroke',
-    impact: 'Nearly 7 in 10 patients are not doing what their clinician prescribed — without anyone knowing.',
+    label: 'of stroke patients are not doing the rehabilitation exercises their clinician prescribed: at home, alone, unmonitored.',
+    source: 'NCBI: Limb heaviness as a sensorimotor disorder alters rehabilitation adherence after stroke',
+    impact: 'Nearly 7 in 10 patients are not doing what their clinician prescribed, without anyone knowing.',
   },
   {
     number: '44%',
     label: 'of stroke survivors receive no home health or outpatient therapy at all after discharge',
-    source: 'Top Stroke Rehabil, 2024 — Differences in rehabilitation evaluation access for stroke survivors',
+    source: 'Top Stroke Rehabil, 2024: Differences in rehabilitation evaluation access for stroke survivors',
     impact: 'Almost half of all stroke patients are discharged home with no follow-up care whatsoever.',
   },
   {
     number: '50%+',
-    label: 'of stroke patients can only access home-based rehabilitation — with no monitoring',
-    source: 'Frontiers in Medicine, 2025 — Home-based exercise rehabilitation among stroke survivors',
+    label: 'of stroke patients can only access home-based rehabilitation, with no monitoring',
+    source: 'Frontiers in Medicine, 2025: Home-based exercise rehabilitation among stroke survivors',
     impact: 'More than half of all patients recover at home, invisible to their clinical team.',
   },
   {
     number: '1 in 3',
-    label: 'stroke patients stops rehabilitating — average adherence rate is only 68.6%',
-    source: 'Frontiers in Neurology, 2025 — Adherence to rehabilitation exercise in acute stroke patients',
+    label: 'stroke patients stops rehabilitating: average adherence rate is only 68.6%',
+    source: 'Frontiers in Neurology, 2025: Adherence to rehabilitation exercise in acute stroke patients',
     impact: 'Even among patients who start rehabilitation, dropout is the norm, not the exception.',
   },
   {
     number: '1,015',
     label: 'stroke patients with sequelae per neurologist in stroke units in Spain',
-    source: 'SEN (Sociedad Española de Neurología), October 2025 — calculated from 330,000 survivors ÷ ~325 neurologists in stroke units',
-    impact: 'Each neurologist in a Spanish stroke unit is responsible for over a thousand patients. Continuous remote monitoring is not optional — it is the only way to scale.',
+    source: 'SEN (Sociedad Española de Neurología), October 2025: calculated from 330,000 survivors ÷ ~325 neurologists in stroke units',
+    impact: 'Each neurologist in a Spanish stroke unit is responsible for over a thousand patients. Continuous remote monitoring is not optional: it is the only way to scale.',
   },
   {
     number: '3,367',
     label: 'stroke patients per stroke neurologist worldwide',
-    source: 'World Federation of Neurology Survey — calculated from 101M stroke survivors ÷ ~30,000 dedicated stroke neurologists globally',
+    source: 'World Federation of Neurology Survey: calculated from 101M stroke survivors ÷ ~30,000 dedicated stroke neurologists globally',
     impact: 'In low-income countries the ratio reaches 4,000,000 patients per neurological professional. The workforce shortage makes remote monitoring a structural necessity, not a product feature.',
   },
   {
     number: '5.5M',
-    label: 'deaths from stroke every year worldwide — the second leading cause of death globally',
+    label: 'deaths from stroke every year worldwide: the second leading cause of death globally',
     source: 'GBD 2019 Stroke Collaborators, The Lancet Neurology, 2021',
     impact: 'Stroke is not a rare condition. It is one of the most devastating and common diseases on the planet.',
   },
@@ -91,7 +91,7 @@ export default function EvidencePage() {
           <p style={{ color: COLORS.heroMuted }}
             className="text-lg mt-6 max-w-2xl leading-relaxed">
             These are not assumptions. This is peer-reviewed clinical data
-            showing the scale of what is going wrong — and why it matters.
+            showing the scale of what is going wrong, and why it matters.
           </p>
         </div>
       </section>
@@ -166,7 +166,7 @@ export default function EvidencePage() {
             Stroke patients are being discharged home and left without
             continuous monitoring. Clinicians make decisions based on
             occasional snapshots. Patients stop rehabilitating without
-            anyone noticing. This is not a niche problem — it affects
+            anyone noticing. This is not a niche problem: it affects
             millions of people every year.
           </p>
           <p style={{ color: COLORS.body }}
