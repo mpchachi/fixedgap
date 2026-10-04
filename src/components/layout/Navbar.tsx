@@ -96,7 +96,7 @@ const menus: Record<
 
 export default function Navbar() {
   const pathname = usePathname();
-  const hasDarkHero = pathname === '/' || pathname === '/v1' || pathname === '/v2';
+  const hasDarkHero = false;
   const [activeMenu, setActiveMenu] = useState<MenuName | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSection, setMobileSection] = useState<MenuName | null>('Product');
