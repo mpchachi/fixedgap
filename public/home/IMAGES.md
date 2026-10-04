@@ -39,12 +39,7 @@ laptop webcam, slightly above. Blurred laptop bezel at the bottom edge. Light
 grey background, soft shadow.
 
 ## 3. Pillar: 21 hand landmarks
-File: `pillar-landmarks.png` · Ratio 1:1
-
-Prompt (sketch style): An open hand, palm facing the viewer, with 21 small
-filled dots at the knuckles and fingertips joined by thin straight lines,
-exactly like a hand-tracking skeleton. One dot at the wrist. Blue dots, grey
-lines, white background. Nothing else in frame.
+No image needed: this one is drawn in code (`motion/HandLandmarks.tsx`).
 
 ## 4. Pillar: clinician reviewing trends
 File: `pillar-clinician.jpg` · Ratio 1:1

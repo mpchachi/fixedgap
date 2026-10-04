@@ -1,0 +1,63 @@
+.mask {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: scroll 42s linear infinite;
+}
+
+.mask:hover .track {
+  animation-play-state: paused;
+}
+
+.item {
+  display: flex;
+  width: 220px;
+  height: 64px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+}
+
+.item img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+
+.item:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .item:nth-child(n + 8) {
+    display: none;
+  }
+}

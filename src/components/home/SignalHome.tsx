@@ -1,10 +1,18 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './SignalHome.module.css';
+import SplitText from './motion/SplitText';
+import CountUp from './motion/CountUp';
+import HandLandmarks from './motion/HandLandmarks';
+import LogoMarquee from './motion/LogoMarquee';
+import TiltCard from './motion/TiltCard';
+import PipelineRail from './motion/PipelineRail';
+import Sparkline from './motion/Sparkline';
 
 /*
  * Every visual on this page is declared here. `src: null` renders a labelled
@@ -24,12 +32,6 @@ const media = {
     ratio: '1 / 1',
     label: 'Hand and webcam',
     note: 'Close-up of a hand mid-exercise seen by a laptop camera, neutral background.',
-  },
-  pillarLandmarks: {
-    src: null as string | null,
-    ratio: '1 / 1',
-    label: '21 hand landmarks',
-    note: 'A hand with 21 small dots and thin connecting lines, flat technical style on white.',
   },
   pillarClinician: {
     src: null as string | null,
@@ -90,16 +92,17 @@ const partners = [
   { name: 'Real Colegio Complutense', logo: '/logos/Real_Colegio_Complutense.png' },
   { name: 'Comunidad de Madrid', logo: '/logos/ComunidadMadrid.png' },
   { name: 'Saturno Labs', logo: '/logos/saturno.png' },
+  { name: 'Hospital General Universitario Gregorio Marañón', logo: '/logos/gregorio-maranon.png' },
 ];
 
-const pillars = [
+const pillars: Array<{ media: Media | null; title: string; body: string }> = [
   {
     media: media.pillarHome,
     title: 'The patient plays at home.',
     body: 'Short guided tasks in the browser, under five minutes, in front of a standard webcam. Nothing to install, nothing to wear.',
   },
   {
-    media: media.pillarLandmarks,
+    media: null,
     title: 'The camera does the measuring.',
     body: 'Twenty-one hand landmarks on every frame become a fixed set of motor measurements: dexterity, range, quality, symmetry.',
   },
@@ -118,10 +121,10 @@ const steps = [
 ];
 
 const measurements = [
-  { name: 'Dexterity', body: 'Pinch precision, finger extension and hand-opening speed.' },
-  { name: 'Range of motion', body: 'Reach distance, wrist rotation and pronation-supination range.' },
-  { name: 'Movement quality', body: 'Smoothness, endpoint overshoot and execution speed.' },
-  { name: 'Symmetry', body: 'Differences between hands and change from one session to the next.' },
+  { name: 'Dexterity', body: 'Pinch precision, finger extension and hand-opening speed.', trend: [0.2, 0.28, 0.25, 0.4, 0.46, 0.44, 0.58, 0.66, 0.72] },
+  { name: 'Range of motion', body: 'Reach distance, wrist rotation and pronation-supination range.', trend: [0.3, 0.32, 0.38, 0.36, 0.45, 0.52, 0.5, 0.6, 0.68] },
+  { name: 'Movement quality', body: 'Smoothness, endpoint overshoot and execution speed.', trend: [0.15, 0.22, 0.3, 0.28, 0.42, 0.48, 0.55, 0.62, 0.7] },
+  { name: 'Symmetry', body: 'Differences between hands and change from one session to the next.', trend: [0.4, 0.38, 0.45, 0.5, 0.48, 0.58, 0.63, 0.7, 0.78] },
 ];
 
 const exercises = [
@@ -130,10 +133,10 @@ const exercises = [
   { media: media.exerciseJug, name: 'Water Jug', target: 'Wrist rotation, pronation and supination' },
 ];
 
-const evidence = [
-  ['69%', 'of stroke patients are not doing the rehabilitation prescribed at home.'],
-  ['44%', 'receive no home health or outpatient therapy after discharge.'],
-  ['1 in 3', 'stops rehabilitating before recovery is complete.'],
+const evidence: Array<{ value: number; prefix?: string; suffix?: string; text: string }> = [
+  { value: 69, suffix: '%', text: 'of stroke patients are not doing the rehabilitation prescribed at home.' },
+  { value: 44, suffix: '%', text: 'receive no home health or outpatient therapy after discharge.' },
+  { value: 3, prefix: '1 in ', text: 'stops rehabilitating before recovery is complete.' },
 ];
 
 function Reveal({
@@ -175,6 +178,22 @@ function Visual({ item, className = '', sizes = '100vw' }: { item: Media; classN
 }
 
 export default function SignalHome() {
+  const heroVisualRef = useRef<HTMLDivElement>(null);
+  const dashboardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroVisualRef,
+    offset: ['start end', 'end start'],
+  });
+  const heroScale = useTransform(heroProgress, [0, 0.5, 1], [1.02, 1, 0.96]);
+  const heroY = useTransform(heroProgress, [0, 1], [0, -40]);
+  const { scrollYProgress: dashProgress } = useScroll({
+    target: dashboardRef,
+    offset: ['start end', 'center center'],
+  });
+  const dashRotate = useTransform(dashProgress, [0, 1], [8, 0]);
+  const dashScale = useTransform(dashProgress, [0, 1], [0.9, 1]);
+  const dashY = useTransform(dashProgress, [0, 1], [80, 0]);
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -186,11 +205,7 @@ export default function SignalHome() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className={styles.kicker}>For stroke rehabilitation teams</p>
-            <h1>
-              Motor recovery,
-              <br />
-              measured between visits.
-            </h1>
+            <SplitText as="h1" text={'Motor recovery,\nmeasured between visits.'} onMount delay={0.1} />
             <p className={styles.lead}>
               Patients do short upper-limb tasks at home in front of a standard webcam.
               FixedGap measures the movement and shows the care team how each patient is
@@ -207,24 +222,27 @@ export default function SignalHome() {
           </motion.div>
 
           <motion.div
+            ref={heroVisualRef}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Visual item={media.heroSession} className={styles.heroVisual} sizes="(max-width: 900px) 100vw, 1200px" />
+            <motion.div style={{ scale: heroScale, y: heroY }}>
+              <Visual item={media.heroSession} className={styles.heroVisual} sizes="(max-width: 900px) 100vw, 1200px" />
+            </motion.div>
           </motion.div>
 
           <div className={styles.heroFacts}>
             <div>
-              <strong>21</strong>
+              <CountUp value={21} />
               <span>hand landmarks tracked per frame</span>
             </div>
             <div>
-              <strong>1</strong>
+              <CountUp value={1} />
               <span>standard webcam, no extra hardware</span>
             </div>
             <div>
-              <strong>&lt;5 min</strong>
+              <CountUp value={5} prefix="<" suffix=" min" />
               <span>per session, from home</span>
             </div>
           </div>
@@ -234,25 +252,27 @@ export default function SignalHome() {
       <section className={styles.logos}>
         <div className={styles.shell}>
           <p>Supported by</p>
-          <div className={styles.logoRow}>
-            {partners.map((partner) => (
-              <div key={partner.name}>
-                <Image src={partner.logo} alt={partner.name} width={160} height={64} />
-              </div>
-            ))}
-          </div>
+          <LogoMarquee items={partners} />
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
-            <h2>One camera. Three people who benefit.</h2>
+            <SplitText text="One camera. Three people who benefit." />
           </Reveal>
           <div className={styles.pillars}>
             {pillars.map((pillar, index) => (
               <Reveal className={styles.pillar} delay={index * 0.08} key={pillar.title}>
-                <Visual item={pillar.media} sizes="(max-width: 900px) 100vw, 400px" />
+                <TiltCard className={styles.tilt}>
+                  {pillar.media ? (
+                    <Visual item={pillar.media} sizes="(max-width: 900px) 100vw, 400px" />
+                  ) : (
+                    <div className={`${styles.visual} ${styles.handStage}`} style={{ aspectRatio: '1 / 1' }}>
+                      <HandLandmarks className={styles.hand} />
+                    </div>
+                  )}
+                </TiltCard>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.body}</p>
               </Reveal>
@@ -265,7 +285,7 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>How we got here</p>
-            <h2>The first version was a glove.</h2>
+            <SplitText text="The first version was a glove." />
             <p className={styles.sectionLead}>
               Built in 36 hours at a hackathon, the glove combined motion sensors, flex
               sensors and muscle signals. It proved the measurements were possible. It
@@ -274,21 +294,25 @@ export default function SignalHome() {
             </p>
           </Reveal>
           <div className={styles.twoUp}>
-            <Reveal className={styles.card}>
-              <Visual item={media.gloveSketch} sizes="(max-width: 900px) 100vw, 600px" />
-              <div className={styles.cardCopy}>
-                <span>2025 prototype</span>
-                <h3>Glove with nine sensors</h3>
-                <p>Accurate, and impossible to scale. Every patient needed hardware shipped, charged and calibrated.</p>
-              </div>
+            <Reveal>
+              <TiltCard className={styles.card} max={4}>
+                <Visual item={media.gloveSketch} sizes="(max-width: 900px) 100vw, 600px" />
+                <div className={styles.cardCopy}>
+                  <span>2025 prototype</span>
+                  <h3>Glove with nine sensors</h3>
+                  <p>Accurate, and impossible to scale. Every patient needed hardware shipped, charged and calibrated.</p>
+                </div>
+              </TiltCard>
             </Reveal>
-            <Reveal className={styles.card} delay={0.1}>
-              <Visual item={media.cameraSketch} sizes="(max-width: 900px) 100vw, 600px" />
-              <div className={styles.cardCopy}>
-                <span>Today</span>
-                <h3>A webcam and a browser</h3>
-                <p>The same measurements, from the laptop the patient already owns. Nothing to install.</p>
-              </div>
+            <Reveal delay={0.1}>
+              <TiltCard className={styles.card} max={4}>
+                <Visual item={media.cameraSketch} sizes="(max-width: 900px) 100vw, 600px" />
+                <div className={styles.cardCopy}>
+                  <span>Today</span>
+                  <h3>A webcam and a browser</h3>
+                  <p>The same measurements, from the laptop the patient already owns. Nothing to install.</p>
+                </div>
+              </TiltCard>
             </Reveal>
           </div>
         </div>
@@ -298,20 +322,12 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>How it works</p>
-            <h2>Four steps from a webcam to data a clinician can review.</h2>
+            <SplitText text="Four steps from a webcam to data a clinician can review." />
           </Reveal>
           <Reveal>
             <Visual item={media.pipelineDiagram} className={styles.wideVisual} sizes="(max-width: 900px) 100vw, 1200px" />
           </Reveal>
-          <div className={styles.steps}>
-            {steps.map((step, index) => (
-              <Reveal className={styles.step} delay={index * 0.06} key={step.title}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </Reveal>
-            ))}
-          </div>
+          <PipelineRail steps={steps} />
         </div>
       </section>
 
@@ -320,7 +336,7 @@ export default function SignalHome() {
           <div className={styles.split}>
             <Reveal className={styles.splitCopy}>
               <p className={styles.kicker}>What we measure</p>
-              <h2>Each task isolates a movement.</h2>
+              <SplitText text="Each task isolates a movement." />
               <p className={styles.sectionLead}>
                 The same measurements are taken on every session, so a clinician can
                 compare today with last week instead of relying on memory or on what the
@@ -330,8 +346,11 @@ export default function SignalHome() {
             <div className={styles.measureList}>
               {measurements.map((item, index) => (
                 <Reveal className={styles.measureItem} delay={index * 0.06} key={item.name}>
-                  <h3>{item.name}</h3>
-                  <p>{item.body}</p>
+                  <div>
+                    <h3>{item.name}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                  <Sparkline values={item.trend} className={styles.spark} />
                 </Reveal>
               ))}
             </div>
@@ -343,17 +362,19 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>The exercises</p>
-            <h2>Simple tasks for patients. Consistent measurements for clinicians.</h2>
+            <SplitText text="Simple tasks for patients. Consistent measurements for clinicians." />
           </Reveal>
           <div className={styles.exercises}>
             {exercises.map((exercise, index) => (
-              <Reveal className={styles.card} delay={index * 0.08} key={exercise.name}>
-                <Visual item={exercise.media} sizes="(max-width: 900px) 100vw, 400px" />
-                <div className={styles.cardCopy}>
-                  <h3>{exercise.name}</h3>
-                  <p>{exercise.target}</p>
-                  <Link href="/product/experience">See the exercise <span>›</span></Link>
-                </div>
+              <Reveal delay={index * 0.08} key={exercise.name}>
+                <TiltCard className={styles.card}>
+                  <Visual item={exercise.media} sizes="(max-width: 900px) 100vw, 400px" />
+                  <div className={styles.cardCopy}>
+                    <h3>{exercise.name}</h3>
+                    <p>{exercise.target}</p>
+                    <Link href="/product/experience">See the exercise <span>›</span></Link>
+                  </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -364,13 +385,13 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>For the care team</p>
-            <h2>See who is improving, and who needs a call.</h2>
+            <SplitText text="See who is improving, and who needs a call." />
             <p className={styles.sectionLead}>
               Session results, adherence and alerts for every patient in one view,
               ordered by who needs attention first.
             </p>
           </Reveal>
-          <Reveal>
+          <motion.div ref={dashboardRef} style={{ rotateX: dashRotate, scale: dashScale, y: dashY, transformPerspective: 1400 }}>
             <div className={styles.browser}>
               <div className={styles.browserBar}>
                 <i /><i /><i />
@@ -380,7 +401,7 @@ export default function SignalHome() {
                 <source src="/clinical/videoDashboard.mp4" type="video/mp4" />
               </video>
             </div>
-          </Reveal>
+          </motion.div>
         </div>
       </section>
 
@@ -388,13 +409,13 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>Why it matters</p>
-            <h2>The monitoring gap begins after discharge.</h2>
+            <SplitText text="The monitoring gap begins after discharge." />
           </Reveal>
           <div className={styles.evidence}>
-            {evidence.map(([value, text], index) => (
-              <Reveal className={styles.evidenceItem} delay={index * 0.06} key={value}>
-                <strong>{value}</strong>
-                <p>{text}</p>
+            {evidence.map((item, index) => (
+              <Reveal className={styles.evidenceItem} delay={index * 0.06} key={item.text}>
+                <CountUp value={item.value} prefix={item.prefix} suffix={item.suffix} />
+                <p>{item.text}</p>
               </Reveal>
             ))}
           </div>
@@ -413,7 +434,7 @@ export default function SignalHome() {
           </Reveal>
           <Reveal className={styles.teamCopy}>
             <p className={styles.kicker}>The team</p>
-            <h2>Built in Madrid. Presented at Harvard. Preparing for clinical validation.</h2>
+            <SplitText text="Built in Madrid. Presented at Harvard. Preparing for clinical validation." />
             <p className={styles.sectionLead}>
               FixedGap is built by a team across computer science, biomedical engineering,
               medicine and product, with clinical advisors from neurology.
@@ -428,7 +449,7 @@ export default function SignalHome() {
       <section className={styles.cta}>
         <div className={styles.shell}>
           <Reveal className={styles.ctaCopy}>
-            <h2>Evaluate FixedGap with your clinical team.</h2>
+            <SplitText text="Evaluate FixedGap with your clinical team." />
             <p>
               We are looking for neurologists, rehabilitation clinics and hospitals
               interested in evaluating the product and taking part in clinical validation.

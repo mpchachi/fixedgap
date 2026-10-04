@@ -154,7 +154,7 @@
   line-height: 1;
 }
 
-.heroFacts span {
+.heroFacts > div > span {
   display: block;
   margin-top: 8px;
   color: var(--muted);
@@ -396,8 +396,35 @@
 }
 
 .measureItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   border-top: 1px solid var(--line);
   padding: 28px 0;
+}
+
+.spark {
+  flex: none;
+}
+
+.handStage {
+  display: grid;
+  place-items: center;
+  background: var(--tint);
+}
+
+.hand {
+  width: 72%;
+  height: 72%;
+}
+
+.tilt {
+  border-radius: var(--radius);
+}
+
+.tilt .visual {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 18px 50px rgba(0, 0, 0, 0.06);
 }
 
 .measureItem:last-child {
