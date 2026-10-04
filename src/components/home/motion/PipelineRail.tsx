@@ -45,7 +45,11 @@ export default function PipelineRail({
         tl.fromTo(cards[i], { opacity: 0.25, y: 14 }, { opacity: 1, y: 0, duration: 0.1 }, at);
       });
     }, el);
-    return () => ctx.revert();
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(raf);
+      ctx.revert();
+    };
   }, []);
 
   return (

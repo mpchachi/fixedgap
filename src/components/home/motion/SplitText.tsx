@@ -44,7 +44,11 @@ export default function SplitText({
         },
       );
     }, el);
-    return () => ctx.revert();
+    const raf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(raf);
+      ctx.revert();
+    };
   }, [onMount, delay]);
 
   const lines = text.split('\n');

@@ -13,6 +13,8 @@ import LogoMarquee from './motion/LogoMarquee';
 import TiltCard from './motion/TiltCard';
 import PipelineRail from './motion/PipelineRail';
 import Sparkline from './motion/Sparkline';
+import MagneticLink from './motion/MagneticLink';
+import AwardsMedia, { type Award, type PressItem } from './motion/AwardsMedia';
 
 /*
  * Every visual on this page is declared here. `src: null` renders a labelled
@@ -133,6 +135,77 @@ const exercises = [
   { media: media.exerciseJug, name: 'Water Jug', target: 'Wrist rotation, pronation and supination' },
 ];
 
+/* Event name for the September 2026 awards: confirm the official name. */
+const awards: Award[] = [
+  {
+    year: '2026',
+    event: 'Madrid entrepreneurship awards',
+    title: 'Best project for scientific impact',
+    detail: 'First prize, 2,000 €.',
+    featured: true,
+  },
+  {
+    year: '2026',
+    event: 'Harvard HSIL Hackathon, global final',
+    title: '2nd place worldwide',
+    detail: 'Final held at Pillar VC in Boston, judged by Boston investors and Harvard T.H. Chan faculty.',
+    featured: true,
+  },
+  {
+    year: '2026',
+    event: 'Harvard HSIL Hackathon, Madrid hub',
+    title: '1st place',
+    detail: 'Among 190 participants at Universidad Complutense de Madrid.',
+    featured: true,
+  },
+  {
+    year: '2026',
+    event: 'Cámara de Comercio de Madrid',
+    title: 'Best project with local growth potential',
+  },
+  {
+    year: '2026',
+    event: 'Spain Startup',
+    title: 'Best project with international potential',
+  },
+  {
+    year: '2026',
+    event: 'Netmentora Madrid',
+    title: 'Best project for job creation potential',
+  },
+  {
+    year: '2026',
+    event: 'Fundación madri+d',
+    title: 'Technology-based project with the highest development potential',
+  },
+  {
+    year: '2026',
+    event: 'Innpar, Ayuntamiento de Pozuelo de Alarcón',
+    title: 'Best technology entrepreneurship project',
+  },
+];
+
+const press: PressItem[] = [
+  {
+    outlet: 'Tribuna Complutense',
+    date: 'June 2026',
+    title: 'El equipo de la UCM, segundo en el Harvard Health Systems Innovation Lab Hackathon 2026',
+    url: 'https://tribuna.ucm.es/news/el-equipo-de-la-ucm-segundo-en-el-harvard-health-systems-innovation-lab-hackathon-2026',
+  },
+  {
+    outlet: 'The Objective',
+    date: 'April 2026',
+    title: 'Seis emprendedores crean un guante para evaluar la recuperación después de un ictus',
+    url: 'https://theobjective.com/sociedad/ciencia/2026-04-21/seis-emprendedores-guante-recuperacion-ictus/',
+  },
+  {
+    outlet: 'Tribuna Complutense',
+    date: 'April 2026',
+    title: 'Cuatro complutenses, núcleo del equipo ganador del hackathon de la Universidad de Harvard celebrado en la UCM',
+    url: 'https://tribuna.ucm.es/news/cuatro-complutenses-equipo-ganador-hackathon-universidad-harvard-celebrado-ucm',
+  },
+];
+
 const evidence: Array<{ value: number; prefix?: string; suffix?: string; text: string }> = [
   { value: 69, suffix: '%', text: 'of stroke patients are not doing the rehabilitation prescribed at home.' },
   { value: 44, suffix: '%', text: 'receive no home health or outpatient therapy after discharge.' },
@@ -212,9 +285,9 @@ export default function SignalHome() {
               changing between appointments.
             </p>
             <div className={styles.actions}>
-              <Link className={styles.buttonPrimary} href="/contact">
+              <MagneticLink className={styles.buttonPrimary} href="/contact">
                 Book a clinical demo
-              </Link>
+              </MagneticLink>
               <Link className={styles.buttonText} href="/demo">
                 See how it works <span>›</span>
               </Link>
@@ -427,6 +500,16 @@ export default function SignalHome() {
         </div>
       </section>
 
+      <section className={`${styles.section} ${styles.sectionTint}`} id="awards">
+        <div className={styles.shell}>
+          <Reveal className={styles.sectionHead}>
+            <p className={styles.kicker}>Awards and media</p>
+            <SplitText text="Recognised in Madrid, Boston and the press." />
+          </Reveal>
+          <AwardsMedia awards={awards} press={press} />
+        </div>
+      </section>
+
       <section className={styles.section}>
         <div className={styles.shell}>
           <Reveal>
@@ -455,9 +538,9 @@ export default function SignalHome() {
               interested in evaluating the product and taking part in clinical validation.
             </p>
             <div className={styles.actions}>
-              <Link className={styles.buttonLight} href="/contact">
+              <MagneticLink className={styles.buttonLight} href="/contact">
                 Discuss a pilot
-              </Link>
+              </MagneticLink>
               <a className={styles.ctaMail} href="mailto:contact@fixedgap.com">
                 contact@fixedgap.com
               </a>

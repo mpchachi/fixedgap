@@ -24,7 +24,7 @@ const groups = [
     links: [
       { label: 'Our story', href: '/company/about' },
       { label: 'Team', href: '/company/team' },
-      { label: 'Media', href: '/company/media' },
+      { label: 'Awards and media', href: '/#awards' },
       { label: 'Contact', href: '/contact' },
     ],
   },
