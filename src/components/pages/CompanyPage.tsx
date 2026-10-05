@@ -22,10 +22,10 @@ const media: Record<string, Media> = {
     note: 'Same style: a bare hand, an open laptop, dashed sight lines from the camera to 21 landmark dots on the hand. Nothing worn on the hand.',
   },
   boston: {
-    src: null,
+    src: '/about/pilar.jpeg',
     ratio: '16 / 9',
-    label: 'Boston, June 2026',
-    note: 'Editorial photo: a small team on a stage or at a long table in a bright venue, laptops open, one person presenting. No readable text or logos.',
+    label: 'The team at Pillar VC, Boston, June 2026',
+    note: 'Real photo from the global final.',
   },
 };
 

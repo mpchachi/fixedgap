@@ -25,13 +25,13 @@ const media = {
     src: null as string | null,
     ratio: '1 / 1',
     label: 'Hand and webcam',
-    note: 'Close-up of a hand mid-exercise seen by a laptop camera, neutral background.',
+    note: 'Hyperreal photo: an older man’s hand mid-pinch seen from the laptop webcam, kitchen out of focus.',
   },
   pillarClinician: {
     src: null as string | null,
     ratio: '1 / 1',
-    label: 'Clinician reviewing trends',
-    note: 'A clinician at a desk looking at patient trend charts on a monitor.',
+    label: 'A patient at the screen',
+    note: 'Hyperreal photo, tight crop: an older woman in profile looking at a laptop on a dining table, screen glow on her face, nothing readable.'
   },
   pipelineDiagram: {
     src: null as string | null,
@@ -55,7 +55,7 @@ const pillars: Array<{ media: Media | null; title: string; body: string }> = [
   {
     media: media.pillarHome,
     title: 'The patient plays at home.',
-    body: 'Short guided tasks in the browser, under five minutes, in front of a standard webcam. Nothing to install or wear.',
+    body: 'Short arcade-style games in the browser, under five minutes, in front of a standard webcam. Nothing to install or wear.',
   },
   {
     media: null,

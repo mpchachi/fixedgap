@@ -7,53 +7,52 @@ import TiltCard from '@/components/home/motion/TiltCard';
 import Sparkline from '@/components/home/motion/Sparkline';
 import MagneticLink from '@/components/home/motion/MagneticLink';
 
-/* Visuals for this page. Brief in /public/home/IMAGES.md (Product section). */
+/* Visuals for this page. Brief in /public/home/IMAGES.md (Product section).
+   The games change often, so no visual shows a specific game: they show the
+   patient and the movement. */
 const media: Record<string, Media> = {
-  pills: {
+  pinch: {
     src: null,
     ratio: '4 / 3',
-    label: 'Pill Organizer, in play',
-    note: 'Studio 3D render: a weekly pill organizer, one pill mid-air held by a translucent pinch gesture, cream background.',
+    label: 'Playing from home: pinch',
+    note: 'Hyperreal photo, tight crop. An older man at his kitchen table, hand raised in a pinch in front of a laptop, screen out of focus.',
   },
-  switch: {
+  open: {
     src: null,
     ratio: '4 / 3',
-    label: 'Light Switch, in play',
-    note: 'Studio 3D render: two desk lamps, one lit one dark, a wall switch between them, cream background.',
+    label: 'Playing from home: open hand',
+    note: 'Hyperreal photo, tight crop. An older woman opening her hand wide toward the laptop camera, concentrating, warm window light.',
   },
-  jug: {
+  wrist: {
     src: null,
     ratio: '4 / 3',
-    label: 'Water Jug, in play',
-    note: 'Studio 3D render: a clay jug tilted mid-pour into a glass, water in motion, cream background.',
+    label: 'Playing from home: wrist',
+    note: 'Hyperreal photo, tight crop. Hands only: a forearm rotating palm up to palm down in front of a laptop edge.',
   },
 };
 
-const exercises = [
+const movements = [
   {
     index: '01',
-    name: 'The Pill Organizer',
-    tag: 'Pinch and fine motor control',
-    media: media.pills,
-    text: 'The patient drags pills into a weekly organizer with a pinch: thumb and index closing to grab, opening to release. Precision, speed and smoothness are captured frame by frame.',
+    name: 'Pinch and fine motor control',
+    media: media.pinch,
+    text: 'The game asks for a pinch: thumb and index closing and opening on cue. Precision, speed and smoothness are captured frame by frame.',
     measures: 'Pinch precision, reach precision, endpoint overshoot, movement smoothness (SPARC)',
     why: 'Pinch grip is what buttoning, writing and picking things up depend on. It degrades immediately after stroke and its recovery is a milestone the FMA-UE scale tracks.',
   },
   {
     index: '02',
-    name: 'The Light Switch',
-    tag: 'Finger extension and left-right asymmetry',
-    media: media.switch,
-    text: 'The patient turns switches on and off, alternating between left and right targets. The system captures index extension, hand opening speed and the gap between both hands.',
+    name: 'Finger extension and left-right asymmetry',
+    media: media.open,
+    text: 'The game asks the hand to open and the index to extend, alternating sides. The system captures how far, how fast, and the gap between both hands.',
     measures: 'Index extension accuracy, hand opening speed, reach precision, smoothness (SPARC), inter-hand asymmetry',
     why: 'Losing isolated finger extension is one of the most common and disabling consequences of stroke. Alternating sides reveals the asymmetry between the affected and unaffected hand.',
   },
   {
     index: '03',
-    name: 'The Water Jug',
-    tag: 'Wrist rotation, pronation and supination',
-    media: media.jug,
-    text: 'The patient tilts a jug to pour water into a glass. The rotation captures pronation and supination range, one of the most clinically relevant movements after stroke.',
+    name: 'Wrist rotation',
+    media: media.wrist,
+    text: 'The game is steered by rotating the wrist. The rotation captures pronation and supination range, one of the most clinically relevant movements after stroke.',
     measures: 'Rotation range of motion, pronation and supination speed, smoothness (SPARC)',
     why: 'Wrist rotation is among the first movements affected and the last to recover. Measured daily, it shows a recovery curve that a monthly visit cannot.',
   },
@@ -63,9 +62,9 @@ type Metric = { name: string; code: string; text: string; insight: string; spark
 
 const categories: Array<{ id: string; label: string; subtitle: string; metrics: Metric[] }> = [
   {
-    id: 'pills',
-    label: 'Pill Organizer',
-    subtitle: 'Pinch and fine motor control',
+    id: 'pinch',
+    label: 'Pinch',
+    subtitle: 'Fine motor control',
     metrics: [
       {
         name: 'Pinch precision',
@@ -98,8 +97,8 @@ const categories: Array<{ id: string; label: string; subtitle: string; metrics: 
     ],
   },
   {
-    id: 'switch',
-    label: 'Light Switch',
+    id: 'open',
+    label: 'Hand opening',
     subtitle: 'Finger extension and asymmetry',
     metrics: [
       {
@@ -133,9 +132,9 @@ const categories: Array<{ id: string; label: string; subtitle: string; metrics: 
     ],
   },
   {
-    id: 'jug',
-    label: 'Water Jug',
-    subtitle: 'Wrist rotation',
+    id: 'wrist',
+    label: 'Wrist',
+    subtitle: 'Rotation, pronation and supination',
     metrics: [
       {
         name: 'Rotation range of motion',
@@ -211,10 +210,10 @@ export default function ProductPage() {
       <PageHero
         kicker="Product"
         title={'One short session.\nA report the care team can act on.'}
-        lead="Patients play three short games in front of a standard webcam. FixedGap measures the hand movement in every frame and turns it into a clinical report the neurologist sees before the next appointment."
+        lead="Patients play three short arcade-style games in front of a standard webcam. FixedGap measures the hand movement in every frame and turns it into a clinical report the neurologist sees before the next appointment."
       >
         <div className={page.heroFacts}>
-          <div><strong>3</strong><span>exercises per session</span></div>
+          <div><strong>3</strong><span>short games per session</span></div>
           <div><strong>&lt;5 min</strong><span>of play, no setup</span></div>
           <div><strong>21</strong><span>hand landmarks tracked</span></div>
           <div><strong>0</strong><span>extra hardware</span></div>
@@ -253,10 +252,11 @@ export default function ProductPage() {
       <section className={`${home.section} ${home.sectionTint} ${page.anchor} ${page.onTint}`} id="exercises">
         <div className={home.shell}>
           <SectionHead
-            kicker="The exercises"
-            title="Three games, each built around a movement that matters after stroke."
+            kicker="The games"
+            title="Games everyone already knows how to play. Now they measure recovery."
+            lead="Three short, retro-style arcade games. Familiar enough to need no instructions, and each one is steered by a movement we need to measure. The games evolve; the three movements stay."
           />
-          {exercises.map((exercise, index) => (
+          {movements.map((exercise, index) => (
             <Reveal key={exercise.name}>
               <div className={`${page.feature} ${index % 2 === 1 ? page.featureReverse : ''}`}>
                 <TiltCard className={home.tilt}>
@@ -265,7 +265,7 @@ export default function ProductPage() {
                 <div className={page.featureCopy}>
                   <div className={page.featureIndex}>
                     <em>{exercise.index}</em>
-                    <span>{exercise.tag}</span>
+                    <span>Movement</span>
                   </div>
                   <h3>{exercise.name}</h3>
                   <p>{exercise.text}</p>
@@ -287,8 +287,8 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="Biomarkers"
-            title="What each game measures, and why a neurologist cares."
-            lead="Every metric is extracted from the 21 hand landmarks the camera tracks. No wearables, no calibration. The labels are the ones used in the clinical literature."
+            title="What the games measure, and why a neurologist cares."
+            lead="Every metric is extracted from the 21 hand landmarks the camera tracks. No wearables, no calibration. Grouped by movement, with the labels used in the clinical literature."
           />
           <Reveal>
             <div className={page.tabs} role="tablist">
