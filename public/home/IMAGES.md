@@ -1,166 +1,111 @@
-# Home page images
+# Images to produce
 
-Every visual on the home is declared in `src/components/home/SignalHome.tsx`
-(the `media` object). While `src` is `null` the page shows a labelled
-placeholder. To ship an image: save it here (`/public/home/`) with the file
-name below and set `src: '/home/<file>'`.
+Every placeholder on the site is declared in code (`media` object at the top of
+`src/components/home/SignalHome.tsx`, `src/components/pages/ProductPage.tsx`
+and `src/components/pages/CompanyPage.tsx`). While `src` is `null` the page
+shows a labelled grey box. To ship one: save the file in `/public/home/` with
+the name below and set `src: '/home/<file>'`.
 
-Export rules for all of them: exact aspect ratio listed, 2400 px on the long
-side, JPG quality 85 (PNG only for the line drawings), no text baked in, no
-watermarks, no logos.
+Export rules: exact ratio listed, 2400 px on the long side, JPG quality 85
+(PNG for the line drawings), no text baked in, no watermarks, no logos.
 
-Shared style so the page reads as one piece. Append to every prompt:
+Two style blocks. Append one to every prompt so the site reads as one piece.
 
-> Clean editorial style, soft natural daylight, neutral palette (white, warm
-> grey, a touch of deep blue #2457e6), lots of negative space, shallow depth
-> of field, no text, no logos, no UI chrome, photorealistic, 35mm.
+PHOTO style:
+> Clean editorial photograph, soft natural daylight, neutral palette (white,
+> warm grey, one touch of deep blue #2457e6), lots of negative space, shallow
+> depth of field, no text, no logos, no UI chrome, photorealistic, 35mm.
 
-For the two sketches and the schematic, use this instead:
-
+SKETCH style:
 > Technical illustration, fine black ink lines with light pencil shading on
 > off-white paper, flat orthographic view, small annotation leader lines
 > without text, no colour except one deep blue accent, no shadows.
 
----
-
-## 1. Hero: patient session at home
-File: `hero-session.jpg` · Ratio 16:9
-
-Prompt: A woman in her sixties sitting at a kitchen table at home, right hand
-raised in front of an open laptop, doing a slow hand-opening exercise. Laptop
-screen softly lit but unreadable. Morning light from a window on the left, a
-cup of coffee, plain wall behind. Calm, dignified, not a stock smile.
-
-## 2. Pillar: hand and webcam
-File: `pillar-hand.jpg` · Ratio 1:1
-
-Prompt: Close-up of a hand mid-pinch gesture, seen from the point of view of a
-laptop webcam, slightly above. Blurred laptop bezel at the bottom edge. Light
-grey background, soft shadow.
-
-## 3. Pillar: 21 hand landmarks
-No image needed: this one is drawn in code (`motion/HandLandmarks.tsx`).
-
-## 4. Pillar: clinician reviewing trends
-File: `pillar-clinician.jpg` · Ratio 1:1
-
-Prompt: A clinician in a white coat seated at a clean desk, looking at a
-monitor that shows a few simple upward line charts, seen from the side so the
-screen is at an angle and unreadable. Window light, plain clinic wall.
-
-## 5. Glove prototype, technical sketch
-File: `sketch-glove.png` · Ratio 4:3
-
-Prompt (sketch style): Exploded flow sketch of a fabric glove: five flex
-sensors along the fingers, an IMU block on the back of the hand, two EMG pads
-on the forearm, wires converging to a small microcontroller board with a
-battery. Leader lines pointing to each part. Pencil hatching for the fabric.
-One component highlighted in deep blue.
-
-## 6. Camera version, technical sketch
-File: `sketch-camera.png` · Ratio 4:3
-
-Prompt (sketch style): Same drawing style as the glove sketch. An open laptop
-on the left, a bare hand on the right, dashed sight lines from the webcam to
-the hand, 21 landmark dots on the hand joined by thin lines. Nothing attached
-to the hand. The landmark dots in deep blue.
-
-## 7. Pipeline schematic
-File: `pipeline.png` · Ratio 21:9
-
-Prompt (sketch style): Four simple line icons in a row, connected by thin
-arrows left to right: a laptop with a webcam dot, a hand with 21 landmark
-dots, a small table of bars (a measurement table), and a monitor with a
-trend line and three patient rows. Wide, lots of white space, one blue accent
-on the trend line.
-
-## 8. Exercise: Pill Organizer
-File: `exercise-pills.jpg` · Ratio 4:3
-
-Prompt: Studio 3D render of a seven-compartment weekly pill organizer, open,
-with a few coloured pills (red, yellow, white) in two compartments and one
-pill lifted above as if being placed. Matte clay-like materials, warm cream
-background, soft shadow, slight top-down angle.
-
-## 9. Exercise: Light Switch
-File: `exercise-switch.jpg` · Ratio 4:3
-
-Prompt: Studio 3D render, same style and cream background as the pill
-organizer: a small wooden desk with a yellow desk lamp turned on and a second
-lamp turned off, two toggle switches on the wall behind. Soft shadow.
-
-## 10. Exercise: Water Jug
-File: `exercise-jug.jpg` · Ratio 4:3
-
-Prompt: Studio 3D render, same style and cream background: a terracotta jug
-tilted, pouring a thin stream of water into a glass on a wooden table, two
-empty glasses beside it. Soft shadow.
-
-## 11. The team
-File: `team.jpg` · Ratio 21:9
-
-Prompt: Wide shot of five young engineers working around a long white table
-in a bright room with a plain wall, two laptops open showing simple
-dashboards (unreadable), one person pointing at a screen, nobody looking at
-the camera. Window light from the left, no bags or clutter.
+RENDER style (the three exercises):
+> Studio 3D render, matte materials, soft diffused light from the upper left,
+> warm cream background, gentle contact shadows, centred object with air around
+> it, no text, no people.
 
 ---
 
-Still real and kept as is: the clinical dashboard video
-(`/clinical/videoDashboard.mp4`) and the partner logos (`/logos/`).
-Not used any more on the home: `GUANTE.jpeg`, `hand-tracking.jpg`,
-`hand-keypoints.png`, `/juegos/*`, `/about/about-team.jpg`, `/videos/*`.
+## Home (3)
+
+### 1. Hand and webcam
+File: `home-hand.jpg` · Ratio 1:1 · Style: PHOTO
+Close-up of a hand mid-pinch gesture, seen from the point of view of a laptop
+webcam, slightly from above. Blurred laptop bezel at the bottom edge. Light
+grey background.
+
+### 2. Clinician reviewing trends
+File: `home-clinician.jpg` · Ratio 1:1 · Style: PHOTO
+A clinician in a plain shirt at a desk, three-quarter view, looking at a
+monitor that shows soft line charts (unreadable). Consultation room, daylight.
+
+### 3. Pipeline schematic
+File: `home-pipeline.png` · Ratio 21:9 · Style: SKETCH
+Left to right: an open laptop with a small camera dot, a hand with 21 joint
+dots connected by thin lines, a small table of bars, a monitor with a trend
+line. Thin arrows between the four. Blue only on the dots and the trend line.
+
+## Product (3)
+
+### 4. Pill Organizer
+File: `product-pills.jpg` · Ratio 4:3 · Style: RENDER
+A weekly pill organizer with coloured pills; one pill floating just above a
+compartment as if being placed.
+
+### 5. Light Switch
+File: `product-switch.jpg` · Ratio 4:3 · Style: RENDER
+Two small desk lamps side by side, one lit warm and one off, a simple wall
+switch between them.
+
+### 6. Water Jug
+File: `product-jug.jpg` · Ratio 4:3 · Style: RENDER
+A clay jug tilted mid-pour into a clear glass, water caught in motion.
+
+## Company (3)
+
+### 7. The glove, technical sketch
+File: `company-glove.png` · Ratio 4:3 · Style: SKETCH
+Exploded view of a rehabilitation glove: IMU module on the back of the hand,
+flex sensors along each finger, EMG pads on a forearm strap, a small
+eye-tracking module, wiring to a microcontroller board.
+
+### 8. The camera version, technical sketch
+File: `company-camera.png` · Ratio 4:3 · Style: SKETCH
+A bare hand in front of an open laptop, dashed sight lines from the webcam to
+21 small dots on the hand joints connected by thin lines. Nothing worn on the
+hand. Blue only on the dots.
+
+### 9. Boston, June 2026
+File: `company-boston.jpg` · Ratio 16:9 · Style: PHOTO
+A small student team presenting in a bright venue with large windows, one
+person at a lectern, laptops open on a long table, audience blurred in the
+foreground. No readable text or logos. (A real photo from the final is better
+if one exists.)
 
 ---
 
-# Inner pages
+## General assets (not placeholders, but needed)
 
-Same rules and shared style blocks as above. Declared in
-`src/components/pages/ProductPage.tsx` and `CompanyPage.tsx` (the `media`
-object at the top of each). Save files here in `/public/home/`.
+### A. Social preview (Open Graph)
+File: `/public/og-image.jpg` · 1200 x 630 px exactly
+Shown when the link is shared on LinkedIn, WhatsApp, Slack. The current file
+is a square logo, so previews crop badly. Make it: white background, the FG
+logo at the left, the words "FixedGap" and "Motor recovery, measured between
+visits." set in a clean sans-serif, one blue accent. I can build this one from
+the logo with code if you prefer not to generate it.
 
-## Product
+### B. Favicon set
+From the FG logo: `favicon.ico`, `icon.png` 512 x 512, `apple-icon.png`
+180 x 180. The current favicon is a `.jpeg`, which some browsers ignore. I can
+generate these from the logo file; no AI needed.
 
-## 12. Pill Organizer, in play
-File: `product-pills.jpg` · Ratio 4:3
+### C. Partner logos
+Ask each partner for an SVG or transparent PNG and I normalise them to one
+height. Current files mix sizes and backgrounds (one has a red background).
 
-Prompt: Studio 3D render of a weekly pill organizer with coloured pills, one
-pill held mid-air by a translucent, barely visible pinch gesture, soft
-shadows, cream background.
-
-## 13. Light Switch, in play
-File: `product-switch.jpg` · Ratio 4:3
-
-Prompt: Studio 3D render of two small desk lamps side by side, one lit warm
-and one off, a simple wall switch between them, cream background, same
-lighting as the pill organizer.
-
-## 14. Water Jug, in play
-File: `product-jug.jpg` · Ratio 4:3
-
-Prompt: Studio 3D render of a clay jug tilted mid-pour into a clear glass,
-water caught in motion, cream background, same set as the other two.
-
-## Company
-
-## 15. The glove, technical sketch
-File: `company-glove.png` · Ratio 4:3
-
-Prompt: Exploded-view technical illustration of a rehabilitation glove: IMU
-module on the back of the hand, flex sensors along each finger, EMG pads on
-the forearm strap, a small eye-tracking module, wiring to a microcontroller.
-Annotation leader lines with no text. Use the sketch style block.
-
-## 16. The camera version, technical sketch
-File: `company-camera.png` · Ratio 4:3
-
-Prompt: Same sketch style. A bare hand in front of an open laptop, dashed
-sight lines from the webcam to 21 small dots on the hand joints connected by
-thin lines. Nothing worn on the hand. One blue accent on the dots.
-
-## 17. Boston, June 2026
-File: `company-boston.jpg` · Ratio 16:9
-
-Prompt: Editorial photo of a small student team presenting at a bright venue
-with large windows, one person standing at a lectern, laptops open on a long
-table, audience blurred in the foreground. No readable text or logos.
+### D. Team headshots (optional)
+The six current headshots work. If you want them to match, re-shoot or
+regenerate all six with the same framing: chest up, plain light grey
+background, soft front light, no smile forced, same crop.
