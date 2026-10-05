@@ -13,13 +13,13 @@ const media: Record<string, Media> = {
     src: '/about/about-2.jpeg',
     ratio: '4 / 3',
     label: 'The first prototype: the glove, the board and the wiring',
-    note: 'Real photo. Swap for the technical sketch (brief item 8) if preferred.',
+    note: '',
   },
   camera: {
-    src: null,
+    src: '/home/company-camera.webp',
     ratio: '4 / 3',
-    label: 'The camera version, technical sketch',
-    note: 'Same style: a bare hand, an open laptop, dashed sight lines from the camera to 21 landmark dots on the hand. Nothing worn on the hand.',
+    label: 'The camera version: nothing on the hand, just a laptop on the kitchen table',
+    note: '',
   },
   madrid: {
     src: '/GANADORES.jpeg',

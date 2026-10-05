@@ -12,22 +12,22 @@ import MagneticLink from '@/components/home/motion/MagneticLink';
    patient and the movement. */
 const media: Record<string, Media> = {
   pinch: {
-    src: null,
+    src: '/home/product-pinch.webp',
     ratio: '4 / 3',
-    label: 'Playing from home: pinch',
-    note: 'Hyperreal photo, tight crop. An older man at his kitchen table, hand raised in a pinch in front of a laptop, screen out of focus.',
+    label: 'Playing from home: a pinch in front of the laptop',
+    note: '',
   },
   open: {
-    src: null,
+    src: '/home/product-open.webp',
     ratio: '4 / 3',
-    label: 'Playing from home: open hand',
-    note: 'Hyperreal photo, tight crop. An older woman opening her hand wide toward the laptop camera, concentrating, warm window light.',
+    label: 'Playing from home: opening the hand toward the camera',
+    note: '',
   },
   wrist: {
-    src: null,
+    src: '/home/product-wrist.webp',
     ratio: '4 / 3',
-    label: 'Playing from home: wrist',
-    note: 'Hyperreal photo, tight crop. Hands only: a forearm rotating palm up to palm down in front of a laptop edge.',
+    label: 'Playing from home: rotating the wrist in front of the laptop',
+    note: '',
   },
   tracking: {
     src: '/about/about-4.jpeg',

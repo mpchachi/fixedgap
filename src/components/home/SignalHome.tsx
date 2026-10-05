@@ -22,28 +22,22 @@ import { Reveal, Visual, type Media } from '@/components/site/Editorial';
  */
 const media = {
   pillarHome: {
-    src: null as string | null,
+    src: '/home/home-hand.webp' as string | null,
     ratio: '1 / 1',
-    label: 'Hand and webcam',
-    note: 'Hyperreal photo: an older man’s hand mid-pinch seen from the laptop webcam, kitchen out of focus.',
+    label: 'A patient playing from his kitchen table, hand raised in a pinch in front of the laptop',
+    note: '',
   },
   pillarClinician: {
-    src: null as string | null,
+    src: '/home/home-patient.webp' as string | null,
     ratio: '1 / 1',
-    label: 'A patient at the screen',
-    note: 'Hyperreal photo, tight crop: an older woman in profile looking at a laptop on a dining table, screen glow on her face, nothing readable.'
+    label: 'A patient at her dining table, mid-session, hand open toward the laptop camera',
+    note: '',
   },
   team: {
     src: '/about/oficina.jpeg',
     ratio: '21 / 9',
     label: 'The team, Madrid, 2026',
     note: 'Real photo.',
-  },
-  pipelineDiagram: {
-    src: null as string | null,
-    ratio: '21 / 9',
-    label: 'Pipeline schematic',
-    note: 'Clean line diagram, left to right: webcam, hand landmarks, measurement table, clinician dashboard.',
   },
 };
 
@@ -267,9 +261,6 @@ export default function SignalHome() {
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>How it works</p>
             <SplitText text="Four steps from a webcam to data a clinician can review." />
-          </Reveal>
-          <Reveal>
-            <Visual item={media.pipelineDiagram} className={styles.wideVisual} sizes="(max-width: 900px) 100vw, 1200px" />
           </Reveal>
           <PipelineRail steps={steps} />
         </div>

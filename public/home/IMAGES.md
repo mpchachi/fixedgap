@@ -1,4 +1,17 @@
-# Images to produce
+# Image brief
+
+## Status (5 Oct 2026)
+
+Delivered and live: home-hand.webp, home-patient.webp, product-pinch.webp,
+product-open.webp, product-wrist.webp, company-camera.webp (all hyperreal photos,
+WebP, under 70 KB each). The technical sketches (pipeline, glove, camera) were
+dropped: the pipeline section keeps the animated rail only, and Company uses the
+real glove photo and a real-style photo for the camera version.
+
+Still open: Open Graph image (1200x630) and favicons from the logo (code, no AI).
+
+---
+
 
 Every placeholder on the site is declared in code (`media` object at the top of
 `src/components/home/SignalHome.tsx`, `src/components/pages/ProductPage.tsx`
