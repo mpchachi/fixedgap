@@ -33,6 +33,12 @@ const media = {
     label: 'A patient at the screen',
     note: 'Hyperreal photo, tight crop: an older woman in profile looking at a laptop on a dining table, screen glow on her face, nothing readable.'
   },
+  team: {
+    src: '/about/oficina.jpeg',
+    ratio: '21 / 9',
+    label: 'The team, Madrid, 2026',
+    note: 'Real photo.',
+  },
   pipelineDiagram: {
     src: null as string | null,
     ratio: '21 / 9',
@@ -300,6 +306,21 @@ export default function SignalHome() {
             <SplitText text="Awards and press." />
           </Reveal>
           <AwardsMedia awards={awards} press={press} />
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.shell}>
+          <Reveal>
+            <Visual item={media.team} className={styles.wideVisual} sizes="(max-width: 900px) 100vw, 1200px" />
+          </Reveal>
+          <Reveal className={styles.teamCopy}>
+            <p className={styles.kicker}>The team</p>
+            <SplitText text="Five co-founders in Madrid, one clinical advisor, and a first validation study to run." />
+            <Link className={styles.buttonText} href="/company#team">
+              Meet the team <span>›</span>
+            </Link>
+          </Reveal>
         </div>
       </section>
 

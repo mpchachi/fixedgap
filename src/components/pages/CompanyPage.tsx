@@ -33,12 +33,6 @@ const media: Record<string, Media> = {
     label: 'Second place at the global final, Pillar VC, Boston, June 2026',
     note: 'Real photo.',
   },
-  team: {
-    src: '/about/oficina.jpeg',
-    ratio: '16 / 9',
-    label: 'The team, Madrid, 2026',
-    note: 'Real photo.',
-  },
 };
 
 const gloveParts = [
@@ -201,9 +195,6 @@ export default function CompanyPage() {
             title="Built by engineers, guided by medicine."
             lead="Five co-founders from Madrid, across computer science, biomedical engineering, business and clinical medicine, and a clinical advisor."
           />
-          <Reveal>
-            <Visual item={media.team} className={home.wideVisual} sizes="1120px" />
-          </Reveal>
           <div className={page.teamGrid}>
             {founders.map((member, index) => (
               <Reveal delay={index * 0.06} key={member.name}>
