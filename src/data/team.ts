@@ -10,12 +10,12 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: 'Álvaro Gil Arjona',
-    title: 'Co-founder, Product and Strategy',
-    bio: 'Leads product direction, user experience and positioning. Studies Computer Science and Business at Universidad Complutense de Madrid. Turns the clinical problem into something clinicians, mentors and investors can understand and use.',
-    photo: '/AlvaroNueva.png',
-    linkedin: 'https://www.linkedin.com/in/alvarogilarjona/',
-    github: 'https://github.com/alvarogilarjona',
+    name: 'Luis Molina Salvador',
+    title: 'Co-founder, Strategy',
+    bio: 'Leads strategy, partnerships, fundraising and go-to-market. Software developer at Amazon, studying Computer Engineering and Business Administration at UCM. Previously AI developer at Grupo Oesía and equity analyst at Arcanix Fund.',
+    photo: '/luisNueva.jpeg',
+    linkedin: 'https://www.linkedin.com/in/luis-molina-salvador/',
+    github: 'https://github.com/34lumo',
   },
   {
     name: 'Mateo Pérez Guzmán',
@@ -26,12 +26,12 @@ export const team: TeamMember[] = [
     github: 'https://github.com/mpchachi',
   },
   {
-    name: 'Luis Molina Salvador',
-    title: 'Co-founder, Strategy',
-    bio: 'Leads strategy, partnerships, fundraising and go-to-market. Software developer at Amazon, studying Computer Engineering and Business Administration at UCM. Previously AI developer at Grupo Oesía and equity analyst at Arcanix Fund.',
-    photo: '/luisNueva.jpeg',
-    linkedin: 'https://www.linkedin.com/in/luis-molina-salvador/',
-    github: 'https://github.com/34lumo',
+    name: 'Álvaro Gil Arjona',
+    title: 'Co-founder, Product and Strategy',
+    bio: 'Leads product direction, user experience and positioning. Studies Computer Science and Business at Universidad Complutense de Madrid. Turns the clinical problem into something clinicians, mentors and investors can understand and use.',
+    photo: '/AlvaroNueva.png',
+    linkedin: 'https://www.linkedin.com/in/alvarogilarjona/',
+    github: 'https://github.com/alvarogilarjona',
   },
   {
     name: 'Marco García López',
