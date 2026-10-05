@@ -1791,3 +1791,8 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+.fg-nav-links > a[aria-current="page"] {
+  color: #1d1d1f;
+  background: #f0f0f3;
+}

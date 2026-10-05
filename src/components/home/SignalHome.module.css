@@ -613,3 +613,20 @@
     transition: none;
   }
 }
+
+/* Hero video ---------------------------------------------------------- */
+
+.heroVideo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #000;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 30px 80px rgba(0, 0, 0, 0.14);
+}
+
+.heroVideo iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
