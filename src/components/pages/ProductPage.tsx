@@ -55,7 +55,7 @@ const exercises = [
     media: media.jug,
     text: 'The patient tilts a jug to pour water into a glass. The rotation captures pronation and supination range, one of the most clinically relevant movements after stroke.',
     measures: 'Rotation range of motion, pronation and supination speed, smoothness (SPARC)',
-    why: 'Wrist rotation is among the first movements affected and the last to recover. Measuring it daily draws a curve a monthly visit cannot.',
+    why: 'Wrist rotation is among the first movements affected and the last to recover. Measured daily, it shows a recovery curve that a monthly visit cannot.',
   },
 ];
 
@@ -217,7 +217,7 @@ export default function ProductPage() {
           <div><strong>3</strong><span>exercises per session</span></div>
           <div><strong>&lt;5 min</strong><span>of play, no setup</span></div>
           <div><strong>21</strong><span>hand landmarks tracked</span></div>
-          <div><strong>0</strong><span>hardware to ship</span></div>
+          <div><strong>0</strong><span>extra hardware</span></div>
         </div>
       </PageHero>
 
@@ -225,7 +225,7 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="Walkthrough"
-            title="A full session, from the first pinch to the report."
+            title="A full session, start to finish."
             lead="Recorded on the current build. This is what the patient does at home and what the clinician receives afterwards."
           />
           <Reveal>
@@ -235,32 +235,18 @@ export default function ProductPage() {
               </video>
             </div>
           </Reveal>
-          <div className={page.videoPair}>
-            <Reveal delay={0.05}>
-              <div className={page.video}>
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/TYvQgTtPtYA"
-                  title="FixedGap: the problem we are solving"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-              <p className={page.videoCaption}>The problem we are solving, in two minutes.</p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className={page.video}>
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/UqnF2CcWmIo"
-                  title="FixedGap: Meet Maria"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-              <p className={page.videoCaption}>Meet Maria: what recovery at home looks like when nobody is watching.</p>
-            </Reveal>
-          </div>
+          <Reveal delay={0.05}>
+            <div className={page.video} style={{ marginTop: 28 }}>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/UqnF2CcWmIo"
+                title="FixedGap: Meet Maria"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            <p className={page.videoCaption}>Meet Maria: a patient&apos;s story, two minutes.</p>
+          </Reveal>
         </div>
       </section>
 
@@ -268,7 +254,7 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="The exercises"
-            title="Three games. Each one built around a movement that matters after stroke."
+            title="Three games, each built around a movement that matters after stroke."
           />
           {exercises.map((exercise, index) => (
             <Reveal key={exercise.name}>

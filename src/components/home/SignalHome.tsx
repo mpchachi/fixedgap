@@ -55,17 +55,17 @@ const pillars: Array<{ media: Media | null; title: string; body: string }> = [
   {
     media: media.pillarHome,
     title: 'The patient plays at home.',
-    body: 'Short guided tasks in the browser, under five minutes, in front of a standard webcam. Nothing to install, nothing to wear.',
+    body: 'Short guided tasks in the browser, under five minutes, in front of a standard webcam. Nothing to install or wear.',
   },
   {
     media: null,
     title: 'The camera does the measuring.',
-    body: 'Twenty-one hand landmarks on every frame become a fixed set of motor measurements: dexterity, range, quality, symmetry.',
+    body: 'Twenty-one hand landmarks on every frame become the same set of motor measurements, session after session.',
   },
   {
     media: media.pillarClinician,
     title: 'The clinician sees the trend.',
-    body: 'Every session lands in one view, ordered by who needs attention, so the next appointment starts with data instead of memory.',
+    body: 'Every session lands in one view, ordered by who needs attention first.',
   },
 ];
 
@@ -234,7 +234,7 @@ export default function SignalHome() {
       <section className={styles.section}>
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
-            <SplitText text="One camera. Three people who benefit." />
+            <SplitText text="What FixedGap does." />
           </Reveal>
           <div className={styles.pillars}>
             {pillars.map((pillar, index) => (
@@ -297,7 +297,7 @@ export default function SignalHome() {
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>Awards and media</p>
-            <SplitText text="Recognised in Madrid, Boston and the press." />
+            <SplitText text="Awards and press." />
           </Reveal>
           <AwardsMedia awards={awards} press={press} />
         </div>

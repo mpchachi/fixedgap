@@ -23,10 +23,6 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (

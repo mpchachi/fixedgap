@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       to('/pricing', '/contact'),
       to('/market', '/'),
       to('/contact/faq', '/contact#faq'),
-      to('/contact/who-we-work-with', '/contact#who-we-work-with'),
+      to('/contact/who-we-work-with', '/contact'),
     ];
   },
 };

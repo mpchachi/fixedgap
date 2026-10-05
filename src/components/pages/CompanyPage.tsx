@@ -52,7 +52,7 @@ export default function CompanyPage() {
       <PageHero
         kicker="Company"
         title={'From a hackathon glove\nto a camera.'}
-        lead="FixedGap started in 2026 at the Madrid hub of the Harvard HSIL Hackathon, as a 36-hour experiment by six students. What follows is how a hardware prototype became software, and who is building it."
+        lead="FixedGap started in 2026 at the Madrid hub of the Harvard HSIL Hackathon, as a 36-hour experiment by six students. This is how a hardware prototype became software, and who is building it."
       >
         <div className={page.heroFacts}>
           <div><strong>2026</strong><span>founded in Madrid</span></div>
@@ -184,7 +184,7 @@ export default function CompanyPage() {
           <SectionHead
             kicker="The team"
             title="Built by engineers, guided by medicine."
-            lead="Computer science, biomedical engineering, business and clinical medicine. Five co-founders from Madrid and one physician keeping us honest."
+            lead="Five co-founders from Madrid, across computer science, biomedical engineering, business and clinical medicine, and a clinical advisor."
           />
           <div className={page.teamGrid}>
             {founders.map((member, index) => (
@@ -232,9 +232,9 @@ export default function CompanyPage() {
       <section className={`${home.section} ${home.sectionTint}`}>
         <div className={home.shell}>
           <Reveal className={page.pullquote}>
-            <SplitText as="p" text="Recovery is the next signal. We are building its instrument." />
+            <SplitText as="p" text="Why we are building this." />
             <p>
-              Why we think a camera is the stethoscope of this generation, and what that asks of us.{' '}
+              The long version: why recovery should be measured continuously, and what a camera changes.{' '}
               <Link className={home.buttonText} href="/company/behind-fixedgap">
                 Read the manifesto <span>›</span>
               </Link>

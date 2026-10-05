@@ -9,47 +9,40 @@ const stats: Array<{
   suffix?: string;
   decimals?: number;
   label: string;
-  impact: string;
   source: string;
 }> = [
   {
     value: 69,
     suffix: '%',
     label: 'of stroke patients are not doing the rehabilitation exercises their clinician prescribed: at home, alone, unmonitored.',
-    impact: 'Nearly 7 in 10 patients are not doing what was prescribed, and nobody knows.',
     source: 'NCBI. Limb heaviness as a sensorimotor disorder alters rehabilitation adherence after stroke.',
   },
   {
     value: 44,
     suffix: '%',
     label: 'of stroke survivors receive no home health or outpatient therapy at all after discharge.',
-    impact: 'Almost half go home with no follow-up care whatsoever.',
     source: 'Topics in Stroke Rehabilitation, 2024. Differences in rehabilitation evaluation access for stroke survivors.',
   },
   {
     value: 50,
     suffix: '%+',
     label: 'of stroke patients can only access home-based rehabilitation, with no monitoring.',
-    impact: 'More than half recover at home, invisible to their clinical team.',
     source: 'Frontiers in Medicine, 2025. Home-based exercise rehabilitation among stroke survivors.',
   },
   {
     value: 3,
     prefix: '1 in ',
     label: 'stroke patients stops rehabilitating. Average adherence is 68.6%.',
-    impact: 'Even among those who start, dropping out is the norm.',
     source: 'Frontiers in Neurology, 2025. Adherence to rehabilitation exercise in acute stroke patients.',
   },
   {
     value: 1015,
     label: 'stroke patients with sequelae per neurologist in Spanish stroke units.',
-    impact: 'Over a thousand patients per neurologist. Remote monitoring is the only way this scales.',
     source: 'SEN (Sociedad Española de Neurología), October 2025. 330,000 survivors divided by about 325 stroke-unit neurologists.',
   },
   {
     value: 3367,
     label: 'stroke patients per stroke neurologist worldwide.',
-    impact: 'In low-income countries the ratio reaches millions per neurological professional. The workforce shortage is structural.',
     source: 'World Federation of Neurology survey. 101M survivors divided by about 30,000 dedicated stroke neurologists.',
   },
   {
@@ -57,7 +50,6 @@ const stats: Array<{
     suffix: 'M',
     decimals: 1,
     label: 'deaths from stroke every year worldwide. The second leading cause of death globally.',
-    impact: 'Stroke is not rare. It is one of the most common and devastating diseases on the planet.',
     source: 'GBD 2019 Stroke Collaborators, The Lancet Neurology, 2021.',
   },
 ];
@@ -267,15 +259,15 @@ export default function SciencePage() {
       <PageHero
         kicker="Science"
         title={'Built on evidence.\nHonest about where we are.'}
-        lead="Every biomarker FixedGap captures is grounded in peer-reviewed literature. Validating our own implementation with patients is the next step, and this page says exactly what is done and what is not."
+        lead="Every biomarker FixedGap captures comes from peer-reviewed literature. Validating our own implementation with patients is the next step. This page says what is done and what is not."
       />
 
       <section className={`${home.section} ${page.anchor}`} id="evidence">
         <div className={home.shell}>
           <SectionHead
             kicker="The evidence"
-            title="Rehabilitation at home is where stroke recovery is lost."
-            lead="Peer-reviewed data on the scale of the problem."
+            title="What happens after discharge."
+            lead="Published data on the scale of the problem."
           />
           <div className={page.statList}>
             {stats.map((stat, index) => (
@@ -285,7 +277,6 @@ export default function SciencePage() {
                 </strong>
                 <div>
                   <p>{stat.label}</p>
-                  <p className={page.impact}>{stat.impact}</p>
                 </div>
                 <small>{stat.source}</small>
               </Reveal>
@@ -299,7 +290,7 @@ export default function SciencePage() {
           <SectionHead
             kicker="Scientific foundation"
             title="What the literature says about each biomarker."
-            lead="The metrics we extract were not chosen for being easy to compute. They are the ones that already correlate with the Fugl-Meyer upper extremity assessment."
+            lead="Each metric already correlates with the Fugl-Meyer upper extremity assessment in published studies."
           />
           <div className={page.foundation}>
             {foundation.map((item, index) => (

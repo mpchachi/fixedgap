@@ -8,6 +8,8 @@ import { animated, to, useSpring } from '@react-spring/web';
  * A link that leans toward the pointer while it hovers and springs back on
  * leave. Small displacement (max ~8px) so it feels alive, not slippery.
  */
+const AnimatedLink = animated(Link);
+
 export default function MagneticLink({
   href,
   className = '',
@@ -34,8 +36,6 @@ export default function MagneticLink({
   };
 
   const leave = () => api.start({ x: 0, y: 0 });
-
-  const AnimatedLink = animated(Link);
 
   return (
     <AnimatedLink
