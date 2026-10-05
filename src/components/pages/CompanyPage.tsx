@@ -10,10 +10,10 @@ import { team } from '@/data/team';
 /* Visuals for this page. Brief in /public/home/IMAGES.md (Company section). */
 const media: Record<string, Media> = {
   glove: {
-    src: null,
+    src: '/about/about-2.jpeg',
     ratio: '4 / 3',
-    label: 'The glove, technical sketch',
-    note: 'Ink and pencil exploded view of the 2026 glove: IMU, flex sensors on each finger, EMG pads, eye-tracking module, wiring to a microcontroller. Annotation leader lines, no text.',
+    label: 'The first prototype: the glove, the board and the wiring',
+    note: 'Real photo. Swap for the technical sketch (brief item 8) if preferred.',
   },
   camera: {
     src: null,
@@ -21,11 +21,23 @@ const media: Record<string, Media> = {
     label: 'The camera version, technical sketch',
     note: 'Same style: a bare hand, an open laptop, dashed sight lines from the camera to 21 landmark dots on the hand. Nothing worn on the hand.',
   },
+  madrid: {
+    src: '/GANADORES.jpeg',
+    ratio: '4 / 5',
+    label: 'Winning the Madrid hub, April 2026',
+    note: 'Real photo.',
+  },
   boston: {
     src: '/about/pilar.jpeg',
+    ratio: '4 / 5',
+    label: 'Second place at the global final, Pillar VC, Boston, June 2026',
+    note: 'Real photo.',
+  },
+  team: {
+    src: '/about/oficina.jpeg',
     ratio: '16 / 9',
-    label: 'The team at Pillar VC, Boston, June 2026',
-    note: 'Real photo from the global final.',
+    label: 'The team, Madrid, 2026',
+    note: 'Real photo.',
   },
 };
 
@@ -154,7 +166,10 @@ export default function CompanyPage() {
             lead="In June 2026 FixedGap reached the global final of the Harvard Health Systems Innovation Lab Hackathon at Pillar VC in Boston. Against teams from 50 hubs, the team took second place worldwide, judged by Boston investors and faculty from the Harvard T.H. Chan School of Public Health."
           />
           <Reveal>
-            <Visual item={media.boston} className={home.wideVisual} sizes="1120px" />
+            <div className={`${home.twoUp} ${home.wideVisual}`}>
+              <Visual item={media.madrid} sizes="(max-width: 760px) 100vw, 560px" />
+              <Visual item={media.boston} sizes="(max-width: 760px) 100vw, 560px" />
+            </div>
           </Reveal>
           <Reveal>
             <div className={page.feature}>
@@ -186,6 +201,9 @@ export default function CompanyPage() {
             title="Built by engineers, guided by medicine."
             lead="Five co-founders from Madrid, across computer science, biomedical engineering, business and clinical medicine, and a clinical advisor."
           />
+          <Reveal>
+            <Visual item={media.team} className={home.wideVisual} sizes="1120px" />
+          </Reveal>
           <div className={page.teamGrid}>
             {founders.map((member, index) => (
               <Reveal delay={index * 0.06} key={member.name}>

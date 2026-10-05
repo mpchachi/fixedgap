@@ -29,6 +29,12 @@ const media: Record<string, Media> = {
     label: 'Playing from home: wrist',
     note: 'Hyperreal photo, tight crop. Hands only: a forearm rotating palm up to palm down in front of a laptop edge.',
   },
+  tracking: {
+    src: '/about/about-4.jpeg',
+    ratio: '1536 / 736',
+    label: 'What the camera sees: live hand tracking and the metrics panel',
+    note: 'Real screenshot of the current build.',
+  },
 };
 
 const movements = [
@@ -290,6 +296,9 @@ export default function ProductPage() {
             title="What the games measure, and why a neurologist cares."
             lead="Every metric is extracted from the 21 hand landmarks the camera tracks. No wearables, no calibration. Grouped by movement, with the labels used in the clinical literature."
           />
+          <Reveal>
+            <Visual item={media.tracking} className={home.wideVisual} sizes="1120px" />
+          </Reveal>
           <Reveal>
             <div className={page.tabs} role="tablist">
               {categories.map((category) => (
