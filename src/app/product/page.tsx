@@ -1,5 +1,10 @@
-import { redirect } from 'next/navigation';
+import type { Metadata } from 'next';
+import ProductPage from '@/components/pages/ProductPage';
 
-export default function ProductPage() {
-  redirect('/product/experience');
+export const metadata: Metadata = {
+  title: 'Product | FixedGap',
+};
+
+export default function Page() {
+  return <ProductPage />;
 }

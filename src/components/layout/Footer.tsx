@@ -5,25 +5,27 @@ const groups = [
   {
     title: 'Product',
     links: [
-      { label: 'Patient experience', href: '/product/experience' },
-      { label: 'Clinical dashboard', href: '/product/dashboard' },
-      { label: 'Biomarkers', href: '/product/biomarkers' },
-      { label: 'Demo', href: '/demo' },
+      { label: 'Walkthrough', href: '/product#demo' },
+      { label: 'The exercises', href: '/product#exercises' },
+      { label: 'Biomarkers', href: '/product#biomarkers' },
+      { label: 'Clinical dashboard', href: '/product#dashboard' },
     ],
   },
   {
     title: 'Science',
     links: [
-      { label: 'Clinical validation', href: '/science/validation' },
-      { label: 'Evidence', href: '/science/evidence' },
-      { label: 'References', href: '/science/references' },
+      { label: 'The evidence', href: '/science#evidence' },
+      { label: 'Scientific foundation', href: '/science#foundation' },
+      { label: 'Validation status', href: '/science#status' },
+      { label: 'References', href: '/science#references' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'Our story', href: '/company/about' },
-      { label: 'Team', href: '/company/team' },
+      { label: 'Our story', href: '/company#story' },
+      { label: 'Team', href: '/company#team' },
+      { label: 'Behind FixedGap', href: '/company/behind-fixedgap' },
       { label: 'Awards and media', href: '/#awards' },
       { label: 'Contact', href: '/contact' },
     ],

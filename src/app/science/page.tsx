@@ -1,5 +1,10 @@
-import { redirect } from 'next/navigation';
+import type { Metadata } from 'next';
+import SciencePage from '@/components/pages/SciencePage';
 
-export default function SciencePage() {
-  redirect('/science/validation');
+export const metadata: Metadata = {
+  title: 'Science | FixedGap',
+};
+
+export default function Page() {
+  return <SciencePage />;
 }

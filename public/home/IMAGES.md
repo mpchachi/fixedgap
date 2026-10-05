@@ -110,3 +110,57 @@ Still real and kept as is: the clinical dashboard video
 (`/clinical/videoDashboard.mp4`) and the partner logos (`/logos/`).
 Not used any more on the home: `GUANTE.jpeg`, `hand-tracking.jpg`,
 `hand-keypoints.png`, `/juegos/*`, `/about/about-team.jpg`, `/videos/*`.
+
+---
+
+# Inner pages
+
+Same rules and shared style blocks as above. Declared in
+`src/components/pages/ProductPage.tsx` and `CompanyPage.tsx` (the `media`
+object at the top of each). Save files here in `/public/home/`.
+
+## Product
+
+## 12. Pill Organizer, in play
+File: `product-pills.jpg` · Ratio 4:3
+
+Prompt: Studio 3D render of a weekly pill organizer with coloured pills, one
+pill held mid-air by a translucent, barely visible pinch gesture, soft
+shadows, cream background.
+
+## 13. Light Switch, in play
+File: `product-switch.jpg` · Ratio 4:3
+
+Prompt: Studio 3D render of two small desk lamps side by side, one lit warm
+and one off, a simple wall switch between them, cream background, same
+lighting as the pill organizer.
+
+## 14. Water Jug, in play
+File: `product-jug.jpg` · Ratio 4:3
+
+Prompt: Studio 3D render of a clay jug tilted mid-pour into a clear glass,
+water caught in motion, cream background, same set as the other two.
+
+## Company
+
+## 15. The glove, technical sketch
+File: `company-glove.png` · Ratio 4:3
+
+Prompt: Exploded-view technical illustration of a rehabilitation glove: IMU
+module on the back of the hand, flex sensors along each finger, EMG pads on
+the forearm strap, a small eye-tracking module, wiring to a microcontroller.
+Annotation leader lines with no text. Use the sketch style block.
+
+## 16. The camera version, technical sketch
+File: `company-camera.png` · Ratio 4:3
+
+Prompt: Same sketch style. A bare hand in front of an open laptop, dashed
+sight lines from the webcam to 21 small dots on the hand joints connected by
+thin lines. Nothing worn on the hand. One blue accent on the dots.
+
+## 17. Boston, June 2026
+File: `company-boston.jpg` · Ratio 16:9
+
+Prompt: Editorial photo of a small student team presenting at a bright venue
+with large windows, one person standing at a lectern, laptops open on a long
+table, audience blurred in the foreground. No readable text or logos.

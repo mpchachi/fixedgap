@@ -1,8 +1,6 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import { useRef } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './SignalHome.module.css';
@@ -15,6 +13,7 @@ import PipelineRail from './motion/PipelineRail';
 import Sparkline from './motion/Sparkline';
 import MagneticLink from './motion/MagneticLink';
 import AwardsMedia, { type Award, type PressItem } from './motion/AwardsMedia';
+import { Reveal, Visual, type Media } from '@/components/site/Editorial';
 
 /*
  * Every visual on this page is declared here. `src: null` renders a labelled
@@ -85,7 +84,6 @@ const media = {
   },
 };
 
-type Media = (typeof media)[keyof typeof media];
 
 const partners = [
   { name: 'AWS', logo: '/logos/aws.png' },
@@ -212,44 +210,6 @@ const evidence: Array<{ value: number; prefix?: string; suffix?: string; text: s
   { value: 3, prefix: '1 in ', text: 'stops rehabilitating before recovery is complete.' },
 ];
 
-function Reveal({
-  children,
-  className = '',
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function Visual({ item, className = '', sizes = '100vw' }: { item: Media; className?: string; sizes?: string }) {
-  return (
-    <div className={`${styles.visual} ${className}`} style={{ aspectRatio: item.ratio }}>
-      {item.src ? (
-        <Image src={item.src} alt={item.label} fill sizes={sizes} />
-      ) : (
-        <div className={styles.visualPlaceholder} aria-label={`Image placeholder: ${item.label}`}>
-          <span>{item.label}</span>
-          <small>{item.note}</small>
-          <em>{item.ratio.replace(' ', '').replace(' ', '')}</em>
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function SignalHome() {
   const heroVisualRef = useRef<HTMLDivElement>(null);
   const dashboardRef = useRef<HTMLDivElement>(null);
@@ -288,7 +248,7 @@ export default function SignalHome() {
               <MagneticLink className={styles.buttonPrimary} href="/contact">
                 Book a clinical demo
               </MagneticLink>
-              <Link className={styles.buttonText} href="/demo">
+              <Link className={styles.buttonText} href="/product#demo">
                 See how it works <span>›</span>
               </Link>
             </div>
@@ -445,7 +405,7 @@ export default function SignalHome() {
                   <div className={styles.cardCopy}>
                     <h3>{exercise.name}</h3>
                     <p>{exercise.target}</p>
-                    <Link href="/product/experience">See the exercise <span>›</span></Link>
+                    <Link href="/product#exercises">See the exercise <span>›</span></Link>
                   </div>
                 </TiltCard>
               </Reveal>
@@ -493,7 +453,7 @@ export default function SignalHome() {
             ))}
           </div>
           <Reveal>
-            <Link className={styles.buttonText} href="/science/evidence">
+            <Link className={styles.buttonText} href="/science#evidence">
               Read the clinical evidence <span>›</span>
             </Link>
           </Reveal>
@@ -522,7 +482,7 @@ export default function SignalHome() {
               FixedGap is built by a team across computer science, biomedical engineering,
               medicine and product, with clinical advisors from neurology.
             </p>
-            <Link className={styles.buttonText} href="/company/about">
+            <Link className={styles.buttonText} href="/company#story">
               Read our story <span>›</span>
             </Link>
           </Reveal>

@@ -17,78 +17,77 @@ const menus: Record<
   }
 > = {
   Product: {
-    eyebrow: 'Explore FixedGap',
+    eyebrow: 'The product',
     title: 'One camera. A continuous view of recovery.',
     links: [
       {
-        label: 'Patient experience',
-        description: 'Short, focused rehabilitation from home.',
-        href: '/product/experience',
+        label: 'The exercises',
+        description: 'Three short games, each built around a movement that matters.',
+        href: '/product#exercises',
+      },
+      {
+        label: 'Biomarkers',
+        description: 'What each game measures and why a neurologist cares.',
+        href: '/product#biomarkers',
       },
       {
         label: 'Clinical dashboard',
-        description: 'Trends and alerts in one calm workspace.',
-        href: '/product/dashboard',
-      },
-      {
-        label: 'Movement biomarkers',
-        description: 'See what FixedGap captures in every session.',
-        href: '/product/biomarkers',
+        description: 'The report the care team sees after every session.',
+        href: '/product#dashboard',
       },
     ],
     secondary: [
-      { label: 'Watch the demo', href: '/demo' },
+      { label: 'Watch the walkthrough', href: '/product#demo' },
       { label: 'How it works', href: '/#how-it-works' },
-      { label: 'Pricing', href: '/pricing' },
     ],
   },
   Science: {
     eyebrow: 'Evidence and validation',
-    title: 'Designed around clinically meaningful movement.',
+    title: 'Built on evidence. Honest about where we are.',
     links: [
       {
-        label: 'Clinical validation',
-        description: 'Our framework for testing and validation.',
-        href: '/science/validation',
-      },
-      {
         label: 'The evidence',
-        description: 'Why the gap between visits matters.',
-        href: '/science/evidence',
+        description: 'Why the gap between visits matters, with sources.',
+        href: '/science#evidence',
       },
       {
-        label: 'Research library',
-        description: 'The literature behind our approach.',
-        href: '/science/references',
+        label: 'Scientific foundation',
+        description: 'What the literature says about each biomarker.',
+        href: '/science#foundation',
+      },
+      {
+        label: 'Validation status',
+        description: 'Done, in progress and planned.',
+        href: '/science#status',
       },
     ],
     secondary: [
-      { label: 'Science overview', href: '/science' },
-      { label: 'Talk to the team', href: '/contact' },
+      { label: 'References', href: '/science#references' },
+      { label: 'Join the validation study', href: '/contact' },
     ],
   },
   Company: {
     eyebrow: 'About FixedGap',
-    title: 'Building a clearer future for stroke recovery.',
+    title: 'From a hackathon glove to a camera.',
     links: [
       {
         label: 'Our story',
-        description: 'How FixedGap began and where we are going.',
-        href: '/company/about',
+        description: 'How a hardware prototype became software.',
+        href: '/company#story',
       },
       {
         label: 'The team',
-        description: 'Meet the people behind the platform.',
-        href: '/company/team',
+        description: 'Five co-founders and one clinical advisor.',
+        href: '/company#team',
       },
       {
         label: 'Behind FixedGap',
-        description: 'The ideas and experiences that drive us.',
+        description: 'The manifesto: why recovery is the next signal.',
         href: '/company/behind-fixedgap',
       },
     ],
     secondary: [
-      { label: 'Media', href: '/company/media' },
+      { label: 'Awards and media', href: '/#awards' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -141,9 +140,6 @@ export default function Navbar() {
                 <span aria-hidden="true">⌄</span>
               </button>
             ))}
-            <Link href="/demo" onFocus={() => setActiveMenu(null)}>
-              Demo
-            </Link>
           </nav>
 
           <div className="fg-nav-actions">
@@ -229,9 +225,6 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <Link className="fg-mobile-direct" href="/demo" onClick={closeAll}>
-              Demo
-            </Link>
             <Link className="fg-mobile-direct" href="/contact" onClick={closeAll}>
               Contact
             </Link>

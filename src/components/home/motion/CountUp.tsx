@@ -47,7 +47,7 @@ export default function CountUp({
   return (
     <strong ref={ref} className={className}>
       {prefix}
-      <animated.span>{n.to((v) => v.toFixed(decimals))}</animated.span>
+      <animated.span>{n.to((v) => v.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }))}</animated.span>
       {suffix}
     </strong>
   );
