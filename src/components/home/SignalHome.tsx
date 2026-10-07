@@ -6,7 +6,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './SignalHome.module.css';
 import SplitText from './motion/SplitText';
 import CountUp from './motion/CountUp';
-import HandLandmarks from './motion/HandLandmarks';
 import LogoMarquee from './motion/LogoMarquee';
 import TiltCard from './motion/TiltCard';
 import PipelineRail from './motion/PipelineRail';
@@ -26,6 +25,12 @@ const media = {
     ratio: '1 / 1',
     label: 'A patient playing from his kitchen table, hand raised in a pinch in front of the laptop',
     note: '',
+  },
+  pillarTracking: {
+    src: '/home/home-tracking.webp' as string | null,
+    ratio: '1 / 1',
+    label: 'A real frame from FixedGap: the 21 hand landmarks tracked on a webcam image',
+    note: 'Real screenshot.',
   },
   pillarClinician: {
     src: '/home/home-patient.webp' as string | null,
@@ -51,14 +56,14 @@ const partners = [
   { name: 'Hospital General Universitario Gregorio Marañón', logo: '/logos/gregorio-maranon.png' },
 ];
 
-const pillars: Array<{ media: Media | null; title: string; body: string }> = [
+const pillars: Array<{ media: Media; title: string; body: string }> = [
   {
     media: media.pillarHome,
     title: 'The patient plays at home.',
     body: 'Short arcade-style games in the browser, under five minutes, in front of a standard webcam. Nothing to install or wear.',
   },
   {
-    media: null,
+    media: media.pillarTracking,
     title: 'The camera does the measuring.',
     body: 'Twenty-one hand landmarks on every frame become the same set of motor measurements, session after session.',
   },
@@ -240,13 +245,7 @@ export default function SignalHome() {
             {pillars.map((pillar, index) => (
               <Reveal className={styles.pillar} delay={index * 0.08} key={pillar.title}>
                 <TiltCard className={styles.tilt}>
-                  {pillar.media ? (
-                    <Visual item={pillar.media} sizes="(max-width: 900px) 100vw, 400px" />
-                  ) : (
-                    <div className={`${styles.visual} ${styles.handStage}`} style={{ aspectRatio: '1 / 1' }}>
-                      <HandLandmarks className={styles.hand} />
-                    </div>
-                  )}
+                  <Visual item={pillar.media} sizes="(max-width: 900px) 100vw, 400px" />
                 </TiltCard>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.body}</p>

@@ -509,17 +509,6 @@
   flex: none;
 }
 
-.handStage {
-  display: grid;
-  place-items: center;
-  background: var(--tint);
-}
-
-.hand {
-  width: 72%;
-  height: 72%;
-}
-
 .tilt {
   border-radius: var(--radius);
 }

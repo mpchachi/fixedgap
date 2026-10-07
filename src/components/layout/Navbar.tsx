@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const links = [
+  { label: 'Home', href: '/' },
   { label: 'Product', href: '/product' },
   { label: 'Science', href: '/science' },
   { label: 'Company', href: '/company' },
@@ -23,7 +24,8 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className={`fg-nav ${mobileOpen ? 'fg-nav-open' : ''}`}>
