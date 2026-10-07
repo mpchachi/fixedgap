@@ -1,1 +1,0 @@
-import"./vision_bundle-BU0G8ZpM.js";import{t as e}from"./pack-CXK2QmvB.js";var t=e(document.getElementById(`app`));window.addEventListener(`pagehide`,()=>t?.(),{once:!0});
