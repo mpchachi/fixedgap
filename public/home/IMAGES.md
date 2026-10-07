@@ -1,3 +1,38 @@
+# Plan de fotos v2 (preparado 8 oct 2026, pendiente de revisar con Luis)
+
+Tres tipos de foto, cada hueco lleva su tipo:
+- REAL: fotos nuestras (equipo, premios, producto en pantalla). Siempre que exista, gana.
+- PRODUCTO: capturas limpias de la app actual (juegos retro, dashboard, tracking). En ingles, 1920x1080, sin barra de tareas ni "Activar Windows".
+- IA: hiperrealistas de personas mayores probando el producto, mismo reparto (el senor de la cocina, la senora del comedor) y mismo bloque de estilo que las 5 que ya hay.
+
+| Pagina | Hueco | Hoy | Cambiar a | Tipo |
+|---|---|---|---|---|
+| Home | Tarjeta At home | home-hand.webp | se queda | IA (ya hecha) |
+| Home | Tarjeta The camera | home-camera.webp (manos + reloj, repetida en Product) | mano en pinza vista desde la webcam, fondo cocina | IA, prompt 1 |
+| Home | Tarjeta The clinic | home-patient.webp (senora de perfil) | clinica de bata leyendo el portatil, consulta real | IA, prompt 3a |
+| Home | Awards: foto 1 | pilar.jpeg (Boston) | se queda | REAL |
+| Home | Awards: foto 2 | GANADORES.jpeg (hub Madrid) | foto del certamen de los 2.000 EUR si la hay; si no, se queda | REAL |
+| Home | Equipo | oficina.jpeg (los cinco en la mesa) | foto de equipo nueva: pared lisa, luz de ventana, sin mochilas | REAL (hacer) |
+| Product | Walkthrough | video DemoTecnica.mp4 | se queda | PRODUCTO |
+| Product | Fila pinza | product-pinch.webp | se queda | IA (ya hecha) |
+| Product | Fila mano abierta | product-open.webp | se queda | IA (ya hecha) |
+| Product | Fila muneca | product-wrist.webp (repetida en Home) | se queda aqui si la de Home cambia | IA (ya hecha) |
+| Product | Juegos retro | sin imagen | 3 capturas de los juegos actuales (Mario-like, Flappy-like, tercero), 16:9 | PRODUCTO (hacer) |
+| Product | Tracking encima de biomarcadores | about-4.jpeg (captura antigua con la mano y los puntos, UI vieja) | captura nueva de la app actual con los 21 puntos pintados, UI actual | PRODUCTO (hacer) |
+| Product | Dashboard | videoDashboard.mp4 | se queda, o captura fija del dashboard actual si el video esta viejo | PRODUCTO |
+| Product | Lado del clinico (nuevo, junto al dashboard) | sin imagen | medica mirando el portatil, estetoscopio en la mesa | IA, prompt 3a |
+| Science | Cabecera (nuevo) | sin imagen | consulta de neurologia vacia, hospital publico, luz de manana | IA, prompt 3d |
+| Company | Phase 01 guante | about-2.jpeg (guante real en la mesa) | se queda; alternativa: foto nueva del guante solo sobre fondo neutro | REAL |
+| Company | Phase 02 camara | company-camera.webp (= senor cocina, repetida) | cuaderno de disenador fotografiado desde arriba (prompt 2) o foto del senor de espaldas con el portatil (prompt 3c) | IA |
+| Company | Madrid / Boston | GANADORES.jpeg + pilar.jpeg | anadir cualquier foto real de la final de Boston con gente, o de la visita a Harvard | REAL (buscar) |
+| Company | Fichas del equipo | headshots actuales | opcional: mismo encuadre y fondo gris claro para los 6 | REAL |
+| General | Open Graph 1200x630 | logo cuadrado | montar con codigo desde el logo | codigo |
+| General | Favicons | icon.jpeg | PNG/ICO desde el logo | codigo |
+
+Fotos REALES que hay que conseguir: certamen de los 2.000 EUR (entrega del premio), equipo en limpio, Boston con gente, y el dia del piloto un paciente real probando (sustituye a las IA de Product).
+
+---
+
 # Image brief
 
 ## Status (5 Oct 2026)
