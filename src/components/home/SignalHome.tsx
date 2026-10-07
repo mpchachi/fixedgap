@@ -27,10 +27,10 @@ const media = {
     note: '',
   },
   pillarTracking: {
-    src: '/home/home-tracking.webp' as string | null,
+    src: '/home/home-camera.webp' as string | null,
     ratio: '1 / 1',
-    label: 'A real frame from FixedGap: the 21 hand landmarks tracked on a webcam image',
-    note: 'Real screenshot.',
+    label: 'A patient turning his hand in front of the laptop camera, mid-exercise',
+    note: '',
   },
   pillarClinician: {
     src: '/home/home-patient.webp' as string | null,
