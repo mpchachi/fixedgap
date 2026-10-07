@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 // /plataforma: plataforma clínica de FixedGap (app de juegos + dashboard del médico).
-// Es un build estático copiado en public/plataforma desde el repo de la plataforma
-// (`npm run build:web` en FixedGapMVP/demo). No se enlaza desde la web y no se indexa.
+// Vive en su propio proyecto de Vercel (`fixedgap-plataforma`, repo DiariodeArrieta) y aquí
+// solo se sirve a través de un rewrite: así los cambios de la plataforma no redespliegan la
+// web. No se enlaza desde la web y no se indexa.
+const PLATAFORMA = "https://fixedgap-plataforma.vercel.app";
 const PLATAFORMA_HEADERS = [
   { key: "X-Robots-Tag", value: "noindex, nofollow" },
   // La cámara solo se usa aquí (reconocimiento de la mano en el navegador del paciente).
@@ -13,10 +15,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
-        { source: "/plataforma", destination: "/plataforma/index.html" },
-        // Dashboard (aplicación de una sola página): cualquier ruta interna → su index.html.
-        { source: "/plataforma/dashboard", destination: "/plataforma/dashboard/index.html" },
-        { source: "/plataforma/dashboard/:path((?!assets/|.*\\..*).*)", destination: "/plataforma/dashboard/index.html" },
+        { source: "/plataforma", destination: `${PLATAFORMA}/plataforma/` },
+        { source: "/plataforma/:path*", destination: `${PLATAFORMA}/plataforma/:path*` },
       ],
     };
   },

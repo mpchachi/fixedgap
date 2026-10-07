@@ -1,1 +1,0 @@
-import"./vision_bundle-BU0G8ZpM.js";import{t as e}from"./game-Ufe45-xX.js";var t=e(document.getElementById(`app`));window.addEventListener(`pagehide`,t,{once:!0});
