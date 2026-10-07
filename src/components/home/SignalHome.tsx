@@ -8,7 +8,9 @@ import SplitText from './motion/SplitText';
 import LogoMarquee from './motion/LogoMarquee';
 import PipelineRail from './motion/PipelineRail';
 import MagneticLink from './motion/MagneticLink';
-import AwardShowcase, { type FeaturedAward, type Mention, type PressItem } from './motion/AwardShowcase';
+import AwardShowcase, { type FeaturedAward } from './motion/AwardShowcase';
+import AwardsBoard, { type Prize, type Mention, type PressItem, type AwardPhoto } from './motion/AwardsBoard';
+import CountUp from './motion/CountUp';
 import { Reveal, Visual, type Media } from '@/components/site/Editorial';
 
 /*
@@ -18,7 +20,6 @@ import { Reveal, Visual, type Media } from '@/components/site/Editorial';
  * The full brief with prompts lives in /public/home/IMAGES.md.
  */
 const media = {
-  heroBackdrop: '/home/product-wrist.webp',
   tabHome: '/home/home-hand.webp',
   tabCamera: '/home/home-camera.webp',
   tabClinician: '/home/home-patient.webp',
@@ -47,34 +48,31 @@ const steps = [
   { title: 'Review', body: 'Clinicians see trends, adherence and alerts for each patient.' },
 ];
 
-const featuredAwards: FeaturedAward[] = [
+const prizes: Prize[] = [
   {
-    id: 'madrid-final',
-    tab: 'Madrid final',
-    event: 'Madrid entrepreneurship awards, 2026',
+    event: 'Madrid entrepreneurship awards',
+    year: '2026',
     title: 'Best project for scientific impact',
-    detail: 'First prize, plus five special mentions from the Chamber of Commerce, Spain Startup, Netmentora, madri+d and Innpar Pozuelo.',
+    detail: 'First prize of the competition, plus five special mentions from the jury partners.',
     figure: '2,000 €',
-    figureLabel: 'First prize',
   },
   {
-    id: 'harvard-global',
-    tab: 'Harvard HSIL, global',
-    event: 'Harvard Health Systems Innovation Lab Hackathon, global final, 2026',
+    event: 'Harvard HSIL Hackathon, global final',
+    year: '2026',
     title: 'Second place worldwide',
     detail: 'Final held at Pillar VC in Boston, judged by Boston investors and Harvard T.H. Chan faculty.',
-    photo: '/about/pilar.jpeg',
-    photoAlt: 'The team at Pillar VC, Boston',
   },
   {
-    id: 'harvard-madrid',
-    tab: 'Harvard HSIL, Madrid',
-    event: 'Harvard Health Systems Innovation Lab Hackathon, Madrid hub, 2026',
+    event: 'Harvard HSIL Hackathon, Madrid hub',
+    year: '2026',
     title: 'First place',
     detail: 'Among 190 participants at Universidad Complutense de Madrid, with a place in the global final.',
-    photo: '/GANADORES.jpeg',
-    photoAlt: 'The team with the Madrid hub award, April 2026',
   },
+];
+
+const awardPhotos: AwardPhoto[] = [
+  { src: '/about/pilar.jpeg', alt: 'The team at Pillar VC, Boston', caption: 'Boston, June 2026. Global final at Pillar VC.' },
+  { src: '/GANADORES.jpeg', alt: 'The team with the Madrid hub award', caption: 'Madrid, April 2026. Madrid hub winners.' },
 ];
 
 const mentions: Mention[] = [
@@ -141,9 +139,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export default function SignalHome() {
   return (
     <main className={styles.page}>
-      {/* Hero: copy left, photo + video right ------------------------------ */}
+      {/* Hero: copy, then the founders' video full width ----------------- */}
       <section className={styles.hero}>
-        <div className={styles.heroGrid}>
+        <div className={styles.shell}>
           <motion.div
             className={styles.heroCopy}
             initial={{ opacity: 0, y: 18 }}
@@ -164,43 +162,36 @@ export default function SignalHome() {
                 See the product
               </Link>
             </div>
-            <ul className={styles.heroNotes}>
-              <li>Works with a standard webcam. Nothing to install.</li>
-              <li>Under five minutes per session.</li>
-            </ul>
           </motion.div>
 
           <motion.div
-            className={styles.heroMedia}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.1, delay: 0.2, ease }}
+            className={styles.heroVideo}
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease }}
           >
-            <Image
-              src={media.heroBackdrop}
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 900px) 100vw, 50vw"
-              className={styles.heroBackdrop}
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/TYvQgTtPtYA?rel=0&modestbranding=1"
+              title="FixedGap, presented by the founders"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
-            <motion.div
-              className={styles.heroVideo}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5, ease }}
-            >
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/TYvQgTtPtYA?rel=0&modestbranding=1"
-                title="FixedGap, presented by the founders"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </motion.div>
           </motion.div>
-        </div>
-        <div className={styles.shell}>
-          <p className={styles.heroCaption}>Hand tracking from a webcam, built for stroke rehabilitation teams</p>
+
+          <div className={styles.heroFacts}>
+            <div>
+              <CountUp value={21} />
+              <span>hand landmarks tracked per frame</span>
+            </div>
+            <div>
+              <CountUp value={1} />
+              <span>standard webcam, nothing to install</span>
+            </div>
+            <div>
+              <CountUp value={5} prefix="<" suffix=" min" />
+              <span>per session, from home</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -304,10 +295,11 @@ export default function SignalHome() {
           <Reveal className={styles.sectionHead}>
             <p className={styles.kicker}>Awards and media</p>
             <SplitText text="Recognised in Madrid and Boston" />
+            <p className={styles.sectionLead}>
+              Three prizes in 2026, five special mentions and three press features.
+            </p>
           </Reveal>
-          <Reveal delay={0.1}>
-            <AwardShowcase featured={featuredAwards} mentions={mentions} press={press} />
-          </Reveal>
+          <AwardsBoard prizes={prizes} mentions={mentions} press={press} photos={awardPhotos} />
         </div>
       </section>
 
@@ -332,24 +324,20 @@ export default function SignalHome() {
         </div>
       </section>
 
-      {/* CTA card over dots ---------------------------------------------- */}
+      {/* CTA: dark, grid and glow ---------------------------------------- */}
       <section className={styles.cta}>
         <div className={styles.shell}>
-          <Reveal className={styles.ctaCard}>
-            <i className={styles.markTl} aria-hidden="true" />
-            <i className={styles.markTr} aria-hidden="true" />
-            <i className={styles.markBl} aria-hidden="true" />
-            <i className={styles.markBr} aria-hidden="true" />
-            <h2>Evaluate FixedGap with your clinical team</h2>
+          <Reveal className={styles.ctaCopy}>
+            <SplitText text="Evaluate FixedGap with your clinical team" />
             <p>
               We are looking for neurologists, rehabilitation clinics and hospitals interested
               in evaluating the product and taking part in clinical validation.
             </p>
             <div className={styles.actions}>
-              <MagneticLink className={styles.buttonPrimary} href="/contact">
+              <MagneticLink className={styles.buttonLight} href="/contact">
                 Book a demo
               </MagneticLink>
-              <a className={styles.buttonLight} href="mailto:contact@fixedgap.com">
+              <a className={styles.ctaMail} href="mailto:contact@fixedgap.com">
                 contact@fixedgap.com
               </a>
             </div>
