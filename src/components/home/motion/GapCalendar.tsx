@@ -148,7 +148,7 @@ export default function GapCalendar() {
       const last = months[2];
       const counter = el.querySelector<HTMLElement>(`.${styles.counter}`);
       const svg = el.querySelector<SVGSVGElement>(`.${styles.lines}`);
-      if (!stage || !discharge || !firstMonth || !last || !counter || !svg || !lineIn || !lineOut) return;
+      if (!stage || !discharge || !firstMonth || !last || !counter || !svg || !lineIn) return;
       const s = stage.getBoundingClientRect();
       svg.setAttribute('viewBox', `0 0 ${s.width} ${s.height}`);
       const d = discharge.getBoundingClientRect();
@@ -164,9 +164,6 @@ export default function GapCalendar() {
         'd',
         `M ${x2} ${y2} L ${x2} ${midY - 30} C ${x2} ${midY - 6}, ${x2 - 10} ${midY}, ${x2 - 34} ${midY} L ${x1 + 34} ${midY} C ${x1 + 10} ${midY}, ${x1} ${midY + 6}, ${x1} ${midY + 30} L ${x1} ${y1}`,
       );
-      const x3 = l.left - s.left + l.width * 0.5;
-      const y3 = l.bottom - s.top + 8;
-      lineOut.setAttribute('d', `M ${x3} ${y3} L ${x3} ${y3 + 16} C ${x3} ${y3 + 40}, ${x3 - 30} ${y3 + 36}, ${x3 - 48} ${y3 + 48} L ${x3 - 48} ${s.height + 40}`);
     };
 
     if (reduce) {
@@ -259,7 +256,6 @@ export default function GapCalendar() {
 
         // Beat 3: the gain badge and the line down to the dashboard.
         tl.to(gain, { opacity: 1, y: 0, duration: 0.06 }, start + span + 0.02);
-        lineOut && tl.to(lineOut, { strokeDashoffset: 0, duration: 0.1, ease: 'none' }, start + span + 0.02);
         tl.to({}, { duration: 0.04 });
       });
     }, el);
@@ -282,7 +278,6 @@ export default function GapCalendar() {
         <div className={styles.ghost} aria-hidden="true" />
         <svg className={styles.lines} aria-hidden="true" preserveAspectRatio="none">
           <path className={styles.lineIn} pathLength={1} />
-          <path className={styles.lineOut} pathLength={1} />
         </svg>
 
         <div className={styles.copy}>
@@ -342,7 +337,6 @@ export default function GapCalendar() {
                   {WEEKDAYS.map((w, i) => (
                     <span key={i}>{w}</span>
                   ))}
-                  <span className={styles.weekdayTotal}>wk</span>
                 </div>
                 <div className={styles.grid}>
                   {Array.from({ length: rows }).map((_, r) => {
@@ -372,17 +366,6 @@ export default function GapCalendar() {
                             <span className={`${styles.cell} ${styles.cellEmpty}`} key={`e${r}${c}`} />
                           ),
                         )}
-                        <span
-                          className={styles.weekTotal}
-                          data-first={real[0]?.index}
-                          data-last={real[real.length - 1]?.index}
-                          data-base={base}
-                          data-final-n={fin}
-                          data-days={real.length}
-                          data-final={`${fin}/${real.length}`}
-                        >
-                          {base}/{real.length}
-                        </span>
                       </div>
                     );
                   })}
@@ -405,7 +388,7 @@ export default function GapCalendar() {
                         className={`${styles.card} ${photo.side === 'left' ? styles.cardLeft : ''}`}
                         data-card={d.index}
                         key={d.index}
-                        style={{ '--r': r, '--c': c, '--tilt': photo.side === 'left' ? '1.5deg' : '-1.5deg' } as React.CSSProperties}
+                        style={{ '--r': r, '--c': c, '--tilt': photo.side === 'left' ? '0.8deg' : '-0.8deg' } as React.CSSProperties}
                       >
                         <Image src={photo.src} alt="" width={132} height={88} sizes="132px" />
                         <figcaption>{photo.label}</figcaption>

@@ -20,8 +20,8 @@
   inset: -40px -120px;
   z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 56px 56px;
   -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 30%, transparent 100%);
   mask-image: radial-gradient(ellipse 70% 75% at 50% 55%, #000 30%, transparent 100%);
@@ -220,7 +220,7 @@
 .weekdays,
 .row {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr)) 34px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .weekdays span {
@@ -258,9 +258,6 @@
 
 .cellEmpty {
   background: transparent;
-  background-image: linear-gradient(135deg, transparent 49%, var(--line) 49%, var(--line) 51%, transparent 51%);
-  background-size: 8px 8px;
-  opacity: 0.45;
 }
 
 .weekTotal {
@@ -401,7 +398,7 @@
   /* Hangs from the bottom-right corner of its day, so the day stays visible.
      Head (12px + 12px) + weekday row (18px) + rows. */
   --cellH: clamp(34px, calc((100vh - 600px) / 6), 58px);
-  --colW: calc((100% - 34px) / 7);
+  --colW: calc(100% / 7);
   top: calc(44px + var(--cellH) * (var(--r) + 1) - 6px);
   left: calc(var(--colW) * (var(--c) + 1) - 10px);
   pointer-events: none;
