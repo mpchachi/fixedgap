@@ -611,3 +611,8 @@
     transition: none;
   }
 }
+
+/* Gap calendar band: the pinned stage sets its own height. */
+.bandGap {
+  padding: 0;
+}

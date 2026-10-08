@@ -7,6 +7,7 @@ import styles from './SignalHome.module.css';
 import SplitText from './motion/SplitText';
 import LogoMarquee from './motion/LogoMarquee';
 import PipelineRail from './motion/PipelineRail';
+import GapCalendar from './motion/GapCalendar';
 import MagneticLink from './motion/MagneticLink';
 import AwardShowcase, { type FeaturedAward } from './motion/AwardShowcase';
 import AwardsBoard, { type Prize, type Mention, type PressItem, type AwardPhoto } from './motion/AwardsBoard';
@@ -217,6 +218,13 @@ export default function SignalHome() {
           <Reveal delay={0.1}>
             <AwardShowcase featured={moments} quote />
           </Reveal>
+        </div>
+      </section>
+
+      {/* The gap: three months as a calendar, filled in on scroll --------- */}
+      <section className={`${styles.band} ${styles.bandGap}`}>
+        <div className={styles.shell}>
+          <GapCalendar />
         </div>
       </section>
 
