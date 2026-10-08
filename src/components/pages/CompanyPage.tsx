@@ -192,7 +192,7 @@ export default function CompanyPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="The team"
-            title="Built by engineers, guided by medicine."
+            title="Five co-founders and a clinical advisor."
             lead="Five co-founders from Madrid, across computer science, biomedical engineering, business and clinical medicine, and a clinical advisor."
           />
           <div className={page.teamGrid}>

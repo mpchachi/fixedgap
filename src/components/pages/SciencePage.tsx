@@ -258,8 +258,8 @@ export default function SciencePage() {
     <main className={home.page}>
       <PageHero
         kicker="Science"
-        title={'Built on evidence.\nHonest about where we are.'}
-        lead="Every biomarker FixedGap captures comes from peer-reviewed literature. Validating our own implementation with patients is the next step. This page says what is done and what is not."
+        title={'What the evidence says,\nand what we still have to prove.'}
+        lead="Every biomarker FixedGap captures comes from peer-reviewed literature; validating our own implementation with patients is the next step. This page keeps the two apart."
       />
 
       <section className={`${home.section} ${page.anchor}`} id="evidence">
@@ -346,7 +346,7 @@ export default function SciencePage() {
         <div className={home.shell}>
           <SectionHead
             kicker="References"
-            title="The papers behind the panel."
+            title="The papers behind each metric."
             lead="Two groups. The first validates the methods we use directly. The second gives the clinical rationale, and our own validation of it is ongoing."
           />
           <div className={page.refGroup}>

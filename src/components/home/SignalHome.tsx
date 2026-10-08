@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import styles from './SignalHome.module.css';
@@ -184,8 +183,8 @@ export default function SignalHome() {
               <span>hand landmarks tracked per frame</span>
             </div>
             <div>
-              <CountUp value={1} />
-              <span>standard webcam, nothing to install</span>
+              <CountUp value={3} />
+              <span>movements measured: pinch, extension, rotation</span>
             </div>
             <div>
               <CountUp value={5} prefix="<" suffix=" min" />
@@ -210,8 +209,8 @@ export default function SignalHome() {
             <p className={styles.kicker}>What FixedGap does</p>
             <SplitText text="Short games at home, clinical data in the clinic" />
             <p className={styles.sectionLead}>
-              One webcam links three moments of recovery: the patient playing at home, the
-              camera measuring every movement, and the clinician reading the trend.
+              The patient plays at home, the camera measures the hand, and the clinician reads
+              the trend. One webcam, no setup.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -238,14 +237,9 @@ export default function SignalHome() {
               every frame. Those trajectories become the same measurements every session, and
               the care team reviews them.
             </p>
-            <div className={styles.actions}>
-              <MagneticLink className={styles.buttonPrimary} href="/product">
-                See the product
-              </MagneticLink>
-              <Link className={styles.buttonLight} href="/science">
-                Read the science
-              </Link>
-            </div>
+            <Link className={styles.buttonText} href="/product">
+              See the product <span>›</span>
+            </Link>
           </Reveal>
           <PipelineRail steps={steps} />
         </div>
@@ -261,14 +255,9 @@ export default function SignalHome() {
               Session results, adherence and alerts for every patient in one view, ordered by
               who needs attention first.
             </p>
-            <div className={styles.actions}>
-              <MagneticLink className={styles.buttonPrimary} href="/contact">
-                Book a demo
-              </MagneticLink>
-              <Link className={styles.buttonLight} href="/product#dashboard">
-                Clinical dashboard
-              </Link>
-            </div>
+            <Link className={styles.buttonText} href="/product#dashboard">
+              The clinical dashboard <span>›</span>
+            </Link>
           </Reveal>
           <Reveal delay={0.1}>
             <div className={styles.frame}>
@@ -282,7 +271,7 @@ export default function SignalHome() {
           <div className={styles.triad}>
             <Reveal className={styles.triadItem}>
               <strong>Trends per patient</strong>
-              <p>Each measurement plotted session after session, so change between visits is visible instead of remembered.</p>
+              <p>Each measurement plotted session after session, so the change between two visits is on screen rather than in someone&apos;s memory.</p>
             </Reveal>
             <Reveal className={styles.triadItem} delay={0.06}>
               <strong>Adherence</strong>
@@ -319,11 +308,9 @@ export default function SignalHome() {
             <p className={styles.sectionLead}>
               Built in Madrid, with a first clinical validation study to run.
             </p>
-            <div className={styles.actions}>
-              <Link className={styles.buttonLight} href="/company#team">
-                Meet the team
-              </Link>
-            </div>
+            <Link className={styles.buttonText} href="/company#team">
+              Meet the team <span>›</span>
+            </Link>
           </Reveal>
           <Reveal delay={0.1}>
             <Visual item={media.team} className={styles.wideVisual} sizes="(max-width: 900px) 100vw, 1120px" />

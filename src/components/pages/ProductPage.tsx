@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
 import TiltCard from '@/components/home/motion/TiltCard';
-import Sparkline from '@/components/home/motion/Sparkline';
 import MagneticLink from '@/components/home/motion/MagneticLink';
 
 /* Visuals for this page. Brief in /public/home/IMAGES.md (Product section).
@@ -60,7 +59,7 @@ const movements = [
     media: media.wrist,
     text: 'The game is steered by rotating the wrist. The rotation captures pronation and supination range, one of the most clinically relevant movements after stroke.',
     measures: 'Rotation range of motion, pronation and supination speed, smoothness (SPARC)',
-    why: 'Wrist rotation is among the first movements affected and the last to recover. Measured daily, it shows a recovery curve that a monthly visit cannot.',
+    why: 'Wrist rotation is among the first movements affected and the last to recover. Measured most days, it draws a recovery curve instead of a point per visit.',
   },
 ];
 
@@ -96,8 +95,8 @@ const categories: Array<{ id: string; label: string; subtitle: string; metrics: 
       {
         name: 'Movement smoothness',
         code: 'M11 SPARC',
-        text: 'Spectral arc length of the velocity profile. Healthy movement is smooth, neurologically impaired movement is fragmented.',
-        insight: 'The single most sensitive kinematic marker of motor recovery. Correlates directly with FMA-UE scores.',
+        text: 'Spectral arc length of the velocity profile. Healthy movement is smooth; after a stroke it turns fragmented.',
+        insight: 'One of the most sensitive kinematic markers of motor recovery, and it correlates with FMA-UE scores.',
         spark: [28, 31, 36, 38, 45, 51, 56, 63],
       },
     ],
@@ -181,7 +180,7 @@ const categories: Array<{ id: string; label: string; subtitle: string; metrics: 
         name: 'Recovery gap',
         code: 'recovery_gap',
         text: 'Absolute difference between unaffected and affected hand performance, session by session.',
-        insight: 'One number that tells the neurologist how far the patient still has to go, and how fast they are getting there.',
+        insight: 'How far the affected hand is from the other one, and whether that distance is shrinking.',
         spark: [68, 65, 63, 57, 54, 49, 45, 41],
       },
     ],
@@ -215,14 +214,13 @@ export default function ProductPage() {
     <main className={home.page}>
       <PageHero
         kicker="Product"
-        title={'One short session.\nA report the care team can act on.'}
-        lead="Patients play three short arcade-style games in front of a standard webcam. FixedGap measures the hand movement in every frame and turns it into a clinical report the neurologist sees before the next appointment."
+        title={'Three short games at home,\none report before the next visit.'}
+        lead="Patients play three short arcade games in front of the webcam they already have. FixedGap measures the hand in every frame and turns the session into a report the neurologist reads before the next appointment."
       >
         <div className={page.heroFacts}>
           <div><strong>3</strong><span>short games per session</span></div>
-          <div><strong>&lt;5 min</strong><span>of play, no setup</span></div>
+          <div><strong>&lt;5 min</strong><span>of play per session</span></div>
           <div><strong>21</strong><span>hand landmarks tracked</span></div>
-          <div><strong>0</strong><span>extra hardware</span></div>
         </div>
       </PageHero>
 
@@ -259,8 +257,8 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="The games"
-            title="Games everyone already knows how to play. Now they measure recovery."
-            lead="Three short, retro-style arcade games. Familiar enough to need no instructions, and each one is steered by a movement we need to measure. The games evolve; the three movements stay."
+            title="Games people already know how to play, steered by the movements we need to measure."
+            lead="Three short retro arcade games, familiar enough to need no instructions. The games will keep changing over time; the three movements they are built around will not."
           />
           {movements.map((exercise, index) => (
             <Reveal key={exercise.name}>
@@ -293,8 +291,8 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="Biomarkers"
-            title="What the games measure, and why a neurologist cares."
-            lead="Every metric is extracted from the 21 hand landmarks the camera tracks. No wearables, no calibration. Grouped by movement, with the labels used in the clinical literature."
+            title="What the games measure, and why it matters clinically."
+            lead="Every metric comes from the 21 hand landmarks the camera tracks, without wearables or calibration. They are grouped by movement and named as in the clinical literature."
           />
           <Reveal>
             <Visual item={media.tracking} className={home.wideVisual} sizes="1120px" />
@@ -334,7 +332,6 @@ export default function ProductPage() {
                 >
                   <h3>{metric.name}</h3>
                   <code>{metric.code}</code>
-                  <Sparkline values={metric.spark} className={home.spark} />
                   <p>{metric.text}</p>
                   <div className={page.insight}>
                     <span>Clinical insight</span>
@@ -351,8 +348,8 @@ export default function ProductPage() {
         <div className={home.shell}>
           <SectionHead
             kicker="For the care team"
-            title="The neurologist opens one view and knows who needs a call."
-            lead="After every session FixedGap writes the report automatically. No manual input, no waiting. Patients are ordered by who needs attention first."
+            title="One view for the care team, ordered by who needs a call."
+            lead="After every session the report writes itself, with nothing to type in. Patients are ordered by who needs attention first."
           />
           <Reveal>
             <div className={home.browser}>
