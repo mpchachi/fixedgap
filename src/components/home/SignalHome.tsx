@@ -55,7 +55,6 @@ const prizes: Prize[] = [
     year: '2026',
     title: 'Best project for scientific impact',
     detail: 'First prize of the competition, plus five special mentions from the jury partners.',
-    figure: '2,000 €',
   },
   {
     event: 'Harvard HSIL Hackathon, global final',
