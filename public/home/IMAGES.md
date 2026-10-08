@@ -138,3 +138,41 @@ Where each one goes: 3a -> Home, card "The clinic" (replaces home-patient.webp).
 
 ## 4. Still open (code, no AI)
 Open Graph image 1200x630 and favicons from the logo.
+
+## 5. Plan v3 (8 Oct 2026, mid-morning) -- what to generate today
+
+Three families. Every AI prompt ends with the style line of its family.
+
+STYLE PHOTO (hyperreal, person secondary):
+"Shot on a Sony A7 IV with a 50mm f/1.8, natural window light only, true skin texture with fine lines, slight film grain, muted real-life colours, shallow depth of field, candid, not posed. The person is not the subject: no direct eye contact, face secondary or out of frame, focus on hands and objects. No text, no logos, no readable screen content. Not stock-photo lighting, not glossy, not symmetrical."
+
+STYLE RENDER (motion-design stills, Linear / Vercel / Apple keynote look):
+"Minimal 3D studio render, soft diffused lighting, cream background (#f3f1ec), frosted glass and matte materials, one deep blue accent (#2a3cf0), shallow depth of field, no text, no logos, no people, centred composition, clean edges, subtle film grain. Looks like a Spline or Blender product render, not a stock 3D illustration."
+
+### 5a. Calendar photo cards (3, replace the reused ones). 3:2, tight crop, objects first.
+- cal-jan.webp: "Hyperrealistic photo, tight crop on a kitchen table in the morning: the right hand of a man in his seventies mid-pinch, index and thumb almost touching, in front of the lower edge of an open laptop, a cup of coffee with steam, crumbs on a plate, newspaper folded. Only the hand and forearm in focus; a navy cardigan sleeve, the rest out of frame. Cool early light." + STYLE PHOTO. 3:2.
+- cal-feb.webp: "Hyperrealistic photo, tight crop on a living-room side table in the afternoon: an older woman's hand opening wide toward a laptop screen, fingers spread, a wedding ring, the laptop lid cut by the frame on the left, a knitted blanket and a pair of reading glasses on the table. Warm low window light, long soft shadows." + STYLE PHOTO. 3:2.
+- cal-mar.webp: "Hyperrealistic photo, tight crop at night under a desk lamp: an older person's right wrist rotating from palm-up to palm-down in front of a laptop, a simple steel watch, the sleeve of a cardigan, the blue glow of the screen on the knuckles, the lamp's warm pool of light on a wooden desk, a glass of water." + STYLE PHOTO. 3:2.
+
+### 5b. Hyperreal photos still missing from v2 (same cast as the 5 live ones)
+- home-hand.webp (1:1): the hand from the webcam's point of view, kitchen behind. Full prompt in section 1.
+- home-clinic.webp (1:1): corner of a laptop with a blurred dashboard, hand on a mouse, white coat behind without a face. Section 3a.
+- product-clinic-session.webp (4:3): wide rehab room, a clinician guiding a seated older man's raised hand toward the laptop camera, both small and soft. Section 3b.
+- company-home-setup.webp (16:9): the man from behind at his kitchen table with the laptop, nothing else on the table, no face. Section 3c.
+- science-clinic.webp (16:9): empty neurology consultation room, Spanish public hospital, morning light. Section 3d.
+- company-camera.webp (4:3), alternative: the designer's notebook photographed from above. Section 2.
+
+### 5c. Motion-design renders (new family; where the UI needs a hero object, not a person)
+- render-glass-tile.png (1:1, transparent background): "A single square tile of liquid glass, 1:1, seen straight from above with a slight tilt, translucent deep blue (#2a3cf0) with refraction at the edges, a soft specular highlight on the top-left, a thin brighter rim, a faint caustic shadow below. Isolated on a transparent background." + STYLE RENDER. Use: texture for the calendar's home days, legend swatch.
+- render-landmarks.png (16:9): "A human right hand, open, made only of 21 small frosted-glass beads at the finger joints, knuckles and wrist, connected by thin matte dark lines, floating above a cream surface, soft shadow below, one bead glowing deep blue. No skin, no realism, purely the geometric skeleton." + STYLE RENDER. Use: Product header (biomarkers), How it works step 2.
+- render-webcam.png (4:3): "Extreme close-up of a laptop webcam lens in the bezel, the glass of the lens catching a deep blue reflection, the dark bezel and the first millimetres of a cream screen, macro, soft studio light." + STYLE RENDER. Use: "The camera" tab or How it works step 1.
+- render-trend.png (21:9): "A thin ribbon of frosted glass rising gently from left to right like a trend line, floating above a cream surface, soft shadow below, a small deep blue sphere resting at its right end, a faint dotted grid on the surface." + STYLE RENDER. Use: CTA background, Science header alternative.
+- render-dashboard-card.png (4:3): "A floating frosted-glass card, rounded corners, holding only abstract shapes: three pale horizontal bars and one thin rising line, no legible text, seen at a slight angle above a cream surface, soft shadow." + STYLE RENDER. Use: "For the care team" section, Contact side column.
+
+### 5d. Real photos (ours, to find or shoot)
+- The 2,000 EUR award ceremony (home Awards, first card). Also the official name of the competition.
+- Clean team photo: plain wall, window light, no backpacks, phones away (home, replaces oficina.jpeg).
+- Boston final or Harvard visit with people in frame (Company).
+- Three clean captures of the current retro games, 1920x1080, UI in English, no taskbar (Product).
+- Current tracking screen with the 21 points and today's UI (Product, replaces about-4.jpeg).
+- Current dashboard still if the video is out of date (Product).
