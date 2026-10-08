@@ -3,13 +3,13 @@
 Tres tipos de foto, cada hueco lleva su tipo:
 - REAL: fotos nuestras (equipo, premios, producto en pantalla). Siempre que exista, gana.
 - PRODUCTO: capturas limpias de la app actual (juegos retro, dashboard, tracking). En ingles, 1920x1080, sin barra de tareas ni "Activar Windows".
-- IA: hiperrealistas de personas mayores probando el producto, mismo reparto (el senor de la cocina, la senora del comedor) y mismo bloque de estilo que las 5 que ya hay.
+- IA: hiperrealistas de personas mayores probando el producto, mismo reparto (el senor de la cocina, la senora del comedor) y mismo bloque de estilo que las 5 que ya hay. REGLA: la persona nunca es el sujeto ni mira a camara; manda la mano, el portatil, la bata o la sala, y la persona queda detras, cortada o desenfocada.
 
 | Pagina | Hueco | Hoy | Cambiar a | Tipo |
 |---|---|---|---|---|
 | Home | Tarjeta At home | home-hand.webp | se queda | IA (ya hecha) |
 | Home | Tarjeta The camera | home-camera.webp (manos + reloj, repetida en Product) | mano en pinza vista desde la webcam, fondo cocina | IA, prompt 1 |
-| Home | Tarjeta The clinic | home-patient.webp (senora de perfil) | clinica de bata leyendo el portatil, consulta real | IA, prompt 3a |
+| Home | Tarjeta The clinic | home-patient.webp (senora de perfil) | esquina del portatil con el dashboard borroso, mano en el raton, bata detras sin cara | IA, prompt 3a |
 | Home | Awards: foto 1 | pilar.jpeg (Boston) | se queda | REAL |
 | Home | Awards: foto 2 | GANADORES.jpeg (hub Madrid) | foto del certamen de los 2.000 EUR si la hay; si no, se queda | REAL |
 | Home | Equipo | oficina.jpeg (los cinco en la mesa) | foto de equipo nueva: pared lisa, luz de ventana, sin mochilas | REAL (hacer) |
@@ -20,7 +20,7 @@ Tres tipos de foto, cada hueco lleva su tipo:
 | Product | Juegos retro | sin imagen | 3 capturas de los juegos actuales (Mario-like, Flappy-like, tercero), 16:9 | PRODUCTO (hacer) |
 | Product | Tracking encima de biomarcadores | about-4.jpeg (captura antigua con la mano y los puntos, UI vieja) | captura nueva de la app actual con los 21 puntos pintados, UI actual | PRODUCTO (hacer) |
 | Product | Dashboard | videoDashboard.mp4 | se queda, o captura fija del dashboard actual si el video esta viejo | PRODUCTO |
-| Product | Lado del clinico (nuevo, junto al dashboard) | sin imagen | medica mirando el portatil, estetoscopio en la mesa | IA, prompt 3a |
+| Product | Lado del clinico (nuevo, junto al dashboard) | sin imagen | sala de rehabilitacion amplia, una clinica ensenando a un senor mayor sentado con el portatil como poner la mano; ellos pequenos y desenfocados | IA, prompt 3b |
 | Science | Cabecera (nuevo) | sin imagen | consulta de neurologia vacia, hospital publico, luz de manana | IA, prompt 3d |
 | Company | Phase 01 guante | about-2.jpeg (guante real en la mesa) | se queda; alternativa: foto nueva del guante solo sobre fondo neutro | REAL |
 | Company | Phase 02 camara | company-camera.webp (= senor cocina, repetida) | cuaderno de disenador fotografiado desde arriba (prompt 2) o foto del senor de espaldas con el portatil (prompt 3c) | IA |
@@ -47,11 +47,18 @@ cardigan over a checked shirt, steel watch) and the woman at the dining table
 Every new photo with a person should reuse one of these two, so the site reads as
 two patients, not a stock library.
 
+Rule for every photo with people (Luis, 8 Oct 2026): the person is never the
+subject. No direct shot of a face, no portrait framing. The subject is the hand,
+the laptop, the coat, the room; the person is behind it, cut by the frame, turned
+away or out of focus. A face, when it appears, is secondary, soft and small. This
+is what keeps the photos from reading as AI.
+
 Shared style line for photos (paste at the end of every prompt):
 "Shot on a Sony A7 IV with a 50mm f/1.8, natural window light only, true skin
 texture with fine lines, slight film grain, muted real-life colours, shallow depth
-of field, candid, not posed. No text, no logos, no readable screen content. Not
-stock-photo lighting, not glossy, not symmetrical."
+of field, candid, not posed. The person is not the subject: no direct eye contact,
+face secondary or out of frame, focus on hands and objects. No text, no logos, no
+readable screen content. Not stock-photo lighting, not glossy, not symmetrical."
 
 ---
 
@@ -90,20 +97,26 @@ considered, with visible construction lines lightly erased, not messy and not
 cartoonish. Slight paper texture, a soft shadow from the pencil, nothing else on
 the desk. 4:3.
 
-## 3. New photos to generate (same cast)
+## 3. New photos to generate (same cast, person always in the background)
 
-### 3a. product-report.webp (4:3) -- the clinician's side
-Hyperrealistic photo, tight crop. A woman in her forties in a white coat, seen
-from the side at a desk, one hand on a mouse, reading a laptop screen that is
-turned away from the camera and fully out of focus. A stethoscope on the desk,
-a paper cup, a window behind. Her expression is neutral concentration. Only the
-side of her face, her shoulder and her hand are in frame. [shared style line] 4:3.
+### 3a. home-clinic.webp (1:1) -- the clinician's side, home card "The clinic"
+Hyperrealistic photo, tight crop on a desk. In the foreground, sharp: the corner
+of an open laptop showing a soft, unreadable dashboard of pale cards and one blue
+line chart, and next to it a hand resting on a mouse. Behind, out of focus: the
+sleeve and lapel of a white coat, a lanyard, a stethoscope hanging from the neck.
+The clinician's face is out of frame, cut above the chin. A paper cup and a pen on
+the desk, window light from the left. [shared style line] Square, 1:1.
 
-### 3b. home-session-end.webp (1:1) -- the moment after
-Same woman as the dining-table photos. She has just finished, leaning back in
-the chair, glasses pushed up on her head, rubbing her right hand with her left,
-a small satisfied smile, the laptop lid half closed in the foreground. Afternoon
-light. [shared style line] Square, 1:1.
+### 3b. product-clinic-session.webp (4:3) -- a session in the clinic (Luis wants this)
+Hyperrealistic wide photo of a rehabilitation room in a Spanish public hospital:
+pale green walls, a treatment table with white paper, a parallel bar, a window
+with blinds, a trolley. In the middle distance, not in the foreground, a woman in
+a white coat stands beside a man in his seventies seated at a small table with an
+open laptop; she is leaning in, gently guiding his raised right hand toward the
+camera above the screen, showing him how to hold it. Both are seen from the side
+and slightly behind, faces turned to the screen, small in the frame, softly out of
+focus; the room, the light and the laptop are what the eye lands on. Nothing on
+the screen is readable. [shared style line] 4:3.
 
 ### 3c. company-home-setup.webp (16:9) -- what "no setup" looks like
 Same man as the kitchen photos, seen from behind and slightly above, sitting at
@@ -117,6 +130,11 @@ Hyperrealistic photo of an empty neurology consultation room in a Spanish public
 hospital, morning light, a desk with a monitor turned off, an examination bed
 with white paper, a wall-mounted blood pressure cuff. No people. Calm, slightly
 worn, real. [shared style line] 16:9.
+
+Where each one goes: 3a -> Home, card "The clinic" (replaces home-patient.webp).
+3b -> Product, next to the dashboard (new slot). 3c -> Company, Phase 02
+(replaces the repeated kitchen photo; prompt 2 above is the alternative).
+3d -> Science header (new slot).
 
 ## 4. Still open (code, no AI)
 Open Graph image 1200x630 and favicons from the logo.
