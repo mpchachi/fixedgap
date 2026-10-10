@@ -33,6 +33,18 @@ const media: Record<string, Media> = {
     label: 'Second place at the global final, Pillar VC, Boston, June 2026',
     note: 'Real photo.',
   },
+  harvardChan: {
+    src: '/home/company-harvard-chan.webp',
+    ratio: '4 / 5',
+    label: 'On the steps of the Harvard T.H. Chan School of Public Health',
+    note: 'Real photo.',
+  },
+  hbs: {
+    src: '/home/company-hbs.webp',
+    ratio: '4 / 5',
+    label: 'Harvard Business School, during the week in Boston',
+    note: 'Real photo.',
+  },
 };
 
 const gloveParts = [
@@ -183,6 +195,12 @@ export default function CompanyPage() {
                   </Link>
                 </p>
               </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className={`${home.twoUp} ${home.wideVisual}`}>
+              <Visual item={media.harvardChan} sizes="(max-width: 760px) 100vw, 560px" />
+              <Visual item={media.hbs} sizes="(max-width: 760px) 100vw, 560px" />
             </div>
           </Reveal>
         </div>

@@ -72,7 +72,8 @@ const prizes: Prize[] = [
 ];
 
 const awardPhotos: AwardPhoto[] = [
-  { src: '/about/pilar.jpeg', alt: 'The team at Pillar VC, Boston', caption: 'Boston, June 2026. Global final at Pillar VC.' },
+  { src: '/home/awards-ucm.webp', alt: 'Three of the founders receiving the award on stage at Universidad Complutense', caption: 'Madrid, 2026. Award ceremony at Universidad Complutense.' },
+  { src: '/home/awards-pillar.webp', alt: 'The team with their certificates at Pillar VC, Boston', caption: 'Boston, June 2026. Global final at Pillar VC.' },
   { src: '/GANADORES.jpeg', alt: 'The team with the Madrid hub award', caption: 'Madrid, April 2026. Madrid hub winners.' },
 ];
 
