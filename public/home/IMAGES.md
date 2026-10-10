@@ -141,6 +141,11 @@ Open Graph image 1200x630 and favicons from the logo.
 
 ## 5. Plan v3 (8 Oct 2026, mid-morning) -- what to generate today
 
+STATUS 10 Oct 2026: all AI items of 5a, 5b and 5c are generated and live, except
+render-glass-tile (not needed, the calendar tiles are CSS). Still missing: every
+real photo in 5d (award ceremony, team, Boston/Harvard, game captures, tracking
+screen, dashboard still). company-camera.webp and home-patient.webp were removed.
+
 Three families. Every AI prompt ends with the style line of its family.
 
 STYLE PHOTO (hyperreal, person secondary):
