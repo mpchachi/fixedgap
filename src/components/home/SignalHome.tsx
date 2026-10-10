@@ -11,6 +11,8 @@ import MagneticLink from './motion/MagneticLink';
 import AwardShowcase, { type FeaturedAward } from './motion/AwardShowcase';
 import AwardsBoard, { type Prize, type Mention, type PressItem, type AwardPhoto } from './motion/AwardsBoard';
 import CountUp from './motion/CountUp';
+import ScrollTilt from './motion/ScrollTilt';
+import Spotlight from './motion/Spotlight';
 import { Reveal, Visual, type Media } from '@/components/site/Editorial';
 
 /*
@@ -259,15 +261,13 @@ export default function SignalHome() {
               The clinical dashboard <span>›</span>
             </Link>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className={styles.frame}>
-              <div className={styles.frameInner}>
-                <video autoPlay muted loop playsInline preload="metadata">
-                  <source src="/clinical/videoDashboard.mp4" type="video/mp4" />
-                </video>
-              </div>
+          <ScrollTilt className={styles.frame}>
+            <div className={styles.frameInner}>
+              <video autoPlay muted loop playsInline preload="metadata">
+                <source src="/clinical/videoDashboard.mp4" type="video/mp4" />
+              </video>
             </div>
-          </Reveal>
+          </ScrollTilt>
           <div className={styles.triad}>
             <Reveal className={styles.triadItem}>
               <strong>Trends per patient</strong>
@@ -319,7 +319,7 @@ export default function SignalHome() {
       </section>
 
       {/* CTA: dark, grid and glow ---------------------------------------- */}
-      <section className={styles.cta}>
+      <Spotlight className={styles.cta}>
         <div className={styles.shell}>
           <Reveal className={styles.ctaCopy}>
             <SplitText text="Evaluate FixedGap with your clinical team" />
@@ -337,7 +337,7 @@ export default function SignalHome() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </Spotlight>
     </main>
   );
 }

@@ -343,6 +343,7 @@
   border: 1px solid var(--line);
   background: linear-gradient(135deg, #e7e4dc 0%, #f2f0ea 55%, #dcd9d0 100%);
   padding: clamp(24px, 5vw, 72px) clamp(24px, 6vw, 96px) 0;
+  will-change: transform, opacity;
 }
 
 .frameInner {
@@ -488,15 +489,22 @@
 
 .cta::after {
   position: absolute;
-  bottom: -260px;
-  left: 50%;
-  width: 1000px;
-  height: 600px;
-  transform: translateX(-50%);
-  background: radial-gradient(closest-side, rgba(42, 60, 240, 0.45), transparent 70%);
+  inset: -20%;
+  background:
+    radial-gradient(
+      620px 460px at var(--sx, 50%) var(--sy, 115%),
+      rgba(42, 60, 240, 0.5),
+      rgba(42, 60, 240, 0.18) 38%,
+      transparent 70%
+    );
   content: "";
-  filter: blur(30px);
+  filter: blur(26px);
   pointer-events: none;
+  transition: background-position 0.1s linear;
+}
+
+.cta:hover::before {
+  mask-image: radial-gradient(ellipse 60% 70% at var(--sx, 50%) var(--sy, 100%), #000 20%, transparent 100%);
 }
 
 .ctaCopy {

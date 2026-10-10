@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Dev only: lets local tooling load the page through 127.0.0.1 as well as localhost.
+  allowedDevOrigins: ['127.0.0.1'],
   async redirects() {
     const to = (source: string, destination: string) => ({ source, destination, permanent: false });
     return [

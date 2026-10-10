@@ -16,6 +16,14 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
@@ -28,7 +36,7 @@ export default function Navbar() {
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className={`fg-nav ${mobileOpen ? 'fg-nav-open' : ''}`}>
+    <header className={`fg-nav ${mobileOpen ? 'fg-nav-open' : ''} ${scrolled ? 'fg-nav-glass' : ''}`}>
       <div className="fg-nav-surface">
         <div className="fg-nav-inner">
           <Link className="fg-nav-logo" href="/">
