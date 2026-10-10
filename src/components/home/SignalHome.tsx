@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './SignalHome.module.css';
 import SplitText from './motion/SplitText';
+import Kicker from './motion/Kicker';
+import HeroMedia from './motion/HeroMedia';
 import LogoMarquee from './motion/LogoMarquee';
 import PipelineRail from './motion/PipelineRail';
 import GapCalendar from './motion/GapCalendar';
@@ -94,7 +96,7 @@ export default function SignalHome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
           >
-            <p className={styles.kicker}>FixedGap for stroke rehabilitation</p>
+            <Kicker className={styles.kicker} text="FixedGap for stroke rehabilitation" />
             <SplitText as="h1" text={'Motor recovery,\nmeasured between visits'} onMount delay={0.1} />
             <p className={styles.lead}>
               Patients do short hand exercises at home in front of a webcam. The care team
@@ -110,19 +112,14 @@ export default function SignalHome() {
             </div>
           </motion.div>
 
-          <motion.div
-            className={styles.heroVideo}
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease }}
-          >
+          <HeroMedia className={styles.heroVideo}>
             <iframe
               src="https://www.youtube-nocookie.com/embed/TYvQgTtPtYA?rel=0&modestbranding=1"
               title="FixedGap, presented by the founders"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-          </motion.div>
+          </HeroMedia>
 
           <div className={styles.heroFacts}>
             <div>
@@ -153,7 +150,7 @@ export default function SignalHome() {
       <section className={styles.band}>
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
-            <p className={styles.kicker}>What FixedGap does</p>
+            <Kicker className={styles.kicker} text="What FixedGap does" />
             <SplitText text="Short games at home, clinical data in the clinic" />
           </Reveal>
           <Reveal delay={0.1}>
@@ -173,7 +170,7 @@ export default function SignalHome() {
       <section className={`${styles.band} ${styles.bandSand}`}>
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
-            <p className={styles.kicker}>How it works</p>
+            <Kicker className={styles.kicker} text="How it works" />
             <SplitText text="Four steps from a webcam to data a clinician can review" />
             <Link className={styles.buttonText} href="/product">
               See the product <span>›</span>
@@ -187,7 +184,7 @@ export default function SignalHome() {
       <section className={styles.band}>
         <div className={styles.shell}>
           <Reveal className={styles.sectionHead}>
-            <p className={styles.kicker}>For the care team</p>
+            <Kicker className={styles.kicker} text="For the care team" />
             <SplitText text="See who is improving, and who needs a call" />
             <p className={styles.sectionLead}>
               Session results, adherence and alerts for every patient in one view, ordered by
@@ -233,7 +230,7 @@ export default function SignalHome() {
               <Visual item={media.team} sizes="(max-width: 900px) 100vw, 520px" />
             </Reveal>
             <Reveal className={styles.teamCopy} delay={0.1}>
-              <p className={styles.kicker}>The team</p>
+              <Kicker className={styles.kicker} text="The team" />
               <SplitText text="Who is building FixedGap" />
               <p className={styles.sectionLead}>
                 Six of us, from Madrid, across engineering, business and medicine. We met at a

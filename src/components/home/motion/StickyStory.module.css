@@ -1,0 +1,164 @@
+.root {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+/* Pinned stage ----------------------------------------------------------- */
+
+.stage {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+}
+
+.stageInner {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--sand-2);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  will-change: opacity, transform;
+}
+
+.slide img {
+  object-fit: cover;
+}
+
+.counter {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(20, 20, 22, 0.42);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+.counter span:last-child {
+  opacity: 0.6;
+}
+
+/* Scrolling copy --------------------------------------------------------- */
+
+.copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 72vh;
+  padding: 8vh 0;
+  opacity: 0.32;
+  transition: opacity 500ms ease;
+}
+
+.blockActive {
+  opacity: 1;
+}
+
+.block h3 {
+  margin: 0 0 18px;
+  font-size: clamp(26px, 2.6vw, 34px);
+}
+
+.block > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.index {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.index em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.meta {
+  margin-top: 26px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.meta span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.meta p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mobileMedia {
+  display: none;
+}
+
+/* Narrow: stack, one photo per step ------------------------------------- */
+
+@media (max-width: 900px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
+
+  .stage {
+    display: none;
+  }
+
+  .block {
+    min-height: 0;
+    padding: 0 0 56px;
+    opacity: 1;
+  }
+
+  .mobileMedia {
+    position: relative;
+    display: block;
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+
+  .mobileMedia img {
+    object-fit: cover;
+  }
+}

@@ -284,6 +284,12 @@
   background: var(--sand-2);
 }
 
+.visualInner {
+  position: absolute;
+  inset: -6% 0;
+  will-change: transform;
+}
+
 .visual img {
   object-fit: cover;
 }

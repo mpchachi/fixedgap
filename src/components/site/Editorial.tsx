@@ -1,11 +1,12 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import home from '@/components/home/SignalHome.module.css';
 import page from './Page.module.css';
 import SplitText from '@/components/home/motion/SplitText';
+import Kicker from '@/components/home/motion/Kicker';
 import MagneticLink from '@/components/home/motion/MagneticLink';
 
 export { home, page };
@@ -54,10 +55,33 @@ export function Visual({
   className?: string;
   sizes?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  // The image is 12% taller than its frame and drifts as the frame crosses the viewport.
+  const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
+
   return (
-    <div className={`${home.visual} ${className}`} style={{ aspectRatio: item.ratio }}>
+    <motion.div
+      ref={ref}
+      className={`${home.visual} ${className}`}
+      style={{ aspectRatio: item.ratio }}
+      initial={reduce ? false : { clipPath: 'inset(100% 0 0 0)' }}
+      whileInView={{ clipPath: 'inset(0 0 0 0)' }}
+      viewport={{ once: true, margin: '-12% 0px' }}
+      transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
+    >
       {item.src ? (
-        <Image src={item.src} alt={item.label} fill sizes={sizes} />
+        <motion.div
+          className={home.visualInner}
+          style={reduce ? undefined : { y }}
+          initial={reduce ? false : { scale: 1.18 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image src={item.src} alt={item.label} fill sizes={sizes} />
+        </motion.div>
       ) : (
         <div className={home.visualPlaceholder} aria-label={`Image placeholder: ${item.label}`}>
           <span>{item.label}</span>
@@ -65,7 +89,7 @@ export function Visual({
           <em>{item.ratio.replace(/\s/g, '')}</em>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
@@ -90,7 +114,7 @@ export function PageHero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className={home.kicker}>{kicker}</p>
+          <Kicker className={home.kicker} text={kicker} />
           <SplitText as="h1" text={title} onMount delay={0.1} />
           <p className={home.lead}>{lead}</p>
           {children}
@@ -111,7 +135,7 @@ export function SectionHead({
 }) {
   return (
     <Reveal className={home.sectionHead}>
-      <p className={home.kicker}>{kicker}</p>
+      <Kicker className={home.kicker} text={kicker} />
       <SplitText text={title} />
       {lead && <p className={home.sectionLead}>{lead}</p>}
     </Reveal>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
-import TiltCard from '@/components/home/motion/TiltCard';
+import StickyStory, { type StoryStep } from '@/components/home/motion/StickyStory';
 import MagneticLink from '@/components/home/motion/MagneticLink';
 
 /* Visuals for this page. Brief in /public/home/IMAGES.md (Product section).
@@ -41,14 +41,13 @@ const media: Record<string, Media> = {
   },
 };
 
-const movements = [
+const movements: StoryStep[] = [
   {
     index: '01',
     name: 'Pinch and fine motor control',
     media: media.pinch,
     text: 'The game asks for a pinch: thumb and index closing and opening on cue. Precision, speed and smoothness are captured frame by frame.',
     measures: 'Pinch precision, reach precision, endpoint overshoot, movement smoothness (SPARC)',
-    why: 'Pinch grip is what buttoning, writing and picking things up depend on. It degrades immediately after stroke and its recovery is a milestone the FMA-UE scale tracks.',
   },
   {
     index: '02',
@@ -56,7 +55,6 @@ const movements = [
     media: media.open,
     text: 'The game asks the hand to open and the index to extend, alternating sides. The system captures how far, how fast, and the gap between both hands.',
     measures: 'Index extension accuracy, hand opening speed, reach precision, smoothness (SPARC), inter-hand asymmetry',
-    why: 'Losing isolated finger extension is one of the most common and disabling consequences of stroke. Alternating sides reveals the asymmetry between the affected and unaffected hand.',
   },
   {
     index: '03',
@@ -64,7 +62,6 @@ const movements = [
     media: media.wrist,
     text: 'The game is steered by rotating the wrist. The rotation captures pronation and supination range, one of the most clinically relevant movements after stroke.',
     measures: 'Rotation range of motion, pronation and supination speed, smoothness (SPARC)',
-    why: 'Wrist rotation is among the first movements affected and the last to recover. Measured most days, it draws a recovery curve instead of a point per visit.',
   },
 ];
 
@@ -100,27 +97,7 @@ export default function ProductPage() {
             title="Three movements, three games."
             lead="The games will keep changing. The three movements they are built around will not."
           />
-          {movements.map((exercise, index) => (
-            <Reveal key={exercise.name}>
-              <div className={`${page.feature} ${index % 2 === 1 ? page.featureReverse : ''}`}>
-                <TiltCard className={home.tilt}>
-                  <Visual item={exercise.media} sizes="(max-width: 760px) 100vw, 540px" />
-                </TiltCard>
-                <div className={page.featureCopy}>
-                  <div className={page.featureIndex}>
-                    <em>{exercise.index}</em>
-                    <span>Movement</span>
-                  </div>
-                  <h3>{exercise.name}</h3>
-                  <p>{exercise.text}</p>
-                  <div className={page.featureMeta}>
-                    <span>What it measures</span>
-                    <p>{exercise.measures}</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+          <StickyStory steps={movements} />
         </div>
       </section>
 

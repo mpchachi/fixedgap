@@ -32,14 +32,15 @@ export default function SplitText({
     const ctx = gsap.context(() => {
       gsap.fromTo(
         words,
-        { yPercent: 110, opacity: 0 },
+        { yPercent: 110, opacity: 0, filter: 'blur(10px)' },
         {
           yPercent: 0,
           opacity: 1,
-          duration: 0.9,
+          filter: 'blur(0px)',
+          duration: 1,
           delay,
           ease: 'expo.out',
-          stagger: 0.045,
+          stagger: 0.05,
           ...(onMount ? {} : { scrollTrigger: { trigger: el, start: 'top 85%', once: true } }),
         },
       );

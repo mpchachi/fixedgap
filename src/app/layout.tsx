@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import Grain from "@/components/layout/Grain";
 
 const geist = Geist({
   variable: "--font-inter",
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Grain />
       </body>
     </html>
   );
