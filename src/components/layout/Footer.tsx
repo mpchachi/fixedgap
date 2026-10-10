@@ -14,7 +14,6 @@ const groups = [
     title: 'Science',
     links: [
       { label: 'The evidence', href: '/science#evidence' },
-      { label: 'Scientific foundation', href: '/science#foundation' },
       { label: 'Validation roadmap', href: '/science#roadmap' },
       { label: 'References', href: '/science#references' },
     ],

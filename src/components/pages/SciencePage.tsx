@@ -43,33 +43,6 @@ const stats: Array<{
   },
 ];
 
-const foundation = [
-  {
-    metric: 'Movement smoothness (SPARC)',
-    text: 'Reference smoothness metric in a review of 32 kinematic measures; correlates with Fugl-Meyer upper extremity scores.',
-  },
-  {
-    metric: 'Wrist rotation range',
-    text: 'Hand kinematics panels including rotation range correlate at about 0.92 with the FMA-UE distal block.',
-  },
-  {
-    metric: 'Pinch precision',
-    text: 'Normalised thumb-index distance maps to the FMA-UE pinch item, measured without a therapist in the room.',
-  },
-  {
-    metric: 'Reach precision',
-    text: 'Reach accuracy and overshoot are the camera-side equivalent of the FMA-UE finger-to-nose item.',
-  },
-  {
-    metric: 'Inter-hand asymmetry',
-    text: 'Ratios between the affected and unaffected hand are validated as sensitive recovery markers.',
-  },
-  {
-    metric: 'Pronation and supination speed',
-    text: 'Forearm rotation velocity is a validated proxy for motor fluency after stroke.',
-  },
-];
-
 const roadmap = [
   {
     step: '01',
@@ -215,7 +188,7 @@ export default function SciencePage() {
       <PageHero
         kicker="Science"
         title={'What the evidence says,\nand what we still have to prove.'}
-        lead="Every biomarker FixedGap captures comes from peer-reviewed literature; validating our own implementation with patients is the next step. This page keeps the two apart."
+        lead="The measurements come from peer-reviewed work. Validating them with our own patients is the next step."
       />
 
       <section className={home.section} style={{ paddingTop: 0 }}>
@@ -249,24 +222,6 @@ export default function SciencePage() {
         </div>
       </section>
 
-      <section className={`${home.section} ${home.sectionTint} ${page.anchor}`} id="foundation">
-        <div className={home.shell}>
-          <SectionHead
-            kicker="Scientific foundation"
-            title="What the literature says about each biomarker."
-            lead="Each metric already correlates with the Fugl-Meyer upper extremity assessment in published studies."
-          />
-          <div className={page.foundation}>
-            {foundation.map((item, index) => (
-              <Reveal className={page.foundationItem} delay={index * 0.05} key={item.metric}>
-                <h3>{item.metric}</h3>
-                <p>{item.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className={`${home.section} ${home.sectionTint} ${page.anchor}`} id="roadmap">
         <div className={home.shell}>
           <SectionHead
@@ -290,7 +245,7 @@ export default function SciencePage() {
           <SectionHead
             kicker="References"
             title="The papers behind each metric."
-            lead="Two groups. The first validates the methods we use directly. The second gives the clinical rationale, and our own validation of it is ongoing."
+            lead="The first group validates the methods we use. The second gives the clinical rationale."
           />
           <div className={page.refGroup}>
             <h3>Directly validated</h3>
@@ -301,10 +256,8 @@ export default function SciencePage() {
             <ReferenceList items={references.filter((r) => r.group === 'grounded')} />
           </div>
           <Reveal className={page.note}>
-            <strong>A note on transparency</strong>
-            FixedGap is in its clinical validation phase. The references above are the scientific foundation we built the
-            biomarker panel on, not a direct validation of our specific product. When the first study is published, it will be
-            listed here.
+            These papers are the foundation we built on, not a validation of FixedGap itself. The first study on our own
+            product will be listed here when it is published.
           </Reveal>
         </div>
       </section>

@@ -21,10 +21,22 @@ const media: Record<string, Media> = {
     label: 'The camera version: nothing on the hand, just a laptop on the kitchen table',
     note: '',
   },
+  madrid: {
+    src: '/GANADORES.jpeg',
+    ratio: '4 / 5',
+    label: 'Winning the Madrid hub, April 2026',
+    note: 'Real photo.',
+  },
   boston: {
     src: '/about/pilar.jpeg',
     ratio: '4 / 5',
     label: 'Second place at the global final, Pillar VC, Boston, June 2026',
+    note: 'Real photo.',
+  },
+  harvardChan: {
+    src: '/home/company-harvard-chan.webp',
+    ratio: '4 / 5',
+    label: 'On the steps of the Harvard T.H. Chan School of Public Health',
     note: 'Real photo.',
   },
   hbs: {
@@ -161,8 +173,8 @@ export default function CompanyPage() {
           />
           <Reveal>
             <div className={`${home.twoUp} ${home.wideVisual}`}>
+              <Visual item={media.madrid} sizes="(max-width: 760px) 100vw, 560px" />
               <Visual item={media.boston} sizes="(max-width: 760px) 100vw, 560px" />
-              <Visual item={media.hbs} sizes="(max-width: 760px) 100vw, 560px" />
             </div>
           </Reveal>
           <Reveal>
@@ -183,6 +195,12 @@ export default function CompanyPage() {
                   </Link>
                 </p>
               </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className={`${home.twoUp} ${home.wideVisual}`}>
+              <Visual item={media.harvardChan} sizes="(max-width: 760px) 100vw, 560px" />
+              <Visual item={media.hbs} sizes="(max-width: 760px) 100vw, 560px" />
             </div>
           </Reveal>
         </div>

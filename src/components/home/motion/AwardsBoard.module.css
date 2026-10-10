@@ -223,3 +223,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Press rows with a photo ----------------------------------------------- */
+
+.rowWithImage {
+  grid-template-columns: 160px 220px minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.rowImage {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--sand-2);
+}
+
+.rowImage img {
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .rowWithImage {
+    grid-template-columns: 1fr;
+  }
+}

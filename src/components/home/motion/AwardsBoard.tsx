@@ -14,7 +14,7 @@ export type Prize = {
 
 export type Mention = { by: string; title: string };
 
-export type PressItem = { outlet: string; date: string; title: string; url: string };
+export type PressItem = { outlet: string; date: string; title: string; url: string; image?: string };
 
 export type AwardPhoto = { src: string; alt: string; caption: string };
 
@@ -98,7 +98,17 @@ export default function AwardsBoard({
         <ul className={styles.list}>
           {press.map((item, i) => (
             <motion.li key={item.url} {...rise(i)}>
-              <a className={`${styles.row} ${styles.rowLink}`} href={item.url} target="_blank" rel="noreferrer">
+              <a
+                className={`${styles.row} ${styles.rowLink} ${item.image ? styles.rowWithImage : ''}`}
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item.image && (
+                  <span className={styles.rowImage}>
+                    <Image src={item.image} alt="" fill sizes="200px" />
+                  </span>
+                )}
                 <span className={styles.rowBy}>
                   {item.outlet}
                   <em>{item.date}</em>
