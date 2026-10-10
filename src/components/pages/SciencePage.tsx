@@ -31,12 +31,6 @@ const stats: Array<{
     source: 'Topics in Stroke Rehabilitation, 2024. Differences in rehabilitation evaluation access for stroke survivors.',
   },
   {
-    value: 50,
-    suffix: '%+',
-    label: 'of stroke patients can only access home-based rehabilitation, with no monitoring.',
-    source: 'Frontiers in Medicine, 2025. Home-based exercise rehabilitation among stroke survivors.',
-  },
-  {
     value: 3,
     prefix: '1 in ',
     label: 'stroke patients stops rehabilitating. Average adherence is 68.6%.',
@@ -47,77 +41,32 @@ const stats: Array<{
     label: 'stroke patients with sequelae per neurologist in Spanish stroke units.',
     source: 'SEN (Sociedad Española de Neurología), October 2025. 330,000 survivors divided by about 325 stroke-unit neurologists.',
   },
-  {
-    value: 3367,
-    label: 'stroke patients per stroke neurologist worldwide.',
-    source: 'World Federation of Neurology survey. 101M survivors divided by about 30,000 dedicated stroke neurologists.',
-  },
-  {
-    value: 5.5,
-    suffix: 'M',
-    decimals: 1,
-    label: 'deaths from stroke every year worldwide. The second leading cause of death globally.',
-    source: 'GBD 2019 Stroke Collaborators, The Lancet Neurology, 2021.',
-  },
 ];
 
 const foundation = [
   {
     metric: 'Movement smoothness (SPARC)',
-    text: 'Identified as the gold standard smoothness metric in a systematic review of 32 kinematic metrics. Correlates directly with Fugl-Meyer upper extremity scores and picks up deterioration before the patient notices.',
+    text: 'Reference smoothness metric in a review of 32 kinematic measures; correlates with Fugl-Meyer upper extremity scores.',
   },
   {
-    metric: 'Wrist rotation range of motion',
-    text: 'Hand kinematics panels including rotation range achieve a Spearman correlation of about 0.92 with the FMA-UE distal block. Wrist range is a direct FMA-UE item.',
+    metric: 'Wrist rotation range',
+    text: 'Hand kinematics panels including rotation range correlate at about 0.92 with the FMA-UE distal block.',
   },
   {
     metric: 'Pinch precision',
-    text: 'Maps directly to the FMA-UE pinch item. Normalised thumb-index distance is a validated proxy for distal dexterity, measured without a therapist in the room.',
+    text: 'Normalised thumb-index distance maps to the FMA-UE pinch item, measured without a therapist in the room.',
   },
   {
-    metric: 'Reach precision and endpoint overshoot',
-    text: 'Reach accuracy and dysmetria are analogous to the FMA-UE finger-to-nose coordination item. Peer-reviewed studies confirm they capture visuomotor integration deficits after stroke.',
+    metric: 'Reach precision',
+    text: 'Reach accuracy and overshoot are the camera-side equivalent of the FMA-UE finger-to-nose item.',
   },
   {
-    metric: 'Inter-hand asymmetry index',
-    text: 'Post-stroke impairment is asymmetric by definition. Ratio-based indices between affected and unaffected limbs are validated as sensitive recovery markers.',
+    metric: 'Inter-hand asymmetry',
+    text: 'Ratios between the affected and unaffected hand are validated as sensitive recovery markers.',
   },
   {
     metric: 'Pronation and supination speed',
-    text: 'Forearm rotation velocity is a direct proxy for motor fluency and upper limb coordination, validated in stroke rehabilitation outcome studies.',
-  },
-];
-
-const status: Array<{ when: string; title: string; text: string; state: 'done' | 'active' | 'planned' }> = [
-  {
-    when: 'Complete',
-    title: 'Scientific foundation',
-    text: 'Every core metric is grounded in peer-reviewed literature and aligned with FMA-UE items.',
-    state: 'done',
-  },
-  {
-    when: 'Complete',
-    title: 'Technical implementation',
-    text: 'The three games and their core metrics are built and working. Internal testing confirms reliable signal capture.',
-    state: 'done',
-  },
-  {
-    when: 'Literature-based',
-    title: 'FMA-UE correlation of about 0.92',
-    text: 'Strong Spearman correlation of the hand kinematics panel with the FMA-UE distal block, as reported in published studies. Not yet measured on our own implementation.',
-    state: 'done',
-  },
-  {
-    when: 'In progress',
-    title: 'Clinical validation with patients',
-    text: 'Validating our specific implementation with post-stroke patients under neurologist supervision. This is the immediate next step.',
-    state: 'active',
-  },
-  {
-    when: 'Planned',
-    title: 'Peer-reviewed publication',
-    text: 'Publication of the validation results after the first clinical study.',
-    state: 'planned',
+    text: 'Forearm rotation velocity is a validated proxy for motor fluency after stroke.',
   },
 ];
 
@@ -312,27 +261,6 @@ export default function SciencePage() {
               <Reveal className={page.foundationItem} delay={index * 0.05} key={item.metric}>
                 <h3>{item.metric}</h3>
                 <p>{item.text}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${home.section} ${page.anchor}`} id="status">
-        <div className={home.shell}>
-          <SectionHead kicker="Where we are" title="Done, in progress, planned." />
-          <div className={page.timeline}>
-            {status.map((item, index) => (
-              <Reveal
-                className={`${page.timelineItem} ${item.state === 'done' ? page.done : ''} ${item.state === 'active' ? page.active : ''}`}
-                delay={index * 0.05}
-                key={item.title}
-              >
-                <span>{item.when}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
               </Reveal>
             ))}
           </div>

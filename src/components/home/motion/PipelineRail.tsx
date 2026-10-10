@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function PipelineRail({
   steps,
 }: {
-  steps: Array<{ title: string; body: string; image?: string }>;
+  steps: Array<{ title: string; body: string; image?: string; imagePosition?: string }>;
 }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -67,7 +67,13 @@ export default function PipelineRail({
           <div className={styles.step} key={step.title}>
             {step.image && (
               <div className={styles.media}>
-                <Image src={step.image} alt="" fill sizes="(max-width: 700px) 100vw, 280px" />
+                <Image
+                  src={step.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 700px) 100vw, 280px"
+                  style={step.imagePosition ? { objectPosition: step.imagePosition } : undefined}
+                />
               </div>
             )}
             <span>{String(i + 1).padStart(2, '0')}</span>

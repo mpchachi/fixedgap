@@ -5,7 +5,6 @@ const groups = [
   {
     title: 'Product',
     links: [
-      { label: 'Walkthrough', href: '/product#demo' },
       { label: 'The exercises', href: '/product#exercises' },
       { label: 'Biomarkers', href: '/product#biomarkers' },
       { label: 'Clinical dashboard', href: '/product#dashboard' },
@@ -16,7 +15,7 @@ const groups = [
     links: [
       { label: 'The evidence', href: '/science#evidence' },
       { label: 'Scientific foundation', href: '/science#foundation' },
-      { label: 'Validation status', href: '/science#status' },
+      { label: 'Validation roadmap', href: '/science#roadmap' },
       { label: 'References', href: '/science#references' },
     ],
   },
@@ -26,7 +25,7 @@ const groups = [
       { label: 'Our story', href: '/company#story' },
       { label: 'Team', href: '/company#team' },
       { label: 'Behind FixedGap', href: '/company/behind-fixedgap' },
-      { label: 'Awards and media', href: '/#awards' },
+      { label: 'Awards and press', href: '/awards' },
       { label: 'Contact', href: '/contact' },
     ],
   },

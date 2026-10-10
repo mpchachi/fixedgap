@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
@@ -230,35 +231,6 @@ export default function ProductPage() {
         </div>
       </PageHero>
 
-      <section className={`${home.section} ${page.anchor}`} id="demo">
-        <div className={home.shell}>
-          <SectionHead
-            kicker="Walkthrough"
-            title="A full session, start to finish."
-            lead="Recorded on the current build. This is what the patient does at home and what the clinician receives afterwards."
-          />
-          <Reveal>
-            <div className={page.video}>
-              <video controls playsInline preload="metadata" poster="/clinical/dashboard.png">
-                <source src="/DemoTecnica.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <div className={page.video} style={{ marginTop: 28 }}>
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/UqnF2CcWmIo"
-                title="FixedGap: Meet Maria"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-            <p className={page.videoCaption}>Meet Maria: a patient&apos;s story, two minutes.</p>
-          </Reveal>
-        </div>
-      </section>
-
       <section className={`${home.section} ${home.sectionTint} ${page.anchor} ${page.onTint}`} id="exercises">
         <div className={home.shell}>
           <SectionHead
@@ -363,9 +335,14 @@ export default function ProductPage() {
                 <i /><i /><i />
                 <span>app.fixedgap.com / patients</span>
               </div>
-              <video autoPlay muted loop playsInline poster="/clinical/dashboard.png">
-                <source src="/clinical/videoDashboard.mp4" type="video/mp4" />
-              </video>
+              <Image
+                src="/clinical/dashboard.png"
+                alt="The clinical dashboard: patients ordered by who needs attention first"
+                width={1914}
+                height={942}
+                sizes="(max-width: 900px) 100vw, 1120px"
+                style={{ display: 'block', width: '100%', height: 'auto' }}
+              />
             </div>
           </Reveal>
           <div className={page.reportGrid} style={{ marginTop: 64 }}>
