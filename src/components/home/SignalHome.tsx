@@ -234,10 +234,11 @@ export default function SignalHome() {
             </Reveal>
             <Reveal className={styles.teamCopy} delay={0.1}>
               <p className={styles.kicker}>The team</p>
-              <SplitText text="Five co-founders in Madrid, one clinical advisor" />
+              <SplitText text="Who is building FixedGap" />
               <p className={styles.sectionLead}>
-                Started at a Harvard hackathon in Madrid, second worldwide at the global final in
-                Boston. Now preparing the first clinical validation study.
+                Six of us, from Madrid, across engineering, business and medicine. We met at a
+                Harvard hackathon, came second worldwide at the final in Boston, and are now
+                preparing the first clinical validation study.
               </p>
               <div className={styles.linkRow}>
                 <Link className={styles.buttonText} href="/company">

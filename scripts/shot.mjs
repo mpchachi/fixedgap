@@ -12,15 +12,19 @@ async function shot(url, selector, name) {
   await page.goto(base + url, { waitUntil: 'load' });
   const el = page.locator(selector).first();
   await el.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(1800);
+  await page.waitForTimeout(600);
+  const box = await el.boundingBox();
+  for (let y = box.y; y < box.y + box.height; y += 500) {
+    await page.evaluate((yy) => window.scrollTo(0, yy), y);
+    await page.waitForTimeout(150);
+  }
+  await el.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
   await el.screenshot({ path: `${out}/${name}.png` });
   console.log('ok', name);
 }
 
-// Home: rail (Measure crop), dashboard still, team split
-await shot('/', 'section:has(img[src*="render-trend"])', 'home-rail');
-await shot('/', 'section:has(img[src*="dashboard.png"])', 'home-dashboard');
+await shot('/company', '#team', 'company-team');
+await shot('/awards', 'ul:has(a[href*="theobjective"])', 'press');
 await shot('/', 'section:has(img[src*="company-harvard-chan"])', 'home-team');
-await shot('/awards', 'main', 'awards');
-await shot('/company', '#boston', 'company-boston');
 await browser.close();

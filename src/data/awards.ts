@@ -53,17 +53,20 @@ export const press: PressItem[] = [
     date: 'June 2026',
     title: 'El equipo de la UCM, segundo en el Harvard Health Systems Innovation Lab Hackathon 2026',
     url: 'https://tribuna.ucm.es/news/el-equipo-de-la-ucm-segundo-en-el-harvard-health-systems-innovation-lab-hackathon-2026',
+    image: '/home/press-tribuna-boston.webp',
   },
   {
     outlet: 'The Objective',
     date: 'April 2026',
     title: 'Seis emprendedores crean un guante para evaluar la recuperación después de un ictus',
     url: 'https://theobjective.com/sociedad/ciencia/2026-04-21/seis-emprendedores-guante-recuperacion-ictus/',
+    image: '/home/press-theobjective.webp',
   },
   {
     outlet: 'Tribuna Complutense',
     date: 'April 2026',
     title: 'Cuatro complutenses, núcleo del equipo ganador del hackathon de la Universidad de Harvard celebrado en la UCM',
     url: 'https://tribuna.ucm.es/news/cuatro-complutenses-equipo-ganador-hackathon-universidad-harvard-celebrado-ucm',
+    image: '/home/press-tribuna-madrid.webp',
   },
 ];

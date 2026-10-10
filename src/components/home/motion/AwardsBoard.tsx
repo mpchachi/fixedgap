@@ -97,27 +97,33 @@ export default function AwardsBoard({
         <p className={styles.label}>In the press</p>
         <ul className={styles.list}>
           {press.map((item, i) => (
-            <motion.li key={item.url} {...rise(i)}>
-              <a
-                className={`${styles.row} ${styles.rowLink} ${item.image ? styles.rowWithImage : ''}`}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {item.image && (
-                  <span className={styles.rowImage}>
-                    <Image src={item.image} alt="" fill sizes="200px" />
+            <motion.li key={item.url} className={item.image ? styles.pressCardItem : undefined} {...rise(i)}>
+              {item.image ? (
+                <a className={styles.pressCard} href={item.url} target="_blank" rel="noreferrer">
+                  <span className={styles.pressPhoto}>
+                    <Image src={item.image} alt="" fill sizes="(max-width: 900px) 100vw, 400px" />
                   </span>
-                )}
-                <span className={styles.rowBy}>
-                  {item.outlet}
-                  <em>{item.date}</em>
-                </span>
-                <span className={styles.rowTitle}>{item.title}</span>
-                <span className={styles.arrow} aria-hidden="true">
-                  ↗
-                </span>
-              </a>
+                  <span className={styles.pressMeta}>
+                    <span>{item.outlet}</span>
+                    <span>{item.date}</span>
+                  </span>
+                  <span className={styles.pressTitle}>{item.title}</span>
+                  <span className={styles.arrow} aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+              ) : (
+                <a className={`${styles.row} ${styles.rowLink}`} href={item.url} target="_blank" rel="noreferrer">
+                  <span className={styles.rowBy}>
+                    {item.outlet}
+                    <em>{item.date}</em>
+                  </span>
+                  <span className={styles.rowTitle}>{item.title}</span>
+                  <span className={styles.arrow} aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+              )}
             </motion.li>
           ))}
         </ul>

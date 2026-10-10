@@ -224,29 +224,72 @@
   }
 }
 
-/* Press rows with a photo ----------------------------------------------- */
+/* Press cards (when the item carries a photo) ---------------------------- */
 
-.rowWithImage {
-  grid-template-columns: 160px 220px minmax(0, 1fr) auto;
-  align-items: center;
+.list:has(.pressCardItem) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
-.rowImage {
+.pressCard {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pressPhoto {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: calc(var(--radius) - 2px);
+  border-radius: var(--radius);
   background: var(--sand-2);
 }
 
-.rowImage img {
+.pressPhoto img {
   object-fit: cover;
+  transition: transform 600ms ease;
 }
 
-@media (max-width: 760px) {
-  .rowWithImage {
+.pressCard:hover .pressPhoto img {
+  transform: scale(1.03);
+}
+
+.pressMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 16px 0 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.pressTitle {
+  display: block;
+  padding-right: 28px;
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.45;
+}
+
+.pressCard .arrow {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+}
+
+.pressCard:hover .arrow {
+  color: var(--blue);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 900px) {
+  .list:has(.pressCardItem) {
     grid-template-columns: 1fr;
   }
 }

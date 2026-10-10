@@ -47,6 +47,8 @@ const media: Record<string, Media> = {
   },
 };
 
+const slug = (s: string) => s.toLowerCase().normalize('NFD').replace(/[^a-z ]/g, '').trim().replace(/ +/g, '-');
+
 const gloveParts = [
   ['IMU sensors', 'for 3D hand orientation and movement'],
   ['Flex sensors', 'for finger joint angles in real time'],
@@ -62,8 +64,6 @@ const cameraSignals = [
 ];
 
 export default function CompanyPage() {
-  const founders = team.filter((m) => !m.advisor);
-  const advisors = team.filter((m) => m.advisor);
 
   return (
     <main className={home.page}>
@@ -78,6 +78,53 @@ export default function CompanyPage() {
           <div><strong>5</strong><span>co-founders, one clinical advisor</span></div>
         </div>
       </PageHero>
+
+      <section className={`${home.section} ${page.anchor}`} id="team" style={{ paddingTop: 0 }}>
+        <div className={home.shell}>
+          <Reveal>
+            <div className={page.faces}>
+              {team.map((member) => (
+                <a className={page.face} href={`#${slug(member.name)}`} key={member.name}>
+                  <span className={page.facePhoto}>
+                    <Image src={member.photo} alt={member.name} fill sizes="(max-width: 760px) 50vw, 200px" />
+                  </span>
+                  <strong>{member.name.split(' ')[0]}</strong>
+                  <small>{member.title}</small>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+          <div className={page.memberRows}>
+            {team.map((member, index) => (
+              <div key={member.name} id={slug(member.name)}>
+                <Reveal className={page.memberRow} delay={index * 0.04}>
+                <div>
+                  <h3>{member.name}</h3>
+                  <span>{member.title}</span>
+                </div>
+                <div>
+                  <p>{member.bio}</p>
+                  {(member.linkedin || member.github) && (
+                    <div className={page.memberLinks}>
+                      {member.linkedin && (
+                        <a href={member.linkedin} target="_blank" rel="noreferrer">
+                          LinkedIn
+                        </a>
+                      )}
+                      {member.github && (
+                        <a href={member.github} target="_blank" rel="noreferrer">
+                          GitHub
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className={`${home.section} ${page.anchor}`} id="story">
         <div className={home.shell}>
@@ -203,56 +250,6 @@ export default function CompanyPage() {
               <Visual item={media.hbs} sizes="(max-width: 760px) 100vw, 560px" />
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className={`${home.section} ${page.anchor}`} id="team">
-        <div className={home.shell}>
-          <SectionHead
-            kicker="The team"
-            title="Five co-founders and a clinical advisor."
-            lead="Five co-founders from Madrid, across computer science, biomedical engineering, business and clinical medicine, and a clinical advisor."
-          />
-          <div className={page.teamGrid}>
-            {founders.map((member, index) => (
-              <Reveal delay={index * 0.06} key={member.name}>
-                <TiltCard className={page.member} max={4}>
-                  <div className={page.memberPhoto}>
-                    <Image src={member.photo} alt={member.name} fill sizes="(max-width: 760px) 100vw, 360px" />
-                  </div>
-                  <div className={page.memberCopy}>
-                    <h3>{member.name}</h3>
-                    <span>{member.title}</span>
-                    <p>{member.bio}</p>
-                    <div className={page.memberLinks}>
-                      {member.linkedin && (
-                        <a href={member.linkedin} target="_blank" rel="noreferrer">
-                          LinkedIn
-                        </a>
-                      )}
-                      {member.github && (
-                        <a href={member.github} target="_blank" rel="noreferrer">
-                          GitHub
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </TiltCard>
-              </Reveal>
-            ))}
-            {advisors.map((member) => (
-              <Reveal key={member.name} className={`${page.member} ${page.advisor}`}>
-                <div className={page.memberPhoto}>
-                  <Image src={member.photo} alt={member.name} fill sizes="240px" />
-                </div>
-                <div className={page.memberCopy}>
-                  <h3>{member.name}</h3>
-                  <span>{member.title}</span>
-                  <p>{member.bio}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
