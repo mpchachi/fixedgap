@@ -16,7 +16,7 @@ const media: Record<string, Media> = {
     note: '',
   },
   camera: {
-    src: '/home/company-camera.webp',
+    src: '/home/company-home-setup.webp',
     ratio: '4 / 3',
     label: 'The camera version: nothing on the hand, just a laptop on the kitchen table',
     note: '',

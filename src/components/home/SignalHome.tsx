@@ -24,7 +24,7 @@ import { Reveal, Visual, type Media } from '@/components/site/Editorial';
 const media = {
   tabHome: '/home/home-hand.webp',
   tabCamera: '/home/home-camera.webp',
-  tabClinician: '/home/home-patient.webp',
+  tabClinician: '/home/home-clinic.webp',
   team: {
     src: '/about/oficina.jpeg',
     ratio: '21 / 9',
@@ -44,10 +44,10 @@ const partners = [
 ];
 
 const steps = [
-  { title: 'Capture', body: 'The patient does a short task. The webcam records it in the browser.' },
-  { title: 'Track', body: 'Twenty-one hand landmarks are located on every frame.' },
-  { title: 'Measure', body: 'Landmark trajectories become the same set of measurements, every session.' },
-  { title: 'Review', body: 'Clinicians see trends, adherence and alerts for each patient.' },
+  { title: 'Capture', body: 'The patient does a short task. The webcam records it in the browser.', image: '/home/render-webcam.webp' },
+  { title: 'Track', body: 'Twenty-one hand landmarks are located on every frame.', image: '/home/render-landmarks.webp' },
+  { title: 'Measure', body: 'Landmark trajectories become the same set of measurements, every session.', image: '/home/render-trend.webp' },
+  { title: 'Review', body: 'Clinicians see trends, adherence and alerts for each patient.', image: '/home/render-dashboard-card.webp' },
 ];
 
 const prizes: Prize[] = [

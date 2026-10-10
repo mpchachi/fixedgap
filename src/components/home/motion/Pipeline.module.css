@@ -60,6 +60,20 @@
   font-weight: 600;
 }
 
+.media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  margin-bottom: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: #f3f1ec;
+}
+
+.media img {
+  object-fit: cover;
+}
+
 .step h3 {
   margin: 0;
   font-size: 22px;

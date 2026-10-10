@@ -31,9 +31,9 @@ const MISSED = new Set([19, 25, 26, 33, 41, 47, 48, 55, 61, 62, 68, 74, 75, 82, 
 
 // Days that open a photo card as the fill reaches them.
 const PHOTOS: Record<number, { src: string; label: string; side: 'left' | 'right' }> = {
-  20: { src: '/home/product-pinch.webp', label: 'Jan 20 · pinch, 4 min', side: 'right' },
-  [31 + 10]: { src: '/home/home-patient.webp', label: 'Feb 10 · open hand, 3 min', side: 'right' },
-  [31 + 28 + 18]: { src: '/home/product-open.webp', label: 'Mar 18 · wrist, 3 min', side: 'left' },
+  20: { src: '/home/cal-jan.webp', label: 'Jan 20 · pinch, 4 min', side: 'right' },
+  [31 + 10]: { src: '/home/cal-feb.webp', label: 'Feb 10 · open hand, 3 min', side: 'right' },
+  [31 + 28 + 18]: { src: '/home/cal-mar.webp', label: 'Mar 18 · wrist, 3 min', side: 'left' },
 };
 
 type Kind = 'none' | 'clinic' | 'home' | 'missed';

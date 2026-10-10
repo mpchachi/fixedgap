@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Pipeline.module.css';
@@ -15,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function PipelineRail({
   steps,
 }: {
-  steps: Array<{ title: string; body: string }>;
+  steps: Array<{ title: string; body: string; image?: string }>;
 }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -64,6 +65,11 @@ export default function PipelineRail({
       <div className={styles.steps}>
         {steps.map((step, i) => (
           <div className={styles.step} key={step.title}>
+            {step.image && (
+              <div className={styles.media}>
+                <Image src={step.image} alt="" fill sizes="(max-width: 700px) 100vw, 280px" />
+              </div>
+            )}
             <span>{String(i + 1).padStart(2, '0')}</span>
             <h3>{step.title}</h3>
             <p>{step.body}</p>

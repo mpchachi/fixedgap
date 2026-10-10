@@ -1,7 +1,14 @@
 'use client';
 
-import { Cta, home, page, PageHero, Reveal, SectionHead } from '@/components/site/Editorial';
+import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
 import CountUp from '@/components/home/motion/CountUp';
+
+const clinicRoom: Media = {
+  src: '/home/science-clinic.webp',
+  ratio: '21 / 9',
+  label: 'A neurology consultation room: where the data ends up being read',
+  note: '',
+};
 
 const stats: Array<{
   value: number;
@@ -261,6 +268,14 @@ export default function SciencePage() {
         title={'What the evidence says,\nand what we still have to prove.'}
         lead="Every biomarker FixedGap captures comes from peer-reviewed literature; validating our own implementation with patients is the next step. This page keeps the two apart."
       />
+
+      <section className={home.section} style={{ paddingTop: 0 }}>
+        <div className={home.shell}>
+          <Reveal>
+            <Visual item={clinicRoom} className={home.wideVisual} sizes="1120px" />
+          </Reveal>
+        </div>
+      </section>
 
       <section className={`${home.section} ${page.anchor}`} id="evidence">
         <div className={home.shell}>

@@ -29,10 +29,16 @@ const media: Record<string, Media> = {
     note: '',
   },
   tracking: {
-    src: '/about/about-4.jpeg',
-    ratio: '1536 / 736',
-    label: 'What the camera sees: live hand tracking and the metrics panel',
-    note: 'Real screenshot of the current build.',
+    src: '/home/render-landmarks.webp',
+    ratio: '16 / 9',
+    label: 'The 21 hand landmarks the camera tracks on every frame',
+    note: '',
+  },
+  clinic: {
+    src: '/home/product-clinic-session.webp',
+    ratio: '2 / 1',
+    label: 'In the clinic: a therapist showing a patient how to hold the hand for the camera',
+    note: '',
   },
 };
 
@@ -370,6 +376,11 @@ export default function ProductPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div style={{ marginTop: 64 }}>
+              <Visual item={media.clinic} className={home.wideVisual} sizes="1120px" />
+            </div>
+          </Reveal>
           <Reveal className={home.actions}>
             <MagneticLink className={home.buttonPrimary} href="/contact">
               Book a clinical demo
