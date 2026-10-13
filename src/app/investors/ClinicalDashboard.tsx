@@ -285,7 +285,7 @@ function ClinicalDashboard() {
               fontFamily: "'JetBrains Mono'",
               color: "hsl(175,60%,52%)",
             }}>
-              Session #23 — Carmen D.R.
+              Session #23: Carmen D.R.
             </span>
           </div>
           <span className="text-[9px] font-mono" style={{ color: "hsl(215,10%,35%)" }}>28/04/2026</span>
@@ -342,7 +342,7 @@ function ClinicalDashboard() {
           <div className="flex items-center justify-between mb-1">
             <span className="text-[7px] font-semibold tracking-[0.12em] uppercase" style={{
               color: "hsl(175,80%,42%)", fontFamily: "'JetBrains Mono'"
-            }}>Progress — 23 sessions</span>
+            }}>Progress: 23 sessions</span>
             <span className="text-[9px] font-mono font-bold" style={{ color: "hsl(195,15%,72%)" }}>
               ↑ +46 pts
             </span>

@@ -25,7 +25,7 @@ const sections = [
     startFrame: 130,
     endFrame: 300,
     title: "Recovery and deterioration happen every day.",
-    sub: "Decisions rely on patient recall — not objective motor data.",
+    sub: "Decisions rely on patient recall, not objective motor data.",
   },
   {
     startFrame: 300,
@@ -896,7 +896,7 @@ export default function ScrollCanvas() {
               className="w-full h-auto rounded-lg"
             />
             <p className="text-white text-center text-sm mt-3 font-medium">
-              1st Place — Harvard HSIL Madrid Hub
+              1st Place, Harvard HSIL Madrid Hub
             </p>
           </div>
 

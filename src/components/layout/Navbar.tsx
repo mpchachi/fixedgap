@@ -1,853 +1,91 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import {
-  Cpu,
-  Activity,
-  LayoutDashboard,
-  Users,
-  BookOpen,
-  GraduationCap,
-  FlaskConical,
-  FileText,
-  BarChart3,
-  Mail,
-  HelpCircle,
-  Newspaper,
-} from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-interface MegaMenuItem {
-  icon: React.ReactNode;
-  label: string;
-  description: string;
-  href: string;
-}
-
-interface MenuItem {
-  label: string;
-  description: string;
-  items: MegaMenuItem[];
-}
-
-interface DirectItem {
-  label: string;
-  href: string;
-}
-
-const menuItems: MenuItem[] = [
-  {
-    label: 'Product',
-    description:
-      'Everything you need to understand how FixedGap captures and translates movement into clinical data.',
-    items: [
-      {
-        icon: <Cpu className="w-5 h-5" />,
-        label: 'Patient Experience',
-        description: 'Rehabilitation that feels like a game',
-        href: '/product/experience',
-      },
-      {
-        icon: <Activity className="w-5 h-5" />,
-        label: 'Biomarkers',
-        description: '13 clinical biomarkers — MVP to roadmap',
-        href: '/product/biomarkers',
-      },
-      {
-        icon: <LayoutDashboard className="w-5 h-5" />,
-        label: 'Clinical Dashboard',
-        description: 'What the neurologist receives after each session',
-        href: '/product/dashboard',
-      },
-    ],
-  },
-  {
-    label: 'Demo',
-    description:
-      'See how FixedGap captures clinical biomarkers through a short daily game.',
-    items: [
-      {
-        icon: null,
-        label: 'Our Story',
-        description: 'The problem we are solving',
-        href: '/demo#story',
-      },
-      {
-        icon: null,
-        label: 'See it in action',
-        description: 'FixedGap game walkthrough',
-        href: '/demo#game',
-      },
-    ],
-  },
-  {
-    label: 'Company',
-    description:
-      'Meet the team building the future of post-stroke rehabilitation monitoring.',
-    items: [
-      {
-        icon: <BookOpen className="w-5 h-5" />,
-        label: 'Our Story',
-        description: 'From hackathon prototype to clinical platform',
-        href: '/company/about',
-      },
-      {
-        icon: <Users className="w-5 h-5" />,
-        label: 'Team',
-        description: 'The people behind FixedGap',
-        href: '/company/team',
-      },
-      {
-        icon: <GraduationCap className="w-5 h-5" />,
-        label: 'Behind FixedGap',
-        description: 'Why we exist and what drives us',
-        href: '/company/behind-fixedgap',
-      },
-      {
-        icon: <Newspaper className="w-5 h-5" />,
-        label: 'Media',
-        description: 'Press coverage and media mentions',
-        href: '/company/media',
-      },
-    ],
-  },
-  {
-    label: 'Science',
-    description:
-      'The clinical evidence and peer-reviewed research behind every biomarker we measure.',
-    items: [
-      {
-        icon: <FlaskConical className="w-5 h-5" />,
-        label: 'Clinical Validation',
-        description: 'Our validation framework and roadmap',
-        href: '/science/validation',
-      },
-      {
-        icon: <FileText className="w-5 h-5" />,
-        label: 'Research References',
-        description: 'Peer-reviewed literature 2024-2026',
-        href: '/science/references',
-      },
-      {
-        icon: <BarChart3 className="w-5 h-5" />,
-        label: 'The Evidence',
-        description: 'Clinical data on the rehabilitation gap',
-        href: '/science/evidence',
-      },
-    ],
-  },
-  {
-    label: 'Contact',
-    description:
-      'Whether you\'re a neurologist, an investor, or just curious — we\'d love to hear from you.',
-    items: [
-      {
-        icon: <Mail className="w-5 h-5" />,
-        label: 'Get in Touch',
-        description: 'Send a message or reach out directly',
-        href: '/contact',
-      },
-      {
-        icon: <HelpCircle className="w-5 h-5" />,
-        label: 'FAQ',
-        description: 'Quick answers to common questions',
-        href: '/contact/faq',
-      },
-      {
-        icon: <Users className="w-5 h-5" />,
-        label: 'Who We Work With',
-        description: 'Our partners, hospitals, and who should reach out',
-        href: '/contact/who-we-work-with',
-      },
-    ],
-  },
-];
-
-const directItems: DirectItem[] = [
-  { label: 'Market', href: '/market' },
-  { label: 'Pricing', href: '/pricing' },
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Product', href: '/product' },
+  { label: 'Science', href: '/science' },
+  { label: 'Company', href: '/company' },
+  { label: 'Awards', href: '/awards' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-  const [mariaVideoOpen, setMariaVideoOpen] = useState(false);
-  const [ourStoryVideoOpen, setOurStoryVideoOpen] = useState(false);
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-brand-border h-20">
-      <div className="mx-auto max-w-7xl px-6 h-full">
-        <div className="flex h-full items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logonuevo.jpeg"
-              alt="FixedGap"
-              width={32}
-              height={32}
-              style={{ objectFit: 'contain' }}
-            />
-            <span className="text-2xl font-bold text-brand-navy">
-              FixedGap
-            </span>
+    <header className={`fg-nav ${mobileOpen ? 'fg-nav-open' : ''} ${scrolled ? 'fg-nav-glass' : ''}`}>
+      <div className="fg-nav-surface">
+        <div className="fg-nav-inner">
+          <Link className="fg-nav-logo" href="/">
+            <Image src="/logonuevo.jpeg" alt="" width={28} height={28} priority />
+            <span>FixedGap</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {/* Menu Items with Dropdown */}
-            {menuItems.map((menu) => (
-              <div
-                key={menu.label}
-                className="relative"
-                onMouseEnter={() => setHoveredItem(menu.label)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                {menu.label === 'Demo' ? (
-                  <Link href="/demo" className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors">
-                    {menu.label}
-                  </Link>
-                ) : (
-                  <button className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors">
-                    {menu.label}
-                  </button>
-                )}
-
-                {/* Invisible bridge to prevent gap */}
-                {hoveredItem === menu.label && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '100%',
-                      left: 0,
-                      width: '100%',
-                      height: '12px',
-                      background: 'transparent',
-                    }}
-                  />
-                )}
-
-                {/* Mega Menu Panel */}
-                {hoveredItem === menu.label && (
-                  <>
-                    {/* Demo - Special Layout with Video Thumbnails */}
-                    {menu.label === 'Demo' ? (
-                      <div
-                        style={{
-                          position: 'absolute',
-                          top: 'calc(100% + 12px)',
-                          left: '50%',
-                          marginLeft: '-600px',
-                          minWidth: '1200px',
-                          backgroundColor: 'white',
-                          borderRadius: '16px',
-                          boxShadow: '0 8px 40px rgba(0,0,0,0.12)',
-                          border: '1px solid #E8E0D0',
-                          zIndex: 100,
-                        }}
-                        className="animate-fadeIn"
-                      >
-                        <div className="flex gap-10 p-10">
-                          {/* Left Column */}
-                          <div className="flex flex-col justify-between w-56 shrink-0">
-                            <div>
-                              <h3 className="font-semibold text-brand-navy text-lg mb-3">
-                                Watch FixedGap
-                              </h3>
-                              <p className="text-sm text-brand-muted leading-relaxed">
-                                {menu.description}
-                              </p>
-                            </div>
-                            <a
-                              href="/demo"
-                              className="text-sm text-brand-blue font-medium hover:underline mt-6"
-                            >
-                              See all videos →
-                            </a>
-                          </div>
-
-                          {/* Right Column - Video Thumbnails */}
-                          <div style={{
-                            display: 'grid',
-                            gridTemplateColumns: '1fr 1fr 1fr',
-                            gap: '12px',
-                            flex: 1,
-                          }}>
-                            {/* Video 1 - Our Story */}
-                            <div>
-                              <div
-                                onClick={() => setOurStoryVideoOpen(true)}
-                                style={{
-                                  position: 'relative',
-                                  borderRadius: '8px',
-                                  overflow: 'hidden',
-                                  aspectRatio: '16/9',
-                                  backgroundColor: '#0A0F1E',
-                                  cursor: 'pointer',
-                                  flexShrink: 0,
-                                }}
-                                className="group"
-                              >
-                                <div style={{
-                                  position: 'absolute',
-                                  inset: 0,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  backgroundColor: 'rgba(0,0,0,0.4)',
-                                }}
-                                className="group-hover:bg-black/30 transition-colors"
-                                >
-                                  <div style={{
-                                    backgroundColor: 'rgba(255,255,255,0.9)',
-                                    borderRadius: '999px',
-                                    padding: '6px 12px',
-                                    fontSize: '11px',
-                                    fontWeight: 600,
-                                    color: '#1A1F3C',
-                                  }}>
-                                    Watch Video
-                                  </div>
-                                </div>
-                              </div>
-                              <p className="text-sm text-brand-navy font-semibold mt-3">
-                                Our Story
-                              </p>
-                              <p className="text-sm text-brand-muted mt-1">
-                                The problem we are solving
-                              </p>
-                            </div>
-
-                            {/* Video 2 - See it in action */}
-                            <div>
-                              <div
-                                onClick={() => setIsVideoModalOpen(true)}
-                                style={{
-                                  borderRadius: '8px',
-                                  overflow: 'hidden',
-                                  aspectRatio: '16/9',
-                                  backgroundColor: '#141B2D',
-                                  cursor: 'pointer',
-                                  position: 'relative',
-                                  flexShrink: 0,
-                                }}
-                              >
-                                <video
-                                  style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                  }}
-                                  muted
-                                  playsInline
-                                >
-                                  <source src="/DemoTecnica.mp4" type="video/mp4" />
-                                </video>
-                                <div style={{
-                                  position: 'absolute',
-                                  inset: 0,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  backgroundColor: 'rgba(0,0,0,0.3)',
-                                }}>
-                                  <div style={{
-                                    backgroundColor: 'rgba(255,255,255,0.9)',
-                                    borderRadius: '999px',
-                                    padding: '6px 12px',
-                                    fontSize: '11px',
-                                    fontWeight: 600,
-                                    color: '#1A1F3C',
-                                  }}>
-                                    Watch Video
-                                  </div>
-                                </div>
-                              </div>
-                              <p className="text-sm text-brand-navy font-semibold mt-3">
-                                See it in action
-                              </p>
-                              <p className="text-sm text-brand-muted mt-1">
-                                FixedGap game walkthrough
-                              </p>
-                            </div>
-
-                            {/* Video 3 - Meet Maria */}
-                            <div>
-                              <div
-                                onClick={() => setMariaVideoOpen(true)}
-                                style={{
-                                  position: 'relative',
-                                  borderRadius: '8px',
-                                  overflow: 'hidden',
-                                  aspectRatio: '16/9',
-                                  backgroundColor: '#0A0F1E',
-                                  cursor: 'pointer',
-                                }}
-                                className="group"
-                              >
-                                <div style={{
-                                  position: 'absolute',
-                                  inset: 0,
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  backgroundColor: 'rgba(0,0,0,0.4)',
-                                }}
-                                className="group-hover:bg-black/30 transition-colors"
-                                >
-                                  <div style={{
-                                    backgroundColor: 'rgba(255,255,255,0.9)',
-                                    borderRadius: '999px',
-                                    padding: '6px 12px',
-                                    fontSize: '11px',
-                                    fontWeight: 600,
-                                    color: '#1A1F3C',
-                                  }}>
-                                    Watch Video
-                                  </div>
-                                </div>
-                              </div>
-                              <p className="text-sm text-brand-navy font-semibold mt-3">
-                                Meet Maria
-                              </p>
-                              <p className="text-sm text-brand-muted mt-1">
-                                A patient story
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      /* Mega Menu with Icons for Product, Company, Science */
-                      <div
-                        style={{
-                          position: 'absolute',
-                          top: 'calc(100% + 12px)',
-                          left: '50%',
-                          marginLeft: menu.label === 'Product' ? '-450px' : '-400px',
-                          minWidth: menu.label === 'Product' ? '900px' : '800px',
-                          backgroundColor: 'white',
-                          borderRadius: '12px',
-                          boxShadow: '0 8px 40px rgba(0,0,0,0.12)',
-                          border: '1px solid #E8E0D0',
-                          zIndex: 100,
-                          padding: '24px 32px',
-                        }}
-                        className="animate-fadeIn"
-                      >
-                        {menu.label === 'Product' ? (
-                          /* Product Layout: Description | Logo | Pages */
-                          <div className="flex gap-8">
-                            {/* Section 1: Product Description */}
-                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6">
-                              <h3 className="font-bold text-brand-navy text-[15px] mb-2">
-                                {menu.label}
-                              </h3>
-                              <p className="text-[13px] text-brand-muted leading-relaxed">
-                                {menu.description}
-                              </p>
-                            </div>
-
-                            {/* Section 2: FixedGap Logo */}
-                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
-                              <img
-                                src="/logonuevo.jpeg"
-                                alt="FixedGap"
-                                className="w-full h-auto rounded-lg shadow-md"
-                              />
-                              <p className="text-xs text-brand-muted text-center leading-relaxed mt-3">
-                                Clinical-grade movement analysis through gamified rehabilitation
-                              </p>
-                            </div>
-
-                            {/* Section 3: Pages */}
-                            <div className="flex flex-col gap-1 flex-1">
-                              {menu.items.map((item) => (
-                                <Link
-                                  key={item.label}
-                                  href={item.href}
-                                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-brand-beige transition-colors group"
-                                >
-                                  {/* Icon Box */}
-                                  <div className="w-10 h-10 rounded-md bg-brand-cream border border-brand-border flex items-center justify-center shrink-0 group-hover:border-brand-blue transition-colors">
-                                    <span className="text-brand-blue">
-                                      {item.icon}
-                                    </span>
-                                  </div>
-
-                                  {/* Text */}
-                                  <div className="flex-1">
-                                    <p className="text-base font-semibold text-brand-navy group-hover:text-brand-blue transition-colors">
-                                      {item.label}
-                                    </p>
-                                    <p className="text-sm text-brand-muted">
-                                      {item.description}
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ) : (
-                          /* Default Layout for Company & Science */
-                          <div className="flex gap-8">
-                            {/* Section 1: Description */}
-                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6">
-                              <h3 className="font-bold text-brand-navy text-[15px] mb-2">
-                                {menu.label}
-                              </h3>
-                              <p className="text-[13px] text-brand-muted leading-relaxed">
-                                {menu.description}
-                              </p>
-                            </div>
-
-                            {/* Section 2: FixedGap Logo */}
-                            <div className="w-[180px] shrink-0 border-r border-brand-border pr-6 flex flex-col items-center justify-center">
-                              <img
-                                src="/logonuevo.jpeg"
-                                alt="FixedGap"
-                                className="w-full h-auto rounded-lg shadow-md"
-                              />
-                              <p className="text-xs text-brand-muted text-center leading-relaxed mt-3">
-                                Clinical-grade movement analysis through gamified rehabilitation
-                              </p>
-                            </div>
-
-                            {/* Section 3: Items with Icons */}
-                            <div className="flex flex-col gap-1 flex-1">
-                              {menu.items.map((item) => (
-                                <Link
-                                  key={item.label}
-                                  href={item.href}
-                                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-brand-beige transition-colors group"
-                                >
-                                  {/* Icon Box */}
-                                  <div className="w-10 h-10 rounded-md bg-brand-cream border border-brand-border flex items-center justify-center shrink-0 group-hover:border-brand-blue transition-colors">
-                                    <span className="text-brand-blue">
-                                      {item.icon}
-                                    </span>
-                                  </div>
-
-                                  {/* Text */}
-                                  <div className="flex-1">
-                                    <p className="text-base font-semibold text-brand-navy group-hover:text-brand-blue transition-colors">
-                                      {item.label}
-                                    </p>
-                                    <p className="text-sm text-brand-muted">
-                                      {item.description}
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            ))}
-
-            {/* Direct Links */}
-            {directItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-base font-medium text-brand-navy hover:text-brand-blue transition-colors"
-              >
-                {item.label}
+          <nav className="fg-nav-links" aria-label="Primary navigation">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>
+                {link.label}
               </Link>
             ))}
+          </nav>
+
+          <div className="fg-nav-actions">
+            <Link className="fg-nav-cta" href="/contact">
+              Book a demo
+            </Link>
           </div>
 
-          {/* Book a Demo Button */}
-          <Link
-            href="/contact"
-            className="hidden lg:block bg-brand-blue text-white px-6 py-3 rounded-lg text-base font-medium hover:opacity-90 transition-all"
-          >
-            Book a Demo
-          </Link>
-
-          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-brand-navy"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`fg-nav-mobile-toggle ${mobileOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(!mobileOpen)}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {mobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            <span />
+            <span />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-brand-border max-h-[80vh] overflow-y-auto">
-          <div className="px-6 py-4 space-y-4">
-            {/* Mobile Menu Items */}
-            {menuItems.map((menu) => (
-              <div key={menu.label}>
-                <button
-                  className="flex items-center justify-between w-full text-brand-navy font-medium"
-                  onClick={() =>
-                    setMobileOpenMenu(
-                      mobileOpenMenu === menu.label ? null : menu.label
-                    )
-                  }
-                >
-                  <span>{menu.label}</span>
-                  <svg
-                    className={`w-4 h-4 transition-transform ${
-                      mobileOpenMenu === menu.label ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {mobileOpenMenu === menu.label && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    {menu.items.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="block"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <div className="py-2">
-                          <p className="text-sm font-semibold text-brand-navy">
-                            {item.label}
-                          </p>
-                          <p className="text-xs text-brand-muted">
-                            {item.description}
-                          </p>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-
-            {/* Direct Links Mobile */}
-            {directItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="block text-brand-navy hover:text-brand-blue font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
+      {mobileOpen && (
+        <div className="fg-mobile-menu">
+          <div className="fg-mobile-menu-inner">
+            {links.map((link) => (
+              <Link className="fg-mobile-direct" key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+                {link.label}
               </Link>
             ))}
-
-            {/* Book a Demo Button Mobile */}
-            <Link
-              href="/contact"
-              className="block w-full text-center bg-brand-blue text-white px-6 py-2 rounded-lg hover:opacity-90 transition-all font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Book a Demo
+            <Link className="fg-button fg-button-dark" href="/contact" onClick={() => setMobileOpen(false)}>
+              Book a demo
             </Link>
           </div>
         </div>
       )}
-
-      {/* Video Modal */}
-      {isVideoModalOpen && (
-        <div
-          className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-8"
-          onClick={() => setIsVideoModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-6xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setIsVideoModalOpen(false)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              aria-label="Close video"
-            >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Video */}
-            <div className="relative bg-black rounded-lg overflow-hidden">
-              <video
-                className="w-full h-auto"
-                controls
-                autoPlay
-                playsInline
-              >
-                <source src="/DemoTecnica.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            {/* Video info */}
-            <div className="mt-4 text-center">
-              <h3 className="text-white text-xl font-semibold">
-                FixedGap Game Walkthrough
-              </h3>
-              <p className="text-gray-400 text-sm mt-2">
-                See how FixedGap captures clinical biomarkers through an engaging game
-              </p>
-              <a
-                href="/demo"
-                className="inline-block mt-4 text-brand-blue hover:underline text-sm font-medium"
-              >
-                View full demo page →
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Our Story Video Modal */}
-      {ourStoryVideoOpen && (
-        <div
-          onClick={() => setOurStoryVideoOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.85)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '24px',
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: '100%',
-              maxWidth: '900px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            <button
-              onClick={() => setOurStoryVideoOpen(false)}
-              style={{
-                position: 'absolute',
-                top: '12px',
-                right: '12px',
-                zIndex: 10,
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '999px',
-                width: '32px',
-                height: '32px',
-                cursor: 'pointer',
-              }}
-            >
-              ✕
-            </button>
-            <iframe
-              width="100%"
-              height="500"
-              src="https://www.youtube.com/embed/TYvQgTtPtYA?autoplay=1"
-              title="FixedGap — Our Story"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ display: 'block' }}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Maria Video Modal */}
-      {mariaVideoOpen && (
-        <div
-          onClick={() => setMariaVideoOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.85)',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '24px',
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: '100%',
-              maxWidth: '900px',
-              borderRadius: '16px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            <button
-              onClick={() => setMariaVideoOpen(false)}
-              style={{
-                position: 'absolute',
-                top: '12px',
-                right: '12px',
-                zIndex: 10,
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '999px',
-                width: '32px',
-                height: '32px',
-                cursor: 'pointer',
-              }}
-            >
-              ✕
-            </button>
-            <iframe
-              width="100%"
-              height="500"
-              src="https://www.youtube.com/embed/UqnF2CcWmIo?autoplay=1"
-              title="FixedGap — Meet Maria"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ display: 'block' }}
-            />
-          </div>
-        </div>
-      )}
-
-    </nav>
+    </header>
   );
 }

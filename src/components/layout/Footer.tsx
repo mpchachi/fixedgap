@@ -1,148 +1,71 @@
-'use client'
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Image from 'next/image'
-import { Mail } from 'lucide-react'
-
-const COLORS = {
-  bg: '#0A0F1E',
-  logo: '#FFFFFF',
-  tagline: '#6B7689',
-  linkTitle: '#FFFFFF',
-  link: '#6B7689',
-  linkHover: '#FFFFFF',
-  divider: '#1A2035',
-  copyright: '#6B7689',
-  email: '#1F4C9C',
-}
+const groups = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'The exercises', href: '/product#exercises' },
+      { label: 'Biomarkers', href: '/product#biomarkers' },
+      { label: 'Clinical dashboard', href: '/product#dashboard' },
+    ],
+  },
+  {
+    title: 'Science',
+    links: [
+      { label: 'The evidence', href: '/science#evidence' },
+      { label: 'Validation roadmap', href: '/science#roadmap' },
+      { label: 'References', href: '/science#references' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'Our story', href: '/company#story' },
+      { label: 'Team', href: '/company#team' },
+      { label: 'Behind FixedGap', href: '/company/behind-fixedgap' },
+      { label: 'Awards and press', href: '/awards' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: COLORS.bg }} className="px-6 py-16">
-      <div className="max-w-5xl mx-auto">
-
-        {/* Top row — logo + columnas de links */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
-
-          {/* Logo y tagline */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-2">
-              <Image
-                src="/logonuevo.jpeg"
-                alt="FixedGap"
-                width={28}
-                height={28}
-                style={{ objectFit: 'contain' }}
-              />
-              <span style={{ color: COLORS.logo }}
-                className="text-xl font-bold">
-                FixedGap
-              </span>
-            </div>
-            <p style={{ color: COLORS.tagline }}
-              className="text-sm mt-3 leading-relaxed max-w-xs">
-              Daily biomarkers from home.<br />
-              Post-stroke rehabilitation, reimagined.
-            </p>
+    <footer className="fg-footer">
+      <div className="fg-shell">
+        <div className="fg-footer-top">
+          <div className="fg-footer-brand">
+            <Link href="/" aria-label="FixedGap home">
+              <Image src="/logonuevo.jpeg" alt="" width={34} height={34} />
+              <span>FixedGap</span>
+            </Link>
+            <p>Making motor recovery visible between clinical visits.</p>
           </div>
 
-          {/* Columna Product */}
-          <div>
-            <h4 style={{ color: COLORS.linkTitle }}
-              className="text-xs font-semibold tracking-widest uppercase mb-4">
-              Product
-            </h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { label: 'How it works', href: '/product/how-it-works' },
-                { label: 'Biomarkers', href: '/product/biomarkers' },
-                { label: 'Dashboard', href: '/product/dashboard' },
-              ].map(link => (
-                <a key={link.label} href={link.href}
-                  style={{ color: COLORS.link }}
-                  className="text-sm hover:opacity-100 transition-opacity"
-                  onMouseEnter={e => e.currentTarget.style.color = COLORS.linkHover}
-                  onMouseLeave={e => e.currentTarget.style.color = COLORS.link}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Columna Company */}
-          <div>
-            <h4 style={{ color: COLORS.linkTitle }}
-              className="text-xs font-semibold tracking-widest uppercase mb-4">
-              Company
-            </h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { label: 'Our Story', href: '/company/about' },
-                { label: 'Team', href: '/company/team' },
-                { label: 'Behind FixedGap', href: '/company/behind-fixedgap' },
-              ].map(link => (
-                <a key={link.label} href={link.href}
-                  style={{ color: COLORS.link }}
-                  className="text-sm hover:opacity-100 transition-opacity"
-                  onMouseEnter={e => e.currentTarget.style.color = COLORS.linkHover}
-                  onMouseLeave={e => e.currentTarget.style.color = COLORS.link}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Columna Science & Pricing */}
-          <div>
-            <h4 style={{ color: COLORS.linkTitle }}
-              className="text-xs font-semibold tracking-widest uppercase mb-4">
-              More
-            </h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { label: 'Market', href: '/market' },
-                { label: 'Science', href: '/science' },
-                { label: 'Pricing', href: '/pricing' },
-                { label: 'Contact', href: '/contact' },
-                { label: 'Book a Demo', href: 'https://cal.com/fixedgap' },
-              ].map(link => (
-                <a key={link.label} href={link.href}
-                  style={{ color: COLORS.link }}
-                  className="text-sm hover:opacity-100 transition-opacity"
-                  onMouseEnter={e => e.currentTarget.style.color = COLORS.linkHover}
-                  onMouseLeave={e => e.currentTarget.style.color = COLORS.link}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* Divider */}
-        <div style={{ backgroundColor: COLORS.divider }}
-          className="h-px w-full mt-16 mb-8" />
-
-        {/* Bottom row — copyright */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p style={{ color: COLORS.copyright }}
-            className="text-xs">
-            © 2026 FixedGap. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            {[
-              { label: 'Privacy Policy', href: '/privacy' },
-              { label: 'Terms of Use', href: '/terms' },
-            ].map(link => (
-              <a key={link.label} href={link.href}
-                style={{ color: COLORS.copyright }}
-                className="text-xs hover:opacity-80 transition-opacity">
-                {link.label}
-              </a>
+          <div className="fg-footer-groups">
+            {groups.map((group) => (
+              <div key={group.title}>
+                <h3>{group.title}</h3>
+                {group.links.map((link) => (
+                  <Link key={link.label} href={link.href}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             ))}
           </div>
         </div>
 
+        <div className="fg-footer-bottom">
+          <p>Copyright 2026 FixedGap. All rights reserved.</p>
+          <div>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <a href="mailto:contact@fixedgap.com">contact@fixedgap.com</a>
+          </div>
+        </div>
       </div>
     </footer>
-  )
+  );
 }

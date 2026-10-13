@@ -12,6 +12,8 @@ const PLATAFORMA_HEADERS = [
 ];
 
 const nextConfig: NextConfig = {
+  // Dev only: lets local tooling load the page through 127.0.0.1 as well as localhost.
+  allowedDevOrigins: ["127.0.0.1"],
   async rewrites() {
     return {
       beforeFiles: [
@@ -24,6 +26,29 @@ const nextConfig: NextConfig = {
     return [
       { source: "/plataforma", headers: PLATAFORMA_HEADERS },
       { source: "/plataforma/:path*", headers: PLATAFORMA_HEADERS },
+    ];
+  },
+  async redirects() {
+    const to = (source: string, destination: string) => ({ source, destination, permanent: false });
+    return [
+      // Product
+      to("/product/experience", "/product#exercises"),
+      to("/product/biomarkers", "/product#biomarkers"),
+      to("/product/dashboard", "/product#dashboard"),
+      to("/demo", "/product#demo"),
+      // Science
+      to("/science/evidence", "/science#evidence"),
+      to("/science/validation", "/science#foundation"),
+      to("/science/references", "/science#references"),
+      // Company
+      to("/company/about", "/company"),
+      to("/company/team", "/company#team"),
+      to("/company/media", "/awards"),
+      // Removed pages
+      to("/pricing", "/contact"),
+      to("/market", "/"),
+      to("/contact/faq", "/contact#faq"),
+      to("/contact/who-we-work-with", "/contact"),
     ];
   },
 };
