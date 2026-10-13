@@ -233,9 +233,10 @@ export default function SignalHome() {
               <Kicker className={styles.kicker} text="The team" />
               <SplitText text="Who is building FixedGap" />
               <p className={styles.sectionLead}>
-                Six of us, from Madrid, across engineering, business and medicine. We met at a
-                Harvard hackathon, came second worldwide at the final in Boston, and are now
-                preparing the first clinical validation study.
+                Five co-founders from Madrid, across engineering and business, with a physician
+                advising on the clinical side. We met at a Harvard hackathon, came second
+                worldwide at the final in Boston, and are now preparing the first clinical
+                validation study.
               </p>
               <div className={styles.linkRow}>
                 <Link className={styles.buttonText} href="/company">

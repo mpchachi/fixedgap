@@ -28,8 +28,8 @@ const media: Record<string, Media> = {
     note: '',
   },
   tracking: {
-    src: '/home/render-landmarks.webp',
-    ratio: '16 / 9',
+    src: '/home/product-landmarks.webp',
+    ratio: '4 / 5',
     label: 'The 21 hand landmarks the camera tracks on every frame',
     note: '',
   },
@@ -107,17 +107,19 @@ export default function ProductPage() {
             kicker="Biomarkers"
             title="Seven measurements, from the 21 landmarks the camera tracks."
           />
-          <Reveal>
-            <Visual item={media.tracking} className={home.wideVisual} sizes="1120px" />
-          </Reveal>
-          <div className={page.metricGrid} style={{ marginTop: 48 }}>
-            {metrics.map((metric, index) => (
-              <Reveal className={page.metricCard} delay={index * 0.04} key={metric.name}>
-                <h3>{metric.name}</h3>
-                <p>{metric.text}</p>
-                <code>{metric.code}</code>
-              </Reveal>
-            ))}
+          <div className={page.biomarkerSplit}>
+            <Reveal className={page.biomarkerVisual}>
+              <Visual item={media.tracking} sizes="(max-width: 1000px) 100vw, 440px" />
+            </Reveal>
+            <div className={page.metricGrid}>
+              {metrics.map((metric, index) => (
+                <Reveal className={page.metricCard} delay={index * 0.04} key={metric.name}>
+                  <h3>{metric.name}</h3>
+                  <p>{metric.text}</p>
+                  <code>{metric.code}</code>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

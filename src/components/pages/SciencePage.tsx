@@ -166,15 +166,18 @@ function ReferenceList({ items }: { items: Reference[] }) {
       {items.map((ref, index) => (
         <Reveal delay={index * 0.04} key={ref.id}>
           <a className={page.ref} href={ref.href} target="_blank" rel="noreferrer">
-            <span>{ref.id}</span>
-            <div>
-              <h4>{ref.title}</h4>
-              <p>{ref.relevance}</p>
-              <small>
-                {ref.authors} · {ref.journal}, {ref.year}
-              </small>
+            <div className={page.refMeta}>
+              <span>
+                {ref.journal} · {ref.year}
+              </span>
+              <span>{ref.id}</span>
             </div>
-            <em>Open ›</em>
+            <h4>{ref.title}</h4>
+            <p>{ref.relevance}</p>
+            <div className={page.refFoot}>
+              <small>{ref.authors}</small>
+              <em>Open ›</em>
+            </div>
           </a>
         </Reveal>
       ))}
