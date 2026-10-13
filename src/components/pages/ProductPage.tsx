@@ -27,12 +27,6 @@ const media: Record<string, Media> = {
     label: 'Playing from home: rotating the wrist in front of the laptop',
     note: '',
   },
-  tracking: {
-    src: '/home/product-landmarks.webp',
-    ratio: '4 / 5',
-    label: 'The 21 hand landmarks the camera tracks on every frame',
-    note: '',
-  },
   clinic: {
     src: '/home/product-clinic-session.webp',
     ratio: '2 / 1',
@@ -40,6 +34,12 @@ const media: Record<string, Media> = {
     note: '',
   },
 };
+
+const gameShots = [
+  { src: '/home/game-balloon.webp', alt: 'Pixel-art game: a fox in a hot-air balloon flying between ice pillars' },
+  { src: '/home/game-garden-1.webp', alt: 'Pixel-art game: a fox watering a flower, prompt to bring the hand back to rest' },
+  { src: '/home/game-garden-2.webp', alt: 'Pixel-art game: a daisy has bloomed after the movement' },
+];
 
 const movements: StoryStep[] = [
   {
@@ -98,6 +98,16 @@ export default function ProductPage() {
             lead="The games will keep changing. The three movements they are built around will not."
           />
           <StickyStory steps={movements} />
+          <Reveal className={page.gameStrip}>
+            <p>What the games look like today: short, arcade style, in the browser.</p>
+            <div className={page.gameShots}>
+              {gameShots.map((shot) => (
+                <div className={page.gameShot} key={shot.src}>
+                  <Image src={shot.src} alt={shot.alt} fill sizes="(max-width: 760px) 100vw, 360px" />
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -107,19 +117,14 @@ export default function ProductPage() {
             kicker="Biomarkers"
             title="Seven measurements, from the 21 landmarks the camera tracks."
           />
-          <div className={page.biomarkerSplit}>
-            <Reveal className={page.biomarkerVisual}>
-              <Visual item={media.tracking} sizes="(max-width: 1000px) 100vw, 440px" />
-            </Reveal>
-            <div className={page.metricGrid}>
-              {metrics.map((metric, index) => (
-                <Reveal className={page.metricCard} delay={index * 0.04} key={metric.name}>
-                  <h3>{metric.name}</h3>
-                  <p>{metric.text}</p>
-                  <code>{metric.code}</code>
-                </Reveal>
-              ))}
-            </div>
+          <div className={page.metricGrid}>
+            {metrics.map((metric, index) => (
+              <Reveal className={page.metricCard} delay={index * 0.04} key={metric.name}>
+                <h3>{metric.name}</h3>
+                <p>{metric.text}</p>
+                <code>{metric.code}</code>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

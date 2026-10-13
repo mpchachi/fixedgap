@@ -13,8 +13,6 @@ export type FeaturedAward = {
   detail: string;
   photo?: string;
   photoAlt?: string;
-  /** Small portrait shown in the corner of the photo, like a video-call preview. */
-  inset?: string;
   figure?: string;
   figureLabel?: string;
 };
@@ -82,11 +80,6 @@ export default function AwardShowcase({
             {current.photo ? (
               <div className={styles.photo}>
                 <Image src={current.photo} alt={current.photoAlt ?? ''} fill sizes="(max-width: 900px) 100vw, 420px" />
-                {current.inset && (
-                  <div className={styles.inset}>
-                    <Image src={current.inset} alt="" fill sizes="120px" />
-                  </div>
-                )}
               </div>
             ) : (
               <div className={styles.figure}>
