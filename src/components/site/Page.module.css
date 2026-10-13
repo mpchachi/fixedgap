@@ -190,16 +190,39 @@
   width: 72px !important;
 }
 
-.biomarkerSplit {
-  display: grid;
-  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
-  gap: 56px;
-  align-items: start;
+.gameStrip {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
 }
 
-.biomarkerVisual {
-  position: sticky;
-  top: 112px;
+.gameStrip p {
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.gameShots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gameShot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--tint);
+}
+
+.gameShot img {
+  object-fit: cover;
+  image-rendering: auto;
 }
 
 .metricGrid {
@@ -267,6 +290,9 @@
 }
 
 @media (max-width: 760px) {
+  .gameShots {
+    grid-template-columns: 1fr;
+  }
   .metricCard {
     grid-template-columns: 1fr;
   }
@@ -828,13 +854,6 @@
 /* Responsive -------------------------------------------------------------- */
 
 @media (max-width: 1000px) {
-  .biomarkerSplit {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .biomarkerVisual {
-    position: static;
-  }
   .refList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
