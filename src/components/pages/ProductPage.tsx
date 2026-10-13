@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
 import StickyStory, { type StoryStep } from '@/components/home/motion/StickyStory';
+import GameDeck from '@/components/home/motion/GameDeck';
 import MagneticLink from '@/components/home/motion/MagneticLink';
 
 /* Visuals for this page. Brief in /public/home/IMAGES.md (Product section).
@@ -98,16 +99,13 @@ export default function ProductPage() {
             lead="The games will keep changing. The three movements they are built around will not."
           />
           <StickyStory steps={movements} />
-          <Reveal className={page.gameStrip}>
-            <p>What the games look like today: short, arcade style, in the browser.</p>
-            <div className={page.gameShots}>
-              {gameShots.map((shot) => (
-                <div className={page.gameShot} key={shot.src}>
-                  <Image src={shot.src} alt={shot.alt} fill sizes="(max-width: 760px) 100vw, 360px" />
-                </div>
-              ))}
-            </div>
-          </Reveal>
+          <div className={page.gameStrip}>
+            <Reveal className={page.gameCopy}>
+              <span>Game-based recovery</span>
+              <p>Pixel-art games in the browser. The patient plays; the camera measures.</p>
+            </Reveal>
+            <GameDeck shots={gameShots} />
+          </div>
         </div>
       </section>
 
