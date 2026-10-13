@@ -2,6 +2,7 @@
 
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
 import CountUp from '@/components/home/motion/CountUp';
+import MeasureStory from '@/components/home/motion/MeasureStory';
 
 const clinicRoom: Media = {
   src: '/home/science-clinic.webp',
@@ -222,6 +223,12 @@ export default function SciencePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className={`${page.anchor}`} id="method" style={{ padding: '0 0 6vh' }}>
+        <div className={home.shell}>
+          <MeasureStory />
         </div>
       </section>
 
