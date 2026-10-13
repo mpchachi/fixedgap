@@ -76,7 +76,7 @@ export default function CompanyPage() {
         <div className={page.heroFacts}>
           <div><strong>2026</strong><span>founded in Madrid</span></div>
           <div><strong>2nd</strong><span>worldwide, Harvard HSIL final</span></div>
-          <div><strong>5</strong><span>co-founders, one clinical advisor</span></div>
+          <div><strong>5</strong><span>co-founders</span></div>
         </div>
       </PageHero>
 
@@ -109,19 +109,21 @@ export default function CompanyPage() {
                 </TiltCard>
               </Reveal>
             ))}
-            {advisors.map((member) => (
-              <Reveal key={member.name} className={`${page.member} ${page.advisor}`}>
-                <div className={page.memberPhoto}>
-                  <Image src={member.photo} alt={member.name} fill sizes="240px" />
-                </div>
-                <div className={page.memberCopy}>
-                  <h3>{member.name}</h3>
-                  <span>{member.title}</span>
-                  <p>{member.bio}</p>
-                </div>
-              </Reveal>
-            ))}
           </div>
+          {advisors.map((member) => (
+            <Reveal key={member.name} className={page.advisorNote}>
+              <span>Clinical advisor</span>
+              <div className={page.advisorBody}>
+                <div className={page.advisorPhoto}>
+                  <Image src={member.photo} alt={member.name} fill sizes="72px" />
+                </div>
+                <p>
+                  <strong>{member.name}</strong>, physician and PhD in Medicine, advises the team on
+                  clinical validation and medical research.
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 

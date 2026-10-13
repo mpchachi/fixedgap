@@ -60,6 +60,7 @@ const moments: FeaturedAward[] = [
     title: 'Short arcade-style games in the browser, under five minutes, in front of a standard webcam.',
     detail: 'Nothing to install or wear. The patient opens a link, sits in front of the laptop and plays.',
     photo: media.tabHome,
+    inset: '/home/home-hand-face.webp',
     photoAlt: 'A patient playing from his kitchen table, hand raised in a pinch in front of the laptop',
   },
   {
@@ -69,6 +70,7 @@ const moments: FeaturedAward[] = [
     title: 'Twenty-one hand landmarks on every frame become the same set of motor measurements, session after session.',
     detail: 'Pinch, finger extension and wrist rotation are measured the same way every time, so sessions can be compared.',
     photo: media.tabCamera,
+    inset: '/home/home-camera-face.webp',
     photoAlt: 'A patient turning his hand in front of the laptop camera, mid-exercise',
   },
   {
@@ -233,9 +235,10 @@ export default function SignalHome() {
               <Kicker className={styles.kicker} text="The team" />
               <SplitText text="Who is building FixedGap" />
               <p className={styles.sectionLead}>
-                Six of us, from Madrid, across engineering, business and medicine. We met at a
-                Harvard hackathon, came second worldwide at the final in Boston, and are now
-                preparing the first clinical validation study.
+                Five co-founders from Madrid, across engineering and business, with a physician
+                advising on the clinical side. We met at a Harvard hackathon, came second
+                worldwide at the final in Boston, and are now preparing the first clinical
+                validation study.
               </p>
               <div className={styles.linkRow}>
                 <Link className={styles.buttonText} href="/company">
