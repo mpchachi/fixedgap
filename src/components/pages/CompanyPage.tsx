@@ -113,10 +113,15 @@ export default function CompanyPage() {
           {advisors.map((member) => (
             <Reveal key={member.name} className={page.advisorNote}>
               <span>Clinical advisor</span>
-              <p>
-                <strong>{member.name}</strong>, physician and PhD in Medicine, advises the team on
-                clinical validation and medical research.
-              </p>
+              <div className={page.advisorBody}>
+                <div className={page.advisorPhoto}>
+                  <Image src={member.photo} alt={member.name} fill sizes="72px" />
+                </div>
+                <p>
+                  <strong>{member.name}</strong>, physician and PhD in Medicine, advises the team on
+                  clinical validation and medical research.
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
