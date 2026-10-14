@@ -1,0 +1,70 @@
+.root {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.guide,
+.frame {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.78);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 4 5;
+  mix-blend-mode: difference;
+}
+
+.frame {
+  stroke-dasharray: 3 4;
+}
+
+.handle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 1px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tag {
+  position: absolute;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(20, 20, 22, 0.55);
+  color: #fff;
+  font-family: var(--font-code);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+.tagTop {
+  translate: 10px calc(-100% - 10px);
+}
+
+.tagBottom {
+  translate: 10px 10px;
+}
+
+@media (max-width: 560px) {
+  .tag {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+}

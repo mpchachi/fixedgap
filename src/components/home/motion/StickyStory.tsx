@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import styles from './StickyStory.module.css';
+import Blueprint from './Blueprint';
 import type { Media } from '@/components/site/Editorial';
 
 export type StoryStep = {
@@ -13,6 +14,16 @@ export type StoryStep = {
   measures: string;
   media: Media;
 };
+
+/* First two measures of a step, trimmed of parentheses, for the blueprint tags. */
+function tagsFor(step?: StoryStep): string[] {
+  if (!step) return [];
+  return step.measures
+    .split(',')
+    .map((s) => s.replace(/\(.*?\)/g, '').trim())
+    .filter(Boolean)
+    .slice(0, 2);
+}
 
 /*
  * Left column pinned while the right column scrolls. Each text block, when it
@@ -59,6 +70,7 @@ export default function StickyStory({ steps }: { steps: StoryStep[] }) {
               )}
             </motion.div>
           ))}
+          <Blueprint id={active} tags={tagsFor(steps[active])} />
           <div className={styles.counter}>
             <span>{steps[active]?.index}</span>
             <span>/ {String(steps.length).padStart(2, '0')}</span>
