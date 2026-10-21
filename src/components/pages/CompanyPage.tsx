@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Cta, home, page, PageHero, Reveal, SectionHead, Visual, type Media } from '@/components/site/Editorial';
 import TiltCard from '@/components/home/motion/TiltCard';
 import SplitText from '@/components/home/motion/SplitText';
+import ScrollInk from '@/components/home/motion/ScrollInk';
 import { team } from '@/data/team';
 
 /* Visuals for this page. Brief in /public/home/IMAGES.md (Company section). */
@@ -168,12 +169,9 @@ export default function CompanyPage() {
         <div className={home.shell}>
           <Reveal className={page.pullquote}>
             <SplitText as="p" text="The most scalable medical technologies are the ones that disappear." />
-            <p>
-              Every sensor we added raised cost, complexity and calibration time. Patients would need to put the
-              glove on correctly. Clinicians would need to maintain it. Scaling it meant manufacturing,
-              distribution and support. If we could extract the same data from a camera, something already in
-              every home, every barrier between a patient and continuous monitoring would go. So we started over.
-            </p>
+            <ScrollInk
+              text="Every sensor we added raised cost, complexity and calibration time. Patients would need to put the glove on correctly. Clinicians would need to maintain it. Scaling it meant manufacturing, distribution and support. If we could extract the same data from a camera, something already in every home, every barrier between a patient and continuous monitoring would go. So we started over."
+            />
           </Reveal>
         </div>
       </section>

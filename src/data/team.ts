@@ -11,16 +11,16 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     name: 'Luis Molina Salvador',
-    title: 'Co-founder, Strategy',
-    bio: 'Leads strategy, partnerships, fundraising and go-to-market. Software developer at Amazon, studying Computer Engineering and Business Administration at UCM. Previously AI developer at Grupo Oesía and equity analyst at Arcanix Fund.',
+    title: 'Co-founder & Engineering Lead',
+    bio: 'Leads FixedGap engineering across the rehabilitation platform, webcam-based movement tracking, games, clinician dashboard and public website. Software engineer at Amazon, studying Computer Engineering and Business Administration at UCM. Previously AI developer at Grupo Oesía and equity analyst at Arcanix Fund.',
     photo: '/luisNueva.jpeg',
     linkedin: 'https://www.linkedin.com/in/luis-molina-salvador/',
     github: 'https://github.com/34lumo',
   },
   {
     name: 'Mateo Pérez Guzmán',
-    title: 'Co-founder, MVP Engineering',
-    bio: 'Leads MVP architecture and the computer vision implementation. Software engineer at Galeo, studying Computer Science and Business Administration at UCM.',
+    title: 'Co-founder & Software Engineer',
+    bio: 'Builds the platform with a focus on application architecture and product implementation. Software engineer at Galeo, studying Computer Science and Business Administration at UCM.',
     photo: '/team/mateo.jpg',
     linkedin: 'https://www.linkedin.com/in/mateoperezguzman/',
     github: 'https://github.com/mpchachi',
@@ -35,8 +35,8 @@ export const team: TeamMember[] = [
   },
   {
     name: 'Marco García López',
-    title: 'Co-founder, MVP Engineering',
-    bio: 'Leads software development, product architecture and computer vision logic. Studies Computer Science and Business Administration at UCM, with earlier browser-based neuromotor tracking prototypes from previous hackathons.',
+    title: 'Co-founder & Computer Vision Engineer',
+    bio: 'Works on movement tracking and computer vision, building on earlier browser-based neuromotor tracking prototypes. Studies Computer Science and Business Administration at UCM.',
     photo: '/team/marco.jpg',
     linkedin: 'https://www.linkedin.com/in/marco-garcia-lopez-4b0037308/',
     github: 'https://github.com/marcusen78-sketch',
